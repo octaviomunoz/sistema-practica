@@ -26,30 +26,69 @@ public class Comuna {
 	private List<Empresa> empresa = new ArrayList<>();
 
 
-	//setters getters
 
-	public Long get_id(){
+
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
 		return id;
 	}
-	public void set_id(Long id){
+
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String get_nombre(){
+	/**
+	* Returns value of nombre
+	* @return
+	*/
+	public String getNombre() {
 		return nombre;
 	}
-	public void set_nombre(String nombre){
+
+	/**
+	* Sets new value of nombre
+	* @param
+	*/
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public Region get_region(){
+	/**
+	* Returns value of region
+	* @return
+	*/
+	public Region getRegion() {
 		return region;
 	}
-	public void set_region(Region region){
+
+	/**
+	* Sets new value of region
+	* @param
+	*/
+	public void setRegion(Region region) {
 		this.region = region;
 	}
 
-	public List<Empresa> get_empresa(){
+	/**
+	* Returns value of empresa
+	* @return
+	*/
+	public List<Empresa> getEmpresa() {
 		return empresa;
+	}
+
+	/**
+	* Sets new value of empresa
+	* @param
+	*/
+	public void setEmpresa(List<Empresa> empresa) {
+		this.empresa = empresa;
 	}
 }

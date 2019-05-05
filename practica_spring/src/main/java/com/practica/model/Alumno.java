@@ -12,7 +12,7 @@ public class Alumno {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-		private Long id;
+	private Long id;
 
 	@NotNull
 	@Size(max = 15)
@@ -54,82 +54,190 @@ public class Alumno {
 	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
 	private Practica practica;
 
-	//setters getters
+	
 
-	public Long get_id(){
+	/**
+	* Create string representation of Alumno for printing
+	* @return
+	*/
+	@Override
+	public String toString() {
+		return "Alumno [id=" + id + ", run=" + run + ", password=" + password + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", domicilio_actual=" + domicilio_actual + ", telefono=" + telefono + ", docente=" + docente + ", practica=" + practica + "]";
+	}
+
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
 		return id;
 	}
-	public void set_id(Long id){
+
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String get_run(){
+	/**
+	* Returns value of run
+	* @return
+	*/
+	public String getRun() {
 		return run;
 	}
-	public void set_run(String run){
+
+	/**
+	* Sets new value of run
+	* @param
+	*/
+	public void setRun(String run) {
 		this.run = run;
 	}
 
-	public String get_password(){
+	/**
+	* Returns value of password
+	* @return
+	*/
+	public String getPassword() {
 		return password;
 	}
-	public void set_password(String password){
+
+	/**
+	* Sets new value of password
+	* @param
+	*/
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String get_nombre(){
+	/**
+	* Returns value of nombre
+	* @return
+	*/
+	public String getNombre() {
 		return nombre;
 	}
-	public void set_nombre(String nombre){
+
+	/**
+	* Sets new value of nombre
+	* @param
+	*/
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public String get_apellidoPaterno(){
+	/**
+	* Returns value of apellido_paterno
+	* @return
+	*/
+	public String getApellido_paterno() {
 		return apellido_paterno;
 	}
-	public void set_apellidoPaterno(String apellido_paterno){
+
+	/**
+	* Sets new value of apellido_paterno
+	* @param
+	*/
+	public void setApellido_paterno(String apellido_paterno) {
 		this.apellido_paterno = apellido_paterno;
 	}
 
-	public String get_apellidoMaterno(){
+	/**
+	* Returns value of apellido_materno
+	* @return
+	*/
+	public String getApellido_materno() {
 		return apellido_materno;
 	}
-	public void set_apellidoMaterno(String apellido_materno){
+
+	/**
+	* Sets new value of apellido_materno
+	* @param
+	*/
+	public void setApellido_materno(String apellido_materno) {
 		this.apellido_materno = apellido_materno;
 	}
 
-	public String get_domicilioProcedencia(){
+	/**
+	* Returns value of domicilio_procedencia
+	* @return
+	*/
+	public String getDomicilio_procedencia() {
 		return domicilio_procedencia;
 	}
-	public void set_domicilioProcedencia(String domicilio_procedencia){
+
+	/**
+	* Sets new value of domicilio_procedencia
+	* @param
+	*/
+	public void setDomicilio_procedencia(String domicilio_procedencia) {
 		this.domicilio_procedencia = domicilio_procedencia;
 	}
 
-	public String get_domicilioActual(){
+	/**
+	* Returns value of domicilio_actual
+	* @return
+	*/
+	public String getDomicilio_actual() {
 		return domicilio_actual;
 	}
-	public void set_domicilioActual(String domicilio_actual){
+
+	/**
+	* Sets new value of domicilio_actual
+	* @param
+	*/
+	public void setDomicilio_actual(String domicilio_actual) {
 		this.domicilio_actual = domicilio_actual;
 	}
 
-	public String get_telefono(){
+	/**
+	* Returns value of telefono
+	* @return
+	*/
+	public String getTelefono() {
 		return telefono;
 	}
-	public void set_telefono(String telefono){
+
+	/**
+	* Sets new value of telefono
+	* @param
+	*/
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public Docente get_docente(){
+	/**
+	* Returns value of docente
+	* @return
+	*/
+	public Docente getDocente() {
 		return docente;
 	}
-	public void set_decente(Docente docente){
+
+	/**
+	* Sets new value of docente
+	* @param
+	*/
+	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
 
-	public Practica get_practica(){
+	/**
+	* Returns value of practica
+	* @return
+	*/
+	public Practica getPractica() {
 		return practica;
 	}
-	public void set_practica(Practica practica){
+
+	/**
+	* Sets new value of practica
+	* @param
+	*/
+	public void setPractica(Practica practica) {
 		this.practica = practica;
 	}
 

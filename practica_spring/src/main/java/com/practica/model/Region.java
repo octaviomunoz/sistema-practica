@@ -21,23 +21,54 @@ public class Region {
   @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
   private List<Comuna> comuna = new ArrayList<>();
 
-  //setters, getters
 
-  public Long get_id(){
-    return id;
-  }
-  public void set_id(Long id){
-    this.id = id;
-  }
 
-  public String get_nombre(){
-    return nombre;
-  }
-  public void set_nombre(String nombre){
-    this.nombre = nombre;
-  }
 
-  public List<Comuna> get_comuna(){
-    return comuna;
-  }
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	* Returns value of nombre
+	* @return
+	*/
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	* Sets new value of nombre
+	* @param
+	*/
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	* Returns value of comuna
+	* @return
+	*/
+	public List<Comuna> getComuna() {
+		return comuna;
+	}
+
+	/**
+	* Sets new value of comuna
+	* @param
+	*/
+	public void setComuna(List<Comuna> comuna) {
+		this.comuna = comuna;
+	}
 }

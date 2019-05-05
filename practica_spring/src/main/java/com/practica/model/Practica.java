@@ -42,72 +42,151 @@ public class Practica {
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private EvaluacionPractica evaluacionPractica;
 
-	//setters getters
 
-	public Long get_id(){
+
+
+
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
 		return id;
 	}
-	public void set_id(Long id){
+
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Date get_fecha(){
+	/**
+	* Returns value of fecha
+	* @return
+	*/
+	public Date getFecha() {
 		return fecha;
 	}
-	public void set_fecha(Date fecha){
+
+	/**
+	* Sets new value of fecha
+	* @param
+	*/
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
-	public String get_nombreEvaluador(){
+	/**
+	* Returns value of nombre_evaluador
+	* @return
+	*/
+	public String getNombre_evaluador() {
 		return nombre_evaluador;
 	}
-	public void set_nombreEvaluador(String nombre_evaluador){
+
+	/**
+	* Sets new value of nombre_evaluador
+	* @param
+	*/
+	public void setNombre_evaluador(String nombre_evaluador) {
 		this.nombre_evaluador = nombre_evaluador;
 	}
 
-	public String get_telefonoEvaluador(){
+	/**
+	* Returns value of telefono_evaluador
+	* @return
+	*/
+	public String getTelefono_evaluador() {
 		return telefono_evaluador;
 	}
-	public void set_telefonoEvaluador(String telefono_evaluador){
+
+	/**
+	* Sets new value of telefono_evaluador
+	* @param
+	*/
+	public void setTelefono_evaluador(String telefono_evaluador) {
 		this.telefono_evaluador = telefono_evaluador;
 	}
 
-	public String get_actividades(){
+	/**
+	* Returns value of actividades_realizar
+	* @return
+	*/
+	public String getActividades_realizar() {
 		return actividades_realizar;
 	}
-	public void set_actividades(String actividades_realizar){
+
+	/**
+	* Sets new value of actividades_realizar
+	* @param
+	*/
+	public void setActividades_realizar(String actividades_realizar) {
 		this.actividades_realizar = actividades_realizar;
 	}
 
-	public Alumno get_alumno(){
+	/**
+	* Returns value of alumno
+	* @return
+	*/
+	public Alumno getAlumno() {
 		return alumno;
 	}
-	public void set_alumno(Alumno alumno){
+
+	/**
+	* Sets new value of alumno
+	* @param
+	*/
+	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
 	}
 
-	public Empresa get_empresa(){
+	/**
+	* Returns value of empresa
+	* @return
+	*/
+	public Empresa getEmpresa() {
 		return empresa;
 	}
-	public void set_empresa(Empresa empresa){
+
+	/**
+	* Sets new value of empresa
+	* @param
+	*/
+	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
 
-	public EvaluacionEmpresa get_evaluacionEmpresa(){
+	/**
+	* Returns value of evaluacionEmpresa
+	* @return
+	*/
+	public EvaluacionEmpresa getEvaluacionEmpresa() {
 		return evaluacionEmpresa;
 	}
-	/*
-	public void set_evalucionEmpresa(EvaluacionEmpresa evaluacionEmpresa){
-		this.evaluacionEmpresa = evaluacionEmpresa;
-	}*/
 
-	public EvaluacionPractica get_evaluacionPractica(){
+	/**
+	* Sets new value of evaluacionEmpresa
+	* @param
+	*/
+	public void setEvaluacionEmpresa(EvaluacionEmpresa evaluacionEmpresa) {
+		this.evaluacionEmpresa = evaluacionEmpresa;
+	}
+
+	/**
+	* Returns value of evaluacionPractica
+	* @return
+	*/
+	public EvaluacionPractica getEvaluacionPractica() {
 		return evaluacionPractica;
 	}
-	/*
-	public void set_evaluacionPractica(EvaluacionPractica evaluacionPractica){
+
+	/**
+	* Sets new value of evaluacionPractica
+	* @param
+	*/
+	public void setEvaluacionPractica(EvaluacionPractica evaluacionPractica) {
 		this.evaluacionPractica = evaluacionPractica;
-	}*/
-
-
+	}
 }

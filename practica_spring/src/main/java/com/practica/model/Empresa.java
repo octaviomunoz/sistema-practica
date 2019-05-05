@@ -32,51 +32,103 @@ public class Empresa {
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private List<Practica> practica = new ArrayList<>();
 
-	public Empresa(){
-		convenio = false;
-	}
 
-	//setters getters
 
-	public Long get_id(){
+
+
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
 		return id;
 	}
-	public void set_id(Long id){
+
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String get_nombre(){
+	/**
+	* Returns value of nombre
+	* @return
+	*/
+	public String getNombre() {
 		return nombre;
 	}
-	public void set_nombre(String nombre){
+
+	/**
+	* Sets new value of nombre
+	* @param
+	*/
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public String get_direccion(){
+	/**
+	* Returns value of direccion
+	* @return
+	*/
+	public String getDireccion() {
 		return direccion;
 	}
-	public void set_direccion(String direccion){
+
+	/**
+	* Sets new value of direccion
+	* @param
+	*/
+	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
-	public boolean get_convenio(){
+	/**
+	* Returns value of convenio
+	* @return
+	*/
+	public boolean isConvenio() {
 		return convenio;
 	}
-	public void set_convenio(boolean convenio){
+
+	/**
+	* Sets new value of convenio
+	* @param
+	*/
+	public void setConvenio(boolean convenio) {
 		this.convenio = convenio;
 	}
 
-	public Comuna get_comuna(){
+	/**
+	* Returns value of comuna
+	* @return
+	*/
+	public Comuna getComuna() {
 		return comuna;
 	}
-	public void set_comuna(Comuna comuna){
+
+	/**
+	* Sets new value of comuna
+	* @param
+	*/
+	public void setComuna(Comuna comuna) {
 		this.comuna = comuna;
 	}
 
-	public List<Practica> get_practica(){
+	/**
+	* Returns value of practica
+	* @return
+	*/
+	public List<Practica> getPractica() {
 		return practica;
 	}
 
-
-
+	/**
+	* Sets new value of practica
+	* @param
+	*/
+	public void setPractica(List<Practica> practica) {
+		this.practica = practica;
+	}
 }

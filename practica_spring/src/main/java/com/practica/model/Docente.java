@@ -31,34 +31,86 @@ public class Docente {
   @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
   private List<Alumno> alumno = new ArrayList<>();
 
-  //setters, getters
-  public Long get_id(){
-    return id;
-  }
-  public void set_id(Long id){
-    this.id = id;
-  }
 
-  public String get_run(){
-    return run;
-  }
-  public void set_run(String run){
-    this.run = run;
-  }
 
-  public String get_nombre(){
-    return nombre;
-  }
-  public void set_nombre(String nombre){
-    this.nombre = nombre;
-  }
 
-  public boolean get_director(){
-    return director;
-  }
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
+		return id;
+	}
 
-  public List<Alumno> get_alumno(){
-    return alumno;
-  }
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
+		this.id = id;
+	}
 
+	/**
+	* Returns value of run
+	* @return
+	*/
+	public String getRun() {
+		return run;
+	}
+
+	/**
+	* Sets new value of run
+	* @param
+	*/
+	public void setRun(String run) {
+		this.run = run;
+	}
+
+	/**
+	* Returns value of nombre
+	* @return
+	*/
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	* Sets new value of nombre
+	* @param
+	*/
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	* Returns value of director
+	* @return
+	*/
+	public boolean isDirector() {
+		return director;
+	}
+
+	/**
+	* Sets new value of director
+	* @param
+	*/
+	public void setDirector(boolean director) {
+		this.director = director;
+	}
+
+	/**
+	* Returns value of alumno
+	* @return
+	*/
+	public List<Alumno> getAlumno() {
+		return alumno;
+	}
+
+	/**
+	* Sets new value of alumno
+	* @param
+	*/
+	public void setAlumno(List<Alumno> alumno) {
+		this.alumno = alumno;
+	}
 }

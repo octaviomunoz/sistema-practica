@@ -23,34 +23,70 @@ public class EvaluacionEmpresa {
 	@JoinColumn(name = "id_practica")
 	private Practica practica;
 
-	//setters getters
 
-	public Long get_id(){
+
+
+	/**
+	* Returns value of id
+	* @return
+	*/
+	public Long getId() {
 		return id;
 	}
-	public void set_id(Long id){
+
+	/**
+	* Sets new value of id
+	* @param
+	*/
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public int get_nota(){
+	/**
+	* Returns value of nota
+	* @return
+	*/
+	public int getNota() {
 		return nota;
 	}
-	public void set_nota(int nota){
+
+	/**
+	* Sets new value of nota
+	* @param
+	*/
+	public void setNota(int nota) {
 		this.nota = nota;
 	}
 
-	public String get_comentario(){
+	/**
+	* Returns value of comentario
+	* @return
+	*/
+	public String getComentario() {
 		return comentario;
 	}
-	public void set_comentario(String comentario){
+
+	/**
+	* Sets new value of comentario
+	* @param
+	*/
+	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
 
-	public Practica get_practica(){
+	/**
+	* Returns value of practica
+	* @return
+	*/
+	public Practica getPractica() {
 		return practica;
 	}
-	public void set_practica(Practica practica){
+
+	/**
+	* Sets new value of practica
+	* @param
+	*/
+	public void setPractica(Practica practica) {
 		this.practica = practica;
 	}
-
 }
