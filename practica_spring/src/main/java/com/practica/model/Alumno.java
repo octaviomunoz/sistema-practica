@@ -54,8 +54,8 @@ public class Alumno {
 	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
 	private Practica practica;
 
-	
-
+	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
+	private Horario horario;
 	/**
 	* Create string representation of Alumno for printing
 	* @return
@@ -239,6 +239,22 @@ public class Alumno {
 	*/
 	public void setPractica(Practica practica) {
 		this.practica = practica;
+	}
+
+	/**
+	* Returns value of horario
+	* @return
+	*/
+	public Horario getHorario() {
+		return horario;
+	}
+
+	/**
+	* Sets new value of horario
+	* @param
+	*/
+	public void setHorario(Horario horario) {
+		this.horario = horario;
 	}
 
 }
