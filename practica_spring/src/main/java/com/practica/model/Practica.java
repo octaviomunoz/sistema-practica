@@ -13,18 +13,15 @@ public class Practica {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@NotNull
+	
 	private Date fecha;
 
-	@NotNull
 	@Size(max = 20)
 	private String nombre_evaluador;
 
-	@NotNull
 	@Size(max = 15)
 	private String telefono_evaluador;
 
-	@NotNull
 	@Size(max = 150)
 	private String actividades_realizar;
 
