@@ -1,5 +1,7 @@
 package com.practica.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,32 +17,34 @@ public class Alumno {
 	private Long id;
 
 	@NotNull
+	@NotEmpty(message = "El RUN es obligatorio")
 	@Size(max = 15)
 	@Column(unique = true)
 	private String run;
 
 	@NotNull
-	@Size(min = 5, max = 15)
-	private String password;
-
-	@NotNull
 	@Size(max = 30)
+	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
 	private String nombre;
 
 	@NotNull
 	@Size(max = 15)
+	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
 	private String apellido_paterno;
 
 	@NotNull
 	@Size(max = 15)
+	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
 	private String apellido_materno;
 
 	@NotNull
 	@Size(max = 40)
+	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
 	private String domicilio_procedencia;
 
 	@NotNull
 	@Size(max = 40)
+	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
 	private String domicilio_actual;
 
 	@NotNull
@@ -62,7 +66,7 @@ public class Alumno {
 	*/
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", run=" + run + ", password=" + password + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", domicilio_actual=" + domicilio_actual + ", telefono=" + telefono + ", docente=" + docente + ", practica=" + practica + "]";
+		return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", domicilio_actual=" + domicilio_actual + ", telefono=" + telefono + ", docente=" + docente + ", practica=" + practica + "]";
 	}
 
 	/**
@@ -95,22 +99,6 @@ public class Alumno {
 	*/
 	public void setRun(String run) {
 		this.run = run;
-	}
-
-	/**
-	* Returns value of password
-	* @return
-	*/
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	* Sets new value of password
-	* @param
-	*/
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	/**

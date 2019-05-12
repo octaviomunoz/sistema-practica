@@ -1,0 +1,16 @@
+<h1> Empresa </h1>
+
+<form action="#" th:action="@{/inscripcion/validandoEmpresa}" th:object="${empresa}" method="post">
+  <table>
+    <tr>
+      <td> Nombre Empresa: </td>
+      <td><input type="text" th:field="*{nombre}"/></td>
+      <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Age Error</td>
+    </tr>
+
+    <tr>
+      <td> Direccion Empresa: </td>
+      <td><input type="text" th:field="*{direccion}"/></td>
+      <td th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Age Error</td>
+    </tr>
+</form>

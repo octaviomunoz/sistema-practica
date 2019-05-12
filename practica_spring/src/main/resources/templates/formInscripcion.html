@@ -5,16 +5,18 @@
 <body>
 
   <h1>Inscripcion</h1>
-  <form action="#" th:action="@{/inscripcion}" th:object="${alumno}" method="post">
+  <form action="#" th:action="@{/inscripcion/validandoAlumno}" th:object="${alumno}" method="post">
     <table>
       <tr>
         <td>Run:</td>
         <td><input type="number" th:field="*{run}"/></td>
+        <td th:if="${#fields.hasErrors('run')}" th:errors="*{run}">Age Error</td>
       </tr>
 
       <tr>
         <td>Nombre:</td>
         <td><input type="text" th:field="*{nombre}"/></td>
+        <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Age Error</td>
       </tr>
 
       <tr>
@@ -44,10 +46,7 @@
 
 
 
-      <tr>
-        <td>Contraseña:</td>
-        <td><input type="text" th:field="*{password}"/></td>
-      </tr>
+
 
 
 
