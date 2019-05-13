@@ -42,18 +42,13 @@ public class Alumno {
 	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
 	private String domicilio_procedencia;
 
-	@NotNull
-	@Size(max = 40)
-	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
-	private String domicilio_actual;
+
 
 	@NotNull
 	@Size(max = 15)
 	private String telefono;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_docente")
-	private Docente docente;
+
 
 	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
 	private Practica practica;
@@ -66,7 +61,7 @@ public class Alumno {
 	*/
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", domicilio_actual=" + domicilio_actual + ", telefono=" + telefono + ", docente=" + docente + ", practica=" + practica + "]";
+		return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", telefono=" + telefono +", practica=" + practica + "]";
 	}
 
 	/**
@@ -166,22 +161,6 @@ public class Alumno {
 	}
 
 	/**
-	* Returns value of domicilio_actual
-	* @return
-	*/
-	public String getDomicilio_actual() {
-		return domicilio_actual;
-	}
-
-	/**
-	* Sets new value of domicilio_actual
-	* @param
-	*/
-	public void setDomicilio_actual(String domicilio_actual) {
-		this.domicilio_actual = domicilio_actual;
-	}
-
-	/**
 	* Returns value of telefono
 	* @return
 	*/
@@ -197,21 +176,7 @@ public class Alumno {
 		this.telefono = telefono;
 	}
 
-	/**
-	* Returns value of docente
-	* @return
-	*/
-	public Docente getDocente() {
-		return docente;
-	}
 
-	/**
-	* Sets new value of docente
-	* @param
-	*/
-	public void setDocente(Docente docente) {
-		this.docente = docente;
-	}
 
 	/**
 	* Returns value of practica

@@ -1,5 +1,6 @@
 package com.practica.model;
 
+import javax.validation.constraints.Pattern;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,7 +14,7 @@ public class Practica {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	
+
 	private Date fecha;
 
 	@Size(max = 20)
@@ -25,10 +26,17 @@ public class Practica {
 	@Size(max = 150)
 	private String actividades_realizar;
 
+	
+	@Size(max = 40)
+	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
+	private String domicilio_actual;
+
+	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
 	private Alumno alumno;
 
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
@@ -39,7 +47,9 @@ public class Practica {
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private EvaluacionPractica evaluacionPractica;
 
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_docente")
+	private Docente docente;
 
 
 
@@ -124,6 +134,22 @@ public class Practica {
 	}
 
 	/**
+	* Returns value of domicilio_actual
+	* @return
+	*/
+	public String getDomicilio_actual() {
+		return domicilio_actual;
+	}
+
+	/**
+	* Sets new value of domicilio_actual
+	* @param
+	*/
+	public void setDomicilio_actual(String domicilio_actual) {
+		this.domicilio_actual = domicilio_actual;
+	}
+
+	/**
 	* Returns value of alumno
 	* @return
 	*/
@@ -185,5 +211,21 @@ public class Practica {
 	*/
 	public void setEvaluacionPractica(EvaluacionPractica evaluacionPractica) {
 		this.evaluacionPractica = evaluacionPractica;
+	}
+
+	/**
+	* Returns value of docente
+	* @return
+	*/
+	public Docente getDocente() {
+		return docente;
+	}
+
+	/**
+	* Sets new value of docente
+	* @param
+	*/
+	public void setDocente(Docente docente) {
+		this.docente = docente;
 	}
 }
