@@ -71,4 +71,13 @@ public class Region {
 	public void setComuna(List<Comuna> comuna) {
 		this.comuna = comuna;
 	}
+
+	/**
+	* Create string representation of Region for printing
+	* @return
+	*/
+	@Override
+	public String toString() {
+		return "Region [id=" + id + ", nombre=" + nombre + ", comuna=" + comuna + "]";
+	}
 }

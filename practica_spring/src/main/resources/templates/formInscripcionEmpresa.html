@@ -1,6 +1,13 @@
 <h1> Empresa </h1>
 
+<form action="#" th:action="@{/inscripcion/seleccionEmpresa}" th:object="${empresa}" method="post">
+  <h2> Buscar Empresas </h2>
+</form>
+
+
+
 <form action="#" th:action="@{/inscripcion/validandoEmpresa}" th:object="${empresa}" method="post">
+  <h2> Crear Empresa </h2>
   <table>
     <tr>
       <td> Nombre Empresa: </td>
