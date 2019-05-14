@@ -1,0 +1,13 @@
+
+<head>
+  <title>Inscripcion Practica</title>
+</head>
+
+<body>
+  <form action="#" th:action="@{/inscripcion/comprobando}" th:object="${alumno}" method="post">
+    <div> Ingrese su Run </div>
+    <div>
+      <td><input type="number" th:field="*{run}"/></td>
+      <td><button type="submit">Continuar</button></td>
+  </form>
+</body>

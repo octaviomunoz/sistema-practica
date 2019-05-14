@@ -3,14 +3,9 @@ package com.practica.controller;
 
 
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import java.util.ArrayList;
-import java.util.List;
 import com.practica.model.Region;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,18 +31,34 @@ public class inscripcionController {
   private AlumnoRepo alumnorepo;
 	@Autowired
   private EmpresaRepo empresarepo;
-	@Autowired
-  private RegionRepo regionrepo;
 
   private Alumno alumnoIngresado;
   private Empresa empresaIngresado;
-  private Region regiones;
+
+
+	@GetMapping("")
+	public String inicioInscripcion(Alumno alumno){
+
+		return "inscripcion/inscripcionInicio";
+	}
+
+	//Comprueba que el run ingresado sea exista o no en la base de datos
+	@PostMapping("/comprobando")
+	public String comprabandoExistenciaAlumno(Alumno alumno){
+		String direccion;
+		if(alumnorepo.existsByRun(alumno.getRun())){
+			direccion = "redirect:/inscripcion/empresa";
+		}else{
+			direccion = "redirect:/inscripcion/alumno";
+		}
+		return direccion;
+	}
 
 
   @GetMapping("/alumno")
   public String inscripcionAlumno(Alumno alumno){
 
-    return "formInscripcion";
+    return "inscripcion/formInscripcion";
   }
 
   @PostMapping("/validandoAlumno")
@@ -59,13 +70,10 @@ public class inscripcionController {
     //de el objeto en el paquete model.
     if (bindingResult.hasErrors()){
 			System.out.println("Error al ingresar datos");
-      return "formInscripcion";
+      return "inscripcion/formInscripcion";
     }
     alumnorepo.save(alumno);
     alumnoIngresado = alumno;
-
-		regiones = regionrepo.getOne(1L);
-		System.out.println(regiones.toString());
     return "redirect:/inscripcion/empresa";
   }
 
@@ -85,31 +93,22 @@ public class inscripcionController {
 
 
 	//HttpServletRequest Donde se guarda los datos del ajax
-	//HttpServletResponse Donde se envian los datos al ajax
-  
-  	//@ResponseBody : informará a Spring que intenta convertir su valor de retorno y escribirlo en la respuesta http automáticamente.
-  	//@RequestBody : informará a Spring que intente convertir el contenido del cuerpo de la solicitud entrante en su objeto de parámetro sobre la marcha.
+
+	//@ResponseBody : informará a Spring que intenta convertir su valor de retorno y escribirlo en la respuesta http automáticamente.
+	//@RequestBody : informará a Spring que intente convertir el contenido del cuerpo de la solicitud entrante en su objeto de parámetro sobre la marcha.
+
+	//Funcion que retorna un Objeto Alumno Para el autocompletado de los campos del formulario
 	@RequestMapping(method = RequestMethod.POST, value = "/conseguirAlumno", produces="application/json")
-	public @ResponseBody Alumno conseguirAlumno(HttpServletRequest request, HttpServletResponse response){
-		System.out.println(request.getParameter("dato") + alumnorepo.existsByRun("dato"));
-		String run = request.getParameter("dato");
+	public @ResponseBody Alumno conseguirAlumno(HttpServletRequest request){
+
+		String run = request.getParameter("dato"); //Asigno el valor entregado por el ajax
 		Alumno alumnoAux = new Alumno();
-		
+
 		if (alumnorepo.existsByRun(run)){
 			alumnoAux = alumnorepo.findByRun(run);
 		}
 		return alumnoAux;
-
 	}
 
-	/*@RequestMapping(value = "/myPage")
-    public void myController(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    String myItem = request.getParameter("item");
-
-    ...
-
-    response.getWriter().println(myItem + "bla bla bla");
-    }*/
 
 }
