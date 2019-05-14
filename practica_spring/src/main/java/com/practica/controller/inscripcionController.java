@@ -3,6 +3,7 @@ package com.practica.controller;
 
 
 
+import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,25 +48,38 @@ public class inscripcionController {
 	public String comprabandoExistenciaAlumno(Alumno alumno){
 		String direccion;
 		if(alumnorepo.existsByRun(alumno.getRun())){
-			direccion = "redirect:/inscripcion/empresa";
-		}else{
 			direccion = "redirect:/inscripcion/alumno";
+			alumnoIngresado = alumnorepo.findByRun(alumno.getRun());
+		}else{
+			direccion = "redirect:/inscripcion/ingresarAlumno";
+			alumnoIngresado = alumno;
 		}
 		return direccion;
 	}
 
+	@GetMapping("/alumno")
+	public String infoAlumno(Model model){
+		String direccion;
+		if(alumnoIngresado.getId() != null){
+			model.addAttribute("alumno", alumnoIngresado);
+			direccion = "inscripcion/infoAlumno";
+		}else{
+			direccion = "redirect:/";
+		}
+		return direccion;
+	}
 
-  @GetMapping("/alumno")
-  public String inscripcionAlumno(Alumno alumno){
-
+	//Genera el formulario para crear un nuevo alumno
+  @GetMapping("/ingresarAlumno")
+  public String crearNuevoAlumno(Alumno alumno, Model model){
+		model.addAttribute("alumno", alumnoIngresado);
     return "inscripcion/formInscripcion";
   }
 
   @PostMapping("/validandoAlumno")
   public String validacionAlumno(@Valid Alumno alumno, BindingResult bindingResult){
 
-    //System.out.println( alumno.toString());
-
+		System.out.println(alumno);
     //Verifica que los datos que se ingresaron sigan las restricciones
     //de el objeto en el paquete model.
     if (bindingResult.hasErrors()){
@@ -74,7 +88,7 @@ public class inscripcionController {
     }
     alumnorepo.save(alumno);
     alumnoIngresado = alumno;
-    return "redirect:/inscripcion/empresa";
+    return "redirect:/inscripcion/alumno";
   }
 
   @GetMapping("/empresa")

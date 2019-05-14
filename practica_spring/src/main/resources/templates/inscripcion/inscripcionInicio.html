@@ -7,7 +7,11 @@
   <form action="#" th:action="@{/inscripcion/comprobando}" th:object="${alumno}" method="post">
     <div> Ingrese su Run </div>
     <div>
-      <td><input type="number" th:field="*{run}"/></td>
+      <td><input type="number" name="Run:" th:field="*{run}"/></td>
+      <td th:if="${#fields.hasErrors('run')}" th:errors="*{run}">Age Error</td>
+    </div>
+    <div>
       <td><button type="submit">Continuar</button></td>
+    </div>
   </form>
 </body>

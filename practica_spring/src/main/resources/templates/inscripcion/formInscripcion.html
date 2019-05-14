@@ -14,8 +14,8 @@
     <table>
       <tr>
         <td>Run:</td>
-        <td><input id="Run" type="number" onkeyup="BuscarAlumno()" th:field="*{run}"/></td>
-        <td th:if="${#fields.hasErrors('run')}" th:errors="*{run}">Age Error</td>
+        <td><label th:text="${alumno.run}"></label></td>
+        <td><input type="hidden" th:field="*{run}"></td>
       </tr>
 
       <tr>
@@ -27,16 +27,21 @@
       <tr>
         <td>Apellido Paterno:</td>
         <td><input id="ApellidoPaterno" type="text" th:field="*{apellido_paterno}"/></td>
+        <td th:if="${#fields.hasErrors('apellido_paterno')}" th:errors="*{apellido_paterno}">Age Error</td>
       </tr>
 
       <tr>
         <td>Apellido Materno:</td>
         <td><input id="ApellidoMaterno" type="text" th:field="*{apellido_materno}"/></td>
+        <td th:if="${#fields.hasErrors('apellido_materno')}" th:errors="*{apellido_materno}">Age Error</td>
+
       </tr>
 
       <tr>
         <td>Domicilio Procedencia:</td>
         <td><input type="text" th:field="*{domicilio_procedencia}"/></td>
+        <td th:if="${#fields.hasErrors('domicilio_procedencia')}" th:errors="*{domicilio_procedencia}">Age Error</td>
+
       </tr>
 
 
@@ -48,7 +53,9 @@
 
 
 
-
+      <tr>
+        <td><input type="hidden" th:field="*{id}"></td>
+      <tr>
 
 
 
