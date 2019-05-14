@@ -2,30 +2,8 @@
   <title>Inscripcion</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
+  <script type="text/javascript" src="../js/inscripcion.js"></script>
 
-  <script type="text/javascript">
-    function BuscarAlumno(){
-      var dato = $("#Run").val();
-      var json = { "RUN" : dato};
-      $.ajax({
-        type: "POST",
-        url: "/inscripcion/conseguirAlumno",
-        data: {dato : dato},
-        //contentType: 'application/json; charset=utf-8',
-        //dataType: 'String',
-        //cache: false,
-        success: function(result){
-        	console.log(result);
-        	if (result.id != null){
-        		$("#Nombre").val(result.nombre);
-        		$("#ApellidoPaterno").val(result.apellido_paterno);
-        		$("#ApellidoMaterno").val(result.apellido_materno);
-        	}
-        }
-      });
-    }
-
-  </script>
 
 </head>
 
@@ -61,10 +39,7 @@
         <td><input type="text" th:field="*{domicilio_procedencia}"/></td>
       </tr>
 
-      <tr>
-        <td>Domicilio Actual:</td>
-        <td><input type="text" th:field="*{domicilio_actual}"/></td>
-      </tr>
+
 
       <tr>
         <td>Telefono:</td>
