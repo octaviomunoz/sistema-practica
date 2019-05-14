@@ -1,5 +1,5 @@
 # sistema-practica
-
+Creo que deberiamos haber trabajado la base de datos con NoSql que es lo que ofrece spring boot
 
 ## Pre-Requisitos
 _Tener instalado:
