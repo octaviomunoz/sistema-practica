@@ -1,6 +1,5 @@
 # sistema-practica
 
-# OCTAVIO CREO QUE SE COLO UNA CARPETA LLAMADA BIN EN LA RAIZ MASTER, O TU LA AGREGASTE?
 
 ## Pre-Requisitos
 _Tener instalado:
