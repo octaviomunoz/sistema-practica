@@ -1,5 +1,5 @@
 # sistema-practica
-Creo que deberiamos haber trabajado la base de datos con NoSql que es lo que ofrece spring boot xD no entiendo bien el postgresql
+No entiendo bien el postgresql, Octavio me explicarias porque usamos postresql, y sabes que son los beans? creo que hacen como la misma pega creo pero son de sprint
 
 ## Pre-Requisitos
 _Tener instalado:
