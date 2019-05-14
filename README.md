@@ -24,7 +24,7 @@ spring boot tools https://spring.io/tools
 
   Tambien tiene que hacer que el alumno pueda generar una evaluacion de la empresa,con una nota y un comentario
 
-3 Evaluación de la practica y la toma de horarios.
+3 Evaluación de la practica y la toma de horarios. (carlos)
 
   se tiene que hacer el formulario propio de la evaluacion de practica por parte del evaluador.
   Y la creacion de la asignacion de horarios para la presentacion de la practica.
