@@ -19,8 +19,8 @@ public class Horario{
   private int modulo;
 
   @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "id_alumno")
-  private Alumno alumno;
+  @JoinColumn(name = "id_practica")
+  private Practica practica;
 
 
 
@@ -76,15 +76,15 @@ public class Horario{
 	* Returns value of alumno
 	* @return
 	*/
-	public Alumno getAlumno() {
-		return alumno;
+	public Practica getPractica() {
+		return practica;
 	}
 
 	/**
 	* Sets new value of alumno
 	* @param
 	*/
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
+	public void setPractica(Practica practica) {
+		this.practica = practica;
 	}
 }
