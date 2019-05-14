@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	
+
 	<link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
 
 
@@ -27,17 +27,17 @@
         <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="inscripcion/formInscripcionEmpresa.html">Formulario Empresa</a>
+        <a class="nav-link" th:href="@{~/inscripcion/empresa}">Formulario Empresa</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           usuario
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         
+
          <!-- <a class="dropdown-item" href="#">Action</a>  pueden ser util con otras funciones
           <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div> --> 
+          <div class="dropdown-divider"></div> -->
           <a class="dropdown-item" href="#">Cerrar sesion</a>
         </div>
       </li>
