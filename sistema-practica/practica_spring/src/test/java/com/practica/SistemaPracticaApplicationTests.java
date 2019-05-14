@@ -1,4 +1,4 @@
-package com.bastian.sistemapractica;
+package com.practica;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
