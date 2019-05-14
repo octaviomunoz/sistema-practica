@@ -26,7 +26,7 @@ public class Practica {
 	@Size(max = 150)
 	private String actividades_realizar;
 
-	
+
 	@Size(max = 40)
 	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
 	private String domicilio_actual;
@@ -51,7 +51,8 @@ public class Practica {
 	@JoinColumn(name = "id_docente")
 	private Docente docente;
 
-
+	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
+	private Horario horario;
 
 	/**
 	* Returns value of id
@@ -227,5 +228,21 @@ public class Practica {
 	*/
 	public void setDocente(Docente docente) {
 		this.docente = docente;
+	}
+
+	/**
+	* Returns value of horario
+	* @return
+	*/
+	public Horario getHorario() {
+		return horario;
+	}
+
+	/**
+	* Sets new value of horario
+	* @param
+	*/
+	public void setHorario(Horario horario) {
+		this.horario = horario;
 	}
 }
