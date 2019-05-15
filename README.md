@@ -1,5 +1,5 @@
 # sistema-practica
-No entiendo bien el postgresql, Octavio me explicarias porque usamos postresql, y sabes que son los beans? creo que hacen como la misma pega creo pero son de sprint
+
 
 ## Pre-Requisitos
 _Tener instalado:
