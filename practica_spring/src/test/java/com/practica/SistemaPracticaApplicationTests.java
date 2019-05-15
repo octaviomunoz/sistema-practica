@@ -21,8 +21,8 @@ public class SistemaPracticaApplicationTests {
 	@Test
 	public void crearUsuarioTest() {
 		Usuario us = new Usuario();
-		us.setId(0);
-		us.setNombre("asd");
+		us.setId(1);
+		us.setNombre("holaa");
 		us.setClave("holamundo");
 		Usuario retorno = repo.save(us);
 		assertTrue(retorno.getClave().equalsIgnoreCase(us.getClave()));
