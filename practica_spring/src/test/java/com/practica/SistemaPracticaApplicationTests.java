@@ -21,11 +21,10 @@ public class SistemaPracticaApplicationTests {
 	@Test
 	public void crearUsuarioTest() {
 		Usuario us = new Usuario();
-		us.setId(9);
+		us.setId(0);
 		us.setNombre("asd");
-		us.setClave("1231");
+		us.setClave("holamundo");
 		Usuario retorno = repo.save(us);
-		
 		assertTrue(retorno.getClave().equalsIgnoreCase(us.getClave()));
 	}
 
