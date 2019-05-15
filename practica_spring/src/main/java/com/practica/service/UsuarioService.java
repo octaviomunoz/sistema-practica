@@ -1,4 +1,4 @@
-package com.practica.service;
+/* package com.practica.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,3 +32,4 @@ public class UsuarioService implements UserDetailsService {
 		return userDet;
 	}
 }
+*/ //Sirve para asignar roles pero por alguna razon al usarla no aparece el login en pantalla.
