@@ -10,16 +10,16 @@ spring boot tools https://spring.io/tools
 
 
 ## Trabajo
-  # Fase entrega 1 ( Octavio completalo porfa)
-  
-   Octavio:
-   
-   Bastian:
-   
-   Carlos:  
- 
+  # Fase entrega 1 CRUD
+    Hay que hacer los CRUD de las tablas:
+   Octavio: Alumno - Empresa
+
+   Bastian: Practica - Docente
+
+   Carlos:  EvaluacionEmpresa  - EvaluacionPractica
+
   # Fase intermedia?
-  
+
    1 Creación del formulario de inscripción de la practica (Octavio)
 
    Para esta parte se trata que el alumno ingrese los datos de la tabla
@@ -36,6 +36,6 @@ spring boot tools https://spring.io/tools
 
    se tiene que hacer el formulario propio de la evaluacion de practica por parte del evaluador.
    Y la creacion de la asignacion de horarios para la presentacion de la practica.
-   
-   # Fase Final 
+
+   # Fase Final
    ...
