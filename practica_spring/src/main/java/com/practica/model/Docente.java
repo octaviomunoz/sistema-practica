@@ -28,12 +28,10 @@ public class Docente {
   @Size
   private boolean director;
 
+  /*	 
   @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
   private List<Practica> practica = new ArrayList<>();
-
-
-
-
+*/
 	/**
 	* Returns value of id
 	* @return
@@ -102,6 +100,7 @@ public class Docente {
 	* Returns value of alumno
 	* @return
 	*/
+	/*
 	public List<Practica> getPractica() {
 		return practica;
 	}
@@ -109,8 +108,9 @@ public class Docente {
 	/**
 	* Sets new value of alumno
 	* @param
-	*/
+	
 	public void setPractica(List<Practica> practica) {
 		this.practica = practica;
 	}
+	*/
 }
