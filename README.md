@@ -12,7 +12,8 @@ spring boot tools https://spring.io/tools
 ## Trabajo
   # Fase entrega 1 CRUD
     Hay que hacer los CRUD de las tablas:
-    Los CRUD trabajarlos en controller distintos
+    Los CRUD trabajarlos en controller distintos 
+    CUIDADO CON LOS ATRIBUTOS RELACIONALES; QUE NO SON NECESARIOS ACA!!!!
    Octavio: Alumno - Empresa
 
    Bastian: Practica - Docente
