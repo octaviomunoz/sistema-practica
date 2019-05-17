@@ -8,7 +8,6 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-@Table(name = "docentes")
 public class Docente {
 
   @Id
@@ -84,7 +83,7 @@ public class Docente {
 	* Returns value of director
 	* @return
 	*/
-	public boolean isDirector() {
+	public boolean getDirector() {
 		return director;
 	}
 
