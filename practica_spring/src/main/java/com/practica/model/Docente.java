@@ -100,7 +100,7 @@ public class Docente {
 	* Returns value of alumno
 	* @return
 	*/
-	/*
+	/* 		Atributos de otras tablas.
 	public List<Practica> getPractica() {
 		return practica;
 	}
