@@ -5,96 +5,81 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
 
 
-@Entity
+@Entity  //Esto ya le dice que una entidad de la base de datos.
 public class Docente {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  @Id		//Primary key
+  @GeneratedValue(strategy = GenerationType.AUTO) //Autoincrementable.
+  private Long idDoc;
 
   @NotNull
   @Size(max = 15)
   @Column(unique = true)
-  private String run;
+  private String runDoc;
 
   @NotNull
   @Size(max = 20)
-  private String nombre;
+  private String nombreDoc;
+  
+  @NotNull
+  @Email			//Para indicar que el valor es una cadena de email.
+  private String emailDoc;
+  
+  
 
   @NotNull
   @Size
-  private boolean director;
+  private boolean director; //Lo ideal es que de un yes or not.
+
+
+	public Long getId() {
+		return idDoc;
+	}
+		
+	public void setId(Long idDoc) {
+		this.idDoc = idDoc;
+	}
+		
+	public String getRunDoc() {
+		return runDoc;
+	}
+			
+	public void setRunDoc(String runDoc) {
+		this.runDoc = runDoc;
+	}
+		
+	public String getNombreDoc() {
+		return nombreDoc;
+	}
+			
+	public void setNombreDoc(String nombreDoc) {
+		this.nombreDoc = nombreDoc;
+	}
+		
+	public String getEmailDoc() {
+		return emailDoc;
+	}
+		
+	public void setEmailDoc(String emailDoc) {
+		this.emailDoc = emailDoc;
+	}
+		
+	public boolean isDirector() {
+		return director;
+	}
+		
+	public void setDirector(boolean director) {
+		this.director = director;
+	}
 
   /*	 
   @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
   private List<Practica> practica = new ArrayList<>();
 */
-	/**
-	* Returns value of id
-	* @return
-	*/
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	* Sets new value of id
-	* @param
-	*/
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	/**
-	* Returns value of run
-	* @return
-	*/
-	public String getRun() {
-		return run;
-	}
-
-	/**
-	* Sets new value of run
-	* @param
-	*/
-	public void setRun(String run) {
-		this.run = run;
-	}
-
-	/**
-	* Returns value of nombre
-	* @return
-	*/
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	* Sets new value of nombre
-	* @param
-	*/
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	/**
-	* Returns value of director
-	* @return
-	*/
-	public boolean getDirector() {
-		return director;
-	}
-
-	/**
-	* Sets new value of director
-	* @param
-	*/
-	public void setDirector(boolean director) {
-		this.director = director;
-	}
-
+	
 	/**
 	* Returns value of alumno
 	* @return
