@@ -46,11 +46,11 @@ public class Practica {
 
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private EvaluacionPractica evaluacionPractica;
-
+	/*
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_docente")
 	private Docente docente;
-
+	*/
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private Horario horario;
 
@@ -217,19 +217,19 @@ public class Practica {
 	/**
 	* Returns value of docente
 	* @return
-	*/
+	*
 	public Docente getDocente() {
 		return docente;
 	}
-
+	*/
 	/**
 	* Sets new value of docente
 	* @param
-	*/
+	*
 	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
-
+	*/
 	/**
 	* Returns value of horario
 	* @return

@@ -9,6 +9,7 @@ import javax.validation.constraints.Email;
 
 
 @Entity  //Esto ya le dice que una entidad de la base de datos.
+@Table(name = "docentes")
 public class Docente {
 
   @Id		//Primary key
@@ -23,63 +24,63 @@ public class Docente {
   @NotNull
   @Size(max = 20)
   private String nombreDoc;
-  
+
   @NotNull
   @Email			//Para indicar que el valor es una cadena de email.
   private String emailDoc;
-  
-  
+
+
 
   @NotNull
   @Size
   private boolean director; //Lo ideal es que de un yes or not.
 
 
-	public Long getId() {
+	public Long getIdDoc() {
 		return idDoc;
 	}
-		
-	public void setId(Long idDoc) {
+
+	public void setIdDoc(Long idDoc) {
 		this.idDoc = idDoc;
 	}
-		
+
 	public String getRunDoc() {
 		return runDoc;
 	}
-			
+
 	public void setRunDoc(String runDoc) {
 		this.runDoc = runDoc;
 	}
-		
+
 	public String getNombreDoc() {
 		return nombreDoc;
 	}
-			
+
 	public void setNombreDoc(String nombreDoc) {
 		this.nombreDoc = nombreDoc;
 	}
-		
+
 	public String getEmailDoc() {
 		return emailDoc;
 	}
-		
+
 	public void setEmailDoc(String emailDoc) {
 		this.emailDoc = emailDoc;
 	}
-		
+
 	public boolean isDirector() {
 		return director;
 	}
-		
+
 	public void setDirector(boolean director) {
 		this.director = director;
 	}
 
-  /*	 
+  /*
   @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
   private List<Practica> practica = new ArrayList<>();
 */
-	
+
 	/**
 	* Returns value of alumno
 	* @return
@@ -92,7 +93,7 @@ public class Docente {
 	/**
 	* Sets new value of alumno
 	* @param
-	
+
 	public void setPractica(List<Practica> practica) {
 		this.practica = practica;
 	}

@@ -18,14 +18,14 @@ values(4, 'Talca', 1);
 insert into comunas(id, nombre, region_id)
 values(5, 'Chillan', 2);
 
-insert into docentes(id, director, nombre, run)
-values(1, false, 'nombre1', 123456789);
+insert into docentes(id_doc, director, email_doc, nombre_doc, run_doc)
+values(1, false,'nombre1@docente.com', 'nombre1', 123456789);
 
-insert into docentes(id, director, nombre, run)
-values(2, true, 'nombre2', 12345678);
+insert into docentes(id_doc, director, email_doc, nombre_doc, run_doc)
+values(2, true,'nombre2@docente.com', 'nombre2', 12345678);
 
-insert into docentes(id, director, nombre, run)
-values(3, false, 'nombre3', 1234567);
+insert into docentes(id_doc, director, email_doc, nombre_doc, run_doc)
+values(3, false,'nombre4@docente.com', 'nombre3', 1234567);
 
 insert into empresas(id, convenio, direccion, nombre, id_comuna)
 values(1, false, 'direccion1', 'nombreE1', 1);
