@@ -1,4 +1,4 @@
-package com.practica.model;
+/* package com.practica.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,3 +30,5 @@ public class Usuario {
 	}
 	private String clave;
 }
+
+*/
