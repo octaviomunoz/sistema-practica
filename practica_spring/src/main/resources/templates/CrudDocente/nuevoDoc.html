@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<title>Nuevo Docente</title>
+</head>
+<body>
+	<div class="page-header">
+		<h1>Nuevo Docente</h1>
+    </div>
+    
+    <form action="#" th:action ="@{/CrudDocente/NuevoDoc}" th:object="${docente}" method="post">
+    <div class="form-group"> 
+        <label for="nombreDoc" class="control-label">Nombre Docente</label>
+        <input type="text" class="form-control" id="nombreDoc" name="nombreDoc" placeholder="Bastian Escalona" required="required"/>
+         <p typeth:if="${#fields.hasErrors('nombreDoc')}" th:errors="*{nombreDoc}" class="alert alert-danger" />
+    </div>    
+
+    <div class="form-group">
+        <label for="runDoc" class="control-label">Rut Docente</label>
+        <input type="text" class="form-control" id="runDoc" name="runDoc" placeholder="19.176.953-8" required = "required" />
+         <p typeth:if="${#fields.hasErrors('runDoc')}" th:errors="*{runDoc}" class="alert alert-danger" />
+    </div>                    
+                            
+    <div class="form-group">
+        <label for="emailDoc" class="control-label">Email Docente</label>
+        <input type="email" class="form-control" id="emailDoc" name="emailDoc" placeholder="bastianescalona@hotmail.com" required = "required"/>
+        <p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
+    </div> 
+    
+    <div class="form-group">
+        <label for="state_id" class="control-label">State</label>
+        <select class="form-control" id="director" required = "required">
+            <option value="1">Si</option>
+            <option value="0">No</option>
+        </select>                    
+    </div>
+    
+    <div class="form-group">
+          <button type="submit" class="btn btn-default">Crear Docente</button>
+    </div>     
+    
+	</form>
+	</body>
+	
+</html>

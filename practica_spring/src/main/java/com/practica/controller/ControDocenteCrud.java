@@ -39,7 +39,7 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/nuevoDoc", method=RequestMethod.GET)
 	public String nuevo(ModelMap mp) {
-		mp.put("Docentes", new Docente());
+		mp.put("Docente", new Docente());
 		return "CrudDocente/nuevoDoc";
 	}
 	
@@ -56,7 +56,7 @@ public class ControDocenteCrud {
 			return "/CrudDocente/nuevoDoc";
 		} else {
 			uc.save(docente);
-			mp.put("Docentes", docente);
+			mp.put("Docente", docente);
 			return "CrudDocente/creadoDoc";
 		}
 	}
