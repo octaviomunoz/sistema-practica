@@ -1,5 +1,8 @@
 package com.practica.model;
 
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -16,14 +19,19 @@ public class Empresa {
 
 	@NotNull
 	@Size(max = 20)
+	@NotEmpty(message = "Este Campo no puede estar vacio")
+	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
 	private String nombre;
 
 	@NotNull
 	@Size(max = 40)
+	@NotEmpty(message = "Este Campo no puede estar vacio")
+	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
 	private String direccion;
 
 	@NotNull
-	private boolean convenio;
+	@NotEmpty(message = "Este Campo no puede estar vacio")
+	private String convenio;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_comuna")
@@ -88,7 +96,7 @@ public class Empresa {
 	* Returns value of convenio
 	* @return
 	*/
-	public boolean isConvenio() {
+	public String getConvenio() {
 		return convenio;
 	}
 
@@ -96,7 +104,7 @@ public class Empresa {
 	* Sets new value of convenio
 	* @param
 	*/
-	public void setConvenio(boolean convenio) {
+	public void setConvenio(String convenio) {
 		this.convenio = convenio;
 	}
 

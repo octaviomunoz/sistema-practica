@@ -5,12 +5,18 @@
 
 
 <body>
+
+  <a th:href="@{~/empresa/ingresarDatos}" th:text="'Nueva Empresa'"></a>
+
   <table>
     <thead>
       <tr>
         <th>ID EMPRESA</th>
         <th>NOMBRE</th>
         <th>DIRECCION</th>
+        <th>CONVENIO</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -20,12 +26,16 @@
           <td th:text="${empresa.id}"></td>
           <td th:text="${empresa.nombre}"></td>
           <td th:text="${empresa.direccion}"></td>
+          <td th:text="${empresa.convenio}"></td>
+          <td><a th:href="@{~/empresa/modificarDatos(idEMP=${empresa.id})}" th:text="'Modificar Empresa'"></a></td>
+          <td><a th:href="@{~/empresa/eliminar(idEMP=${empresa.id})}" th:text="'Elminar Empresa'"></a></td>
         </tr>
       </tr>
     </tbody>
   </table>
   <div>
-    <tr th:each="num : ${#numbers.sequence(1, numPaginas)}">
+
+    <tr th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
       <td><a th:href="@{~/empresa/mostrar(page=${num})}" th:text="${num}"></a></td>
     </tr>
 

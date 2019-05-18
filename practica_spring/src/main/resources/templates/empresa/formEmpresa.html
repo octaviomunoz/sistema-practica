@@ -1,0 +1,44 @@
+<head>
+  <title>Formulario Empresa</title>
+</head>
+
+<body>
+
+  <form action="#" th:action="@{/empresa/validandoEmpresa}" th:object="${empresa}" method="post">
+    <table>
+
+      <tr>
+        <td>Nombre:</td>
+        <td><input type="text" th:field="*{nombre}"/></td>
+        <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Age Error</td>
+      </tr>
+
+
+
+      <tr>
+        <td>Direccion:</td>
+        <td><input type="text" th:field="*{direccion}"/></td>
+        <td th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}">Age Error</td>
+      </tr>
+
+      <tr>
+        <td>¿Tiene convenio? :</td>
+        <td><input type="radio" name="Convenio" th:field="*{convenio}" th:value="true" >Si<br></td>
+        <td><input type="radio" name="Convenio" th:field="*{convenio}" th:value="false" checked>No<br></td>
+      </tr>
+
+      <tr>
+        <td><input type="hidden" th:field="*{id}"/></td>
+      </tr>
+
+      <tr>
+        <td><button type="submit">Submit</buttton></td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+
+
+
+</body>
