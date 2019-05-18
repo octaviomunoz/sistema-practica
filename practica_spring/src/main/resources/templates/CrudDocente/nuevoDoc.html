@@ -8,44 +8,62 @@
 
 <title>Nuevo Docente</title>
 </head>
-<body>
+<body>	
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+ 	</nav>
+	
 	<div class="page-header">
-		<h1>Nuevo Docente</h1>
+		<div class = col-sm-10>
+			<h2>Ingresar Docente</h2>
+		</div>
     </div>
-    
     <form action="#" th:action ="@{/CrudDocente/nuevoDoc}" th:object="${Docentes}" method="post">
     <div class="form-group"> 
-        <label for="nombreDoc" class="control-label">Nombre Docente</label>
-        <input type="text" class="form-control" id="nombreDoc" name="nombreDoc" placeholder="Bastian Escalona" required="required"/>
-         <p typeth:if="${#fields.hasErrors('nombreDoc')}" th:errors="*{nombreDoc}" class="alert alert-danger" />
+        <label for="nombreDoc" class="col-sm-2 control-label">Nombre</label>
+        	<div class = col-sm-10>
+        		<input type="text" class="form-control" id="nombreDoc" name="nombreDoc" placeholder="Bastian Escalona" required="required"/>
+        		 <p typeth:if="${#fields.hasErrors('nombreDoc')}" th:errors="*{nombreDoc}" class="alert alert-danger" />
+        	</div>
     </div>    
 
     <div class="form-group">
-        <label for="runDoc" class="control-label">Rut Docente</label>
-        <input type="text" class="form-control" id="runDoc" name="runDoc" placeholder="19.176.953-8" required = "required" />
-         <p typeth:if="${#fields.hasErrors('runDoc')}" th:errors="*{runDoc}" class="alert alert-danger" />
-    </div>                    
+        <label for="runDoc" class="col-sm-2 control-label">Rut</label>
+        <div class ="col-sm-10">
+        	<input type="text" class="form-control" id="runDoc" name="runDoc" placeholder="19.176.953-8" required = "required" />
+         	<p typeth:if="${#fields.hasErrors('runDoc')}" th:errors="*{runDoc}" class="alert alert-danger" />
+    	</div>                   
+    </div>
                             
     <div class="form-group">
-        <label for="emailDoc" class="control-label">Email Docente</label>
-        <input type="email" class="form-control" id="emailDoc" name="emailDoc" placeholder="bastianescalona@hotmail.com" required = "required"/>
-        <p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
-    </div> 
-    
-    <div class="form-group">
-        <label for="state_id" class="control-label">State</label>
-        <select class="form-control" id="director" required = "required">
-            <option value="1">Si</option>
-            <option value="0">No</option>
-        </select>                    
+        <label for="emailDoc" class="col-sm-2 control-label">Email</label>
+        <div class ="col-sm-10">
+        	<input type="email" class="form-control" id="emailDoc" name="emailDoc" placeholder="bastianescalona@hotmail.com" required = "required"/>
+        	<p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
+    	</div>
     </div>
+        
+    <div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Director?</label>
+        <div class ="col-sm-10">
+        	<select class="form-control" id="director" required = "required">
+           		 <option value="1">Si</option>
+           		 <option value="0">No</option>
+        	</select>                    
+   	 	</div>	
+   	</div>
     
     <div class="form-group">
-          <button type="button" class="btn btn-success">Crear Docente</button>
-         <a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
-    </div>     
-    
+    	<div class="col-sm-offset-2 col-sm-10">
+          	<button type="button" class="btn btn-success">Crear Docente</button>
+ 			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
+   		 </div>     
+    </div>
 	</form>
-	</body>
+</body>
 	
 </html>
