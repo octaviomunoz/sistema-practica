@@ -13,7 +13,7 @@
 		<h1>Nuevo Docente</h1>
     </div>
     
-    <form action="#" th:action ="@{/CrudDocente/NuevoDoc}" th:object="${docente}" method="post">
+    <form action="#" th:action ="@{/CrudDocente/nuevoDoc}" th:object="${Docentes}" method="post">
     <div class="form-group"> 
         <label for="nombreDoc" class="control-label">Nombre Docente</label>
         <input type="text" class="form-control" id="nombreDoc" name="nombreDoc" placeholder="Bastian Escalona" required="required"/>
@@ -41,7 +41,8 @@
     </div>
     
     <div class="form-group">
-          <button type="submit" class="btn btn-default">Crear Docente</button>
+          <button type="button" class="btn btn-success">Crear Docente</button>
+         <a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
     </div>     
     
 	</form>
