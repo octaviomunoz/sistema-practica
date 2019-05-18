@@ -27,12 +27,9 @@ public class ControDocenteCrud {
 	 * En este caso se los manda a docentes y esta guarda los datos llamados de uc.finall()
 	 * ListaDocentes es lo que retornara en formato .html
 	 */
-	@RequestMapping(value="", method = RequestMethod.GET)
+	@RequestMapping(value="/ListaDocente", method = RequestMethod.GET)
 	public String ListaDocentes(ModelMap mp) {
 		mp.put("Docentes", uc.findAll() );
-		System.out.println(uc.findAll());
-		System.out.println("*************");
-		System.out.println(mp);
 		return "CrudDocente/ListaDocentes";
 	}
 
@@ -42,7 +39,7 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/nuevoDoc", method=RequestMethod.GET)
 	public String nuevo(ModelMap mp) {
-		mp.put("Docente", new Docente());
+		mp.put("Docentes", new Docente());
 		return "CrudDocente/nuevoDoc";
 	}
 
@@ -60,7 +57,7 @@ public class ControDocenteCrud {
 			return "/CrudDocente/nuevoDoc";
 		} else {
 			uc.save(docente);
-			mp.put("Docente", docente);
+			mp.put("Docentes", docente);
 			return "CrudDocente/creadoDoc";
 		}
 	}

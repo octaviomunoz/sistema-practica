@@ -3,22 +3,42 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html;"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+<script th:src="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
+
+<script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+
 
 <title>Lista Docentes</title>
 </head>
+
+	
 <body>
-	<div class="panel panel-info"> <div class ="panel-heading"><h3>Lista de Docentes</h3> </div>
-	<table class="table table-bordered table-dark">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 		 <a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  	</nav>
+  	
+	<div class="panel panel-info"> <div class ="panel-heading">
+		<div class = col-sm-10>
+			<h3>Lista de Docentes</h3>
+		</div>
+	</div>
+	
+	<table class="table table-dark">
   <thead>
-    <tr>
-      <th scope="col">Id Docente</th>
-      <th scope="col">Rut Docente</th>
-      <th scope="col">Nombre Docente</th>
-      <th scope="col">Email Docente</th>
-      <th scope="col">Es Director?</th>
-    </tr>
+  	<tr>
+        <th scope="col">Id Docente</th>
+      	<th scope="col">Rut Docente</th>
+    	<th scope="col">Nombre Docente</th>
+     	<th scope="col">Email Docente</th>
+     	<th scope="col">Es Director?</th>
+     
+   	</tr>
+    
   </thead>
   <tbody>
     <tr>
@@ -34,6 +54,9 @@
 	</table>
 	</div>
 	<br/>
+	<div class = col-sm-10>
+		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
+	</div>
 	</body>
 
 </html>

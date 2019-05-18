@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/magia")
+@RequestMapping("/")
 public class ControladorIndex{
 	
-	@GetMapping(path = {"/saludo"}) //Para obtener el dato
-	public String saludo() {
+	@GetMapping //Para obtener el dato
+	public String principal() {
 		return "index";
 	}
 }

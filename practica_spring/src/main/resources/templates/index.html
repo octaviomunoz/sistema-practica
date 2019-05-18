@@ -24,22 +24,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{~/inscripcion/empresa}">Formulario Empresa</a>
+        <a class="nav-link" href="#">asdasd</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          usuario
+          Docente
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-         <!-- <a class="dropdown-item" href="#">Action</a>  pueden ser util con otras funciones
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div> -->
-          <a class="dropdown-item" href="#">Cerrar sesion</a>
-        </div>
+          <a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocente}">Listar Docentes</a>
+          	 <a class="dropdown-item" th:href="@{~/CrudDocente/nuevoDoc}">Crear Docente</a>
+          	 	 <a class="dropdown-item" href="#">Mofidicar Docente</a>
+          	 	 	 <a class="dropdown-item" href="#">Eliminar Docente</a> 
+         </div>
       </li>
     </ul>
    </div>
