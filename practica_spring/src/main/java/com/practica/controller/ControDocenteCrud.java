@@ -38,8 +38,8 @@ public class ControDocenteCrud {
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
 	@RequestMapping(value="/nuevoDoc", method=RequestMethod.GET)
-	public String nuevo(ModelMap mp) {
-		mp.put("Docentes", new Docente());
+	public String nuevo(Docente docente) {
+		System.out.println("Estoy funcionando");
 		return "CrudDocente/nuevoDoc";
 	}
 
@@ -52,14 +52,12 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
 	public String crear(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
+		System.out.println(docente);
 		if(bindingResult.hasErrors()) {
-			mp.put("Docentes", uc.findAll());
-			return "/CrudDocente/ListaDocentes";
-		} else {
-			uc.save(docente);
-			mp.put("Docentes", docente);
-			return "CrudDocente/DocCreado";
+			return "/CrudDocente/nuevoDoc";
 		}
+		uc.save(docente);
+		return "results";
 	}
 
 	/*

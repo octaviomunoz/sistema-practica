@@ -29,8 +29,6 @@ public class Docente {
   @Email			//Para indicar que el valor es una cadena de email.
   private String emailDoc;
 
-
-
   @NotNull
   @Size
   private String director; //Lo ideal es que de un yes or not.
@@ -68,7 +66,7 @@ public class Docente {
 		this.emailDoc = emailDoc;
 	}
 
-	public String isDirector() {
+	public String getDirector() {
 		return director;
 	}
 
@@ -88,7 +86,7 @@ public class Docente {
 		this.director = director;
 	}
 
-	
+
   /*
   @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
   private List<Practica> practica = new ArrayList<>();
