@@ -50,15 +50,15 @@ public class ControDocenteCrud {
 	 * y si no hay errores guardara los datos en la base de datos
 	 * usando el uc.save
 	 */
-	 /*
-	@RequestMapping(value="/crearDocente", method=RequestMethod.POST)
+	@RequestMapping(value="/crear", method=RequestMethod.POST)
 	public String crear(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
 		if(bindingResult.hasErrors()) {
-			return "/CrudDocente/nuevoDoc";
+			mp.put("Docentes", uc.findAll());
+			return "/CrudDocente/ListaDocentes";
 		} else {
 			uc.save(docente);
 			mp.put("Docentes", docente);
-			return "CrudDocente/creadoDoc";
+			return "CrudDocente/DocCreado";
 		}
 	}
 
@@ -66,9 +66,8 @@ public class ControDocenteCrud {
 	 * Se usa request param para que la vista espere una instancia de la clase docente
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
-	 /*
-	@RequestMapping(value="/creadoDoc", method = RequestMethod.POST)
+	@RequestMapping(value="/DocCreado", method = RequestMethod.POST)
 	public String creado(@RequestParam("Docentes") Docente docente) {
-		return "/CrudDocente/creadoDoc";
-	}*/
+		return "/CrudDocente/DocCreado";
+	}
 }

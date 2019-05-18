@@ -22,7 +22,7 @@
 			<h2>Ingresar Docente</h2>
 		</div>
     </div>
-    <form action="#" th:action ="@{/CrudDocente/nuevoDoc}" th:object="${Docentes}" method="post">
+    <form action="#" th:action ="@{/CrudDocente/DocCreado}" th:object="${Docentes}" method="post">
     <div class="form-group"> 
         <label for="nombreDoc" class="col-sm-2 control-label">Nombre</label>
         	<div class = col-sm-10>
@@ -46,20 +46,11 @@
         	<p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
     	</div>
     </div>
-        
-    <div class="form-group">
-        <label for="state_id" class="col-sm-2 control-label">Director?</label>
-        <div class ="col-sm-10">
-        	<select class="form-control" id="director" required = "required">
-           		 <option value="1">Si</option>
-           		 <option value="0">No</option>
-        	</select>                    
-   	 	</div>	
-   	</div>
+
     
     <div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">
-          	<button type="button" class="btn btn-success">Crear Docente</button>
+          	<button type="submit" class="btn btn-success">Crear Docente</button>
  			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
    		 </div>     
     </div>
