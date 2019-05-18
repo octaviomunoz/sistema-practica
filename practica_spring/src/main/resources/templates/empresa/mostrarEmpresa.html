@@ -1,0 +1,33 @@
+
+<head>
+  <title>Lista de Empresas</title>
+</head>
+
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>ID EMPRESA</th>
+        <th>NOMBRE</th>
+        <th>DIRECCION</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <tr th:each="empresa : ${PageEmpresas}">
+          <td th:text="${empresa.id}"></td>
+          <td th:text="${empresa.nombre}"></td>
+          <td th:text="${empresa.direccion}"></td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <tr th:each="num : ${#numbers.sequence(1, numPaginas)}">
+      <td><a th:href="@{~/empresa/mostrar(page=${num})}" th:text="${num}"></a></td>
+    </tr>
+
+  </div>
+</body>

@@ -131,4 +131,13 @@ public class Empresa {
 	public void setPractica(List<Practica> practica) {
 		this.practica = practica;
 	}
+
+	/**
+	* Create string representation of Empresa for printing
+	* @return
+	*/
+	@Override
+	public String toString() {
+		return "Empresa [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", convenio=" + convenio + ", comuna=" + comuna + ", practica=" + practica + "]";
+	}
 }
