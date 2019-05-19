@@ -54,10 +54,10 @@ public class ControDocenteCrud {
 	public String crear(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
 		System.out.println(docente);
 		if(bindingResult.hasErrors()) {
-			return "/CrudDocente/nuevoDoc";
+			return "CrudDocente/nuevoDoc";
 		}
 		uc.save(docente);
-		return "results";
+		return "CrudDocente/DocCreado";
 	}
 
 	/*
@@ -66,6 +66,6 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/DocCreado", method = RequestMethod.POST)
 	public String creado(@RequestParam("Docentes") Docente docente) {
-		return "/CrudDocente/DocCreado";
+		return "CrudDocente/DocCreado";
 	}
 }
