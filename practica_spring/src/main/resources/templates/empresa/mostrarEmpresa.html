@@ -1,43 +1,53 @@
-
 <head>
   <title>Lista de Empresas</title>
+
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+  <script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
 </head>
 
 
 <body>
+  <a class="btn btn-primary btn-lg " th:href="@{~/empresa/ingresarDatos}" th:text="'Nueva Empresa'"></a>
 
-  <a th:href="@{~/empresa/ingresarDatos}" th:text="'Nueva Empresa'"></a>
-
-  <table>
-    <thead>
-      <tr>
-        <th>ID EMPRESA</th>
-        <th>NOMBRE</th>
-        <th>DIRECCION</th>
-        <th>CONVENIO</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <tr th:each="empresa : ${PageEmpresas}">
-          <td th:text="${empresa.id}"></td>
-          <td th:text="${empresa.nombre}"></td>
-          <td th:text="${empresa.direccion}"></td>
-          <td th:text="${empresa.convenio}"></td>
-          <td><a th:href="@{~/empresa/modificarDatos(idEMP=${empresa.id})}" th:text="'Modificar Empresa'"></a></td>
-          <td><a th:href="@{~/empresa/eliminar(idEMP=${empresa.id})}" th:text="'Elminar Empresa'"></a></td>
-        </tr>
-      </tr>
-    </tbody>
-  </table>
   <div>
+    <table class="table table-sm table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID EMPRESA</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">DIRECCION</th>
+          <th scope="col">CONVENIO</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
 
-    <tr th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
-      <td><a th:href="@{~/empresa/mostrar(page=${num})}" th:text="${num}"></a></td>
-    </tr>
-
+      <tbody>
+        <tr>
+          <tr th:each="empresa : ${PageEmpresas}">
+            <td class="align-middle" th:text="${empresa.id}"></td>
+            <td class="align-middle" th:text="${empresa.nombre}"></td>
+            <td class="align-middle" th:text="${empresa.direccion}"></td>
+            <td class="align-middle" th:text="${empresa.convenio}"></td>
+            <td>
+              <a class="btn btn-outline-primary" th:href="@{~/empresa/modificarDatos(idEMP=${empresa.id})}" th:text="'Modificar Empresa'"></a>
+              <a class="btn btn-outline-danger" th:href="@{~/empresa/eliminar(idEMP=${empresa.id})}" th:text="'Eliminar Empresa'"></a>
+            </td>
+          </tr>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+
+  <div>
+    <nav>
+      <ul class="pagination pagination-lg justify-content-center">
+        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
+          <li class="page-item"><a class="page-link" th:href="@{~/empresa/mostrar(page=${num})}" th:text="${num}"></a></li>
+        </td>
+      </ul>
+    </nav>
+  </div>
+
+
 </body>
