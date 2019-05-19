@@ -69,41 +69,42 @@ public class ControDocenteCrud {
 	public String creado(@RequestParam("Docentes") Docente docente) {
 		return "CrudDocente/DocCreado";
 	}
-	
+
 	/*
 	 * Para Elimnar!
 	 */
 	@RequestMapping(value="/borrar/{idDoc}", method = RequestMethod.GET)
-	public String borrar(@PathVariable("idDoc") long idDoc, ModelMap mp) {
-		uc.deleteById(uc.findById(idDoc));
-		mp.put("Docentes",uc.findAll());
-		return "CrudDocente/ListaDocentes";
+	public String borrar(@PathVariable("idDoc") Long idDoc) {
+		System.out.println(idDoc);
+		uc.deleteById(idDoc);
+		return "redirect:/CrudDocente/ListaDocente";
 	}
-	
-	/* 
+
+	/*
 	 * Para Editar y actualizar!
 	 */
-	
+
 	@RequestMapping(value="/editarDoc/{idDoc}", method = RequestMethod.GET)
-	public String editar(@PathVariable("idDoc") long idDoc, ModelMap mp) {
-		mp.put("Docentes",uc.findAll());
+	public String editar(@PathVariable("idDoc") Long idDoc, ModelMap mp) {
+		mp.put("docente",uc.findById(idDoc));
 		return "CrudDocente/editarDoc";
 	}
-	
+
 	@RequestMapping(value="/actualizarDoc", method=RequestMethod.POST)
 	public String actualizar(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
 		if(bindingResult.hasErrors()) {
-			mp.put("Docentes", uc.findAll());	
-		return "CrudDocente/ListaDocentes";
+			mp.put("docente",docente);
+		return "CrudDocente/editarDoc/"+docente.getIdDoc().toString();
 		}
-		Docente doc = uc.findOne(docente.getIdDoc());
+		uc.save(docente);
+		/*Docente doc = uc.findOne();
 		doc.setNombreDoc(docente.getNombreDoc());
 		doc.setRunDoc(docente.getRunDoc());
 		doc.setEmailDoc(docente.getEmailDoc());
 		doc.setDirector(doc.getDirector());
 		uc.save(doc);
-		mp.put("docente", doc);
-		return "CrudDocente/actualizarDoc";
+		mp.put("docente", doc);*/
+		return "redirect:/CrudDocente/ListaDocente";
 	}
 
 }
