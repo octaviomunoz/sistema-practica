@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<title>Nuevo Docente</title>
+<title>Editar Docente</title>
 </head>
 <body>
 
@@ -19,14 +19,15 @@
 
 	<div class="page-header">
 		<div class = col-sm-10>
-			<h2>Ingresar Docente</h2>
+			<h2>Editar Docente</h2>
 		</div>
     </div>
-    <form action="#" th:action="@{/CrudDocente/crear}" th:object="${docente}" method="post">
+    <form action="#" th:action="@{/CrudDocente/actualizarDoc}" th:object="${docente}" method="post">
+		<input type="hidden" id="idDoc" name="idDoc" th:field="*{idDoc}"/> 	
 	    <div class="form-group">
 	        <label for="nombreDoc" class="col-sm-2 control-label">Nombre</label>
 	        	<div class = col-sm-10>
-	        		<input type="text" class="form-control"  th:field="*{nombreDoc}" placeholder="Bastian Escalona" required="required"/>
+	        		<input type="text" class="form-control"  th:field="*{nombreDoc}" required="required"/>
 	        		 <p typeth:if="${#fields.hasErrors('nombreDoc')}" th:errors="*{nombreDoc}" class="alert alert-danger" />
 	        	</div>
 	    </div>
@@ -34,7 +35,7 @@
 	    <div class="form-group">
 	        <label for="runDoc" class="col-sm-2 control-label">Rut</label>
 	        <div class ="col-sm-10">
-	        	<input type="text" class="form-control"  th:field="*{runDoc}" placeholder="19.176.953-8" required="required"/>
+	        	<input type="text" class="form-control"  th:field="*{runDoc}" required="required"/>
 	         	<p typeth:if="${#fields.hasErrors('runDoc')}" th:errors="*{runDoc}" class="alert alert-danger" />
 	    	</div>
 	    </div>
@@ -42,7 +43,7 @@
     <div class="form-group">
         <label for="emailDoc" class="col-sm-2 control-label">Email</label>
         <div class ="col-sm-10">
-        	<input type="email" class="form-control"  th:field="*{emailDoc}" placeholder="bastianescalona@hotmail.com" required="required"/>
+        	<input type="email" class="form-control"  th:field="*{emailDoc}" required="required"/>
         	<p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
     	</div>
     </div>
@@ -59,9 +60,8 @@
 
     <div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">
-          	<button type="submit" class="btn btn-success">Crear Docente</button>
- 			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
-   		 </div>
+          	<button type="submit" class="btn btn-success">Modificar</button>
+		 </div>
     </div>
 	</form>
 </body>
