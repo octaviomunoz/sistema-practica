@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,4 +69,41 @@ public class ControDocenteCrud {
 	public String creado(@RequestParam("Docentes") Docente docente) {
 		return "CrudDocente/DocCreado";
 	}
+	
+	/*
+	 * Para Elimnar!
+	 */
+	@RequestMapping(value="/borrar/{idDoc}", method = RequestMethod.GET)
+	public String borrar(@PathVariable("idDoc") long idDoc, ModelMap mp) {
+		uc.deleteById(uc.findById(idDoc));
+		mp.put("Docentes",uc.findAll());
+		return "CrudDocente/ListaDocentes";
+	}
+	
+	/* 
+	 * Para Editar y actualizar!
+	 */
+	
+	@RequestMapping(value="/editarDoc/{idDoc}", method = RequestMethod.GET)
+	public String editar(@PathVariable("idDoc") long idDoc, ModelMap mp) {
+		mp.put("Docentes",uc.findAll());
+		return "CrudDocente/editarDoc";
+	}
+	
+	@RequestMapping(value="/actualizarDoc", method=RequestMethod.POST)
+	public String actualizar(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
+		if(bindingResult.hasErrors()) {
+			mp.put("Docentes", uc.findAll());	
+		return "CrudDocente/ListaDocentes";
+		}
+		Docente doc = uc.findOne(docente.getIdDoc());
+		doc.setNombreDoc(docente.getNombreDoc());
+		doc.setRunDoc(docente.getRunDoc());
+		doc.setEmailDoc(docente.getEmailDoc());
+		doc.setDirector(doc.getDirector());
+		uc.save(doc);
+		mp.put("docente", doc);
+		return "CrudDocente/actualizarDoc";
+	}
+
 }
