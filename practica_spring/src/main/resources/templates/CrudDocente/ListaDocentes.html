@@ -28,14 +28,17 @@
 		</div>
 	</div>
 	
-	<table class="table table-dark">
+	<table class="table table-striped">
   <thead>
   	<tr>
-        <th scope="col">Id Docente</th>
-      	<th scope="col">Rut Docente</th>
-    	<th scope="col">Nombre Docente</th>
-     	<th scope="col">Email Docente</th>
-     	<th scope="col">Es Director?</th>
+        <th>Id Docente</th>
+      	<th>Rut Docente</th>
+    	<th>Nombre Docente</th>
+     	<th>Email Docente</th>
+     	<th>Es Director?</th>
+     	<th></th>
+     	<th></th>
+     	
      
    	</tr>
     
@@ -48,7 +51,12 @@
       	<td data-th-text="${docente.nombreDoc}"></td>
       	<td data-th-text="${docente.emailDoc}"></td>
       	<td data-th-text="${docente.director}"></td>
-    </tr>
+      	<td>
+      	
+      		<a class="btn btn-outline-primary" th:href="@{'/CrudDocente/editarDoc/{idDoc}'(idDoc=${docente.idDoc})}"> Modificar</a>
+      		<a class="btn btn-outline-danger" th:href="@{'/CrudDocente/borrar/{idDoc}'(idDoc=${docente.idDoc})}" > Eliminar </a>
+      		</td>
+      </tr>
 
   	</tbody>
 	</table>
