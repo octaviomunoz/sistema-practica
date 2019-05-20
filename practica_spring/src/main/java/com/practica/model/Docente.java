@@ -30,6 +30,7 @@ public class Docente {
   private String emailDoc;
 
   @NotNull
+  
   @Size
   private String director; //Lo ideal es que de un yes or not.
 
