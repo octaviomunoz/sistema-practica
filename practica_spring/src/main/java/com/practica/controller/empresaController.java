@@ -22,8 +22,6 @@ public class empresaController {
   @Autowired
   private EmpresaRepo empresarepo;
 
-  private Empresa empresaIngresada;
-
   //Funcion que consigue las empresas para mostrar en la vista
   @RequestMapping(value = "/mostrar", method = RequestMethod.GET)
   public String mostrarEmpresa(@RequestParam(name="page", required=false, defaultValue="1")String page, Model model){
@@ -34,12 +32,14 @@ public class empresaController {
     return "empresa/mostrarEmpresa";
   }
 
-
+  //Fucion que muestra la vista con el formulario para ingresar una empresa
   @RequestMapping(value = "/ingresarDatos", method = RequestMethod.GET)
   public String inscripcionEmpresa(Empresa empresa){
     return "empresa/formEmpresa";
   }
 
+  //Funcion que muestra que muestra el formulario para ingresar empresa y si no encuentra
+  //la empresa a modificar vuelve al de mostrar empresa
   @RequestMapping(value="/modificarDatos", method = RequestMethod.GET)
   public String modificarEmpresa(Model model, @RequestParam(name="idEMP", required=false, defaultValue="0")String idEMP){
     Long id_empresa = Long.parseLong(idEMP);
@@ -53,10 +53,10 @@ public class empresaController {
     return direccion;
   }
 
+  //Funcion que valida si los datos ingresados sean correctos
+  //Si son correctos los guarda en la base de datos
   @RequestMapping(value = "/validandoEmpresa", method = RequestMethod.POST)
   public String validacionEmpresa(@Valid Empresa empresa, BindingResult bindingResult){
-
-    System.out.println(empresa);
 
     if (bindingResult.hasErrors()){
       return "empresa/formEmpresa";
@@ -65,7 +65,8 @@ public class empresaController {
     return "redirect:/empresa/mostrar";
   }
 
-
+  //Funcion que elimina una empresa mediante el id
+  //y vuelve a la vista de mostrar empresa
   @RequestMapping(value="/eliminar", method= RequestMethod.GET)
   public String eliminacioEmpresa(@RequestParam(name="idEMP", required=true, defaultValue="0")String idEMP){
     Long id_empresa = Long.parseLong(idEMP);
