@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.PracticaCrud;
+import com.practica.model.Docente;
 import com.practica.model.Practica;
 
 @Controller		//Indica que es una clase controlador
@@ -69,4 +70,41 @@ public class ControPracticaCrud {
 	public String creado(@RequestParam("Practicas") Practica practica) {
 		return "CrudPractica/PraCreado";
 	}
+	/*
+	 * Para Elimnar!
+	 */
+	@RequestMapping(value="/borrar/{idPractica}", method = RequestMethod.GET)
+	public String borrar(@PathVariable("idPractica") Long idPractica) {
+		System.out.println(idPractica);
+		uc.deleteById(idPractica);
+		return "redirect:/CrudPractica/ListaPractica";
+	}
+
+	/*
+	 * Para Editar y actualizar!
+	 */
+
+	@RequestMapping(value="/editarPra/{idPractica}", method = RequestMethod.GET)
+	public String editar(@PathVariable("idPractica") Long idPractica, ModelMap mp) {
+		mp.put("practica",uc.findById(idPractica));
+		return "CrudPractica/editarPra";
+	}
+
+	@RequestMapping(value="/actualizarPra", method=RequestMethod.POST)
+	public String actualizar(@Valid Practica practica, BindingResult bindingResult, ModelMap mp) {
+		if(bindingResult.hasErrors()) {
+			mp.put("practica",practica);
+		return "CrudPractica/editarPra/"+practica.getIdPractica().toString();
+		}
+		uc.save(practica);
+		/*Docente doc = uc.findOne();
+		doc.setNombreDoc(docente.getNombreDoc());
+		doc.setRunDoc(docente.getRunDoc());
+		doc.setEmailDoc(docente.getEmailDoc());
+		doc.setDirector(doc.getDirector());
+		uc.save(doc);
+		mp.put("docente", doc);*/
+		return "redirect:/CrudPractica/ListaPractica";
+	}
+
 }
