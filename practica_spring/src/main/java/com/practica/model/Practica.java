@@ -99,7 +99,7 @@ public class Practica {
 
 	public Practica() {
 	}
-	
+	/*
 	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
@@ -125,7 +125,7 @@ public class Practica {
 	
 	
 	
-
+	*/
 
 
 

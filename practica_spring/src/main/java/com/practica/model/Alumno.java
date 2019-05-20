@@ -51,8 +51,8 @@ public class Alumno {
 	@Size(max = 15)
 	private String telefono;
 
-	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
-	private Practica practica;
+	//@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
+	//private Practica practica;
 
 
 	/**
@@ -61,7 +61,8 @@ public class Alumno {
 	*/
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", telefono=" + telefono +", practica=" + practica + "]";
+		return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", telefono=" + telefono +"]";
+		//return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", telefono=" + telefono +", practica=" + practica + "]";
 	}
 
 	/**
@@ -182,18 +183,19 @@ public class Alumno {
 	* Returns value of practica
 	* @return
 	*/
-	public Practica getPractica() {
+	/*public Practica getPractica() {
 		return practica;
 	}
-
+	*/
 	/**
 	* Sets new value of practica
 	* @param
 	*/
+	/*
 	public void setPractica(Practica practica) {
 		this.practica = practica;
 	}
-
+	*/
 
 
 }
