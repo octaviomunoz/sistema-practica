@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+// import java.util.Date;
 
 @Entity
 @Table(name = "practicas")
@@ -16,8 +16,14 @@ public class Practica {
 
 	@NotNull
 	@Size
+<<<<<<< HEAD
 	private Date fechaPractica;
 
+=======
+	
+	private String fechaPractica;
+	
+>>>>>>> 4fc87aad0c388ac94cd90e2ae8e88f5d0ab1dfbc
 	@NotNull
 	@Size(max = 20)
 	private String nombre_evaluadorPractica;
@@ -43,11 +49,11 @@ public class Practica {
 		this.idPractica = idPractica;
 	}
 
-	public Date getFechaPractica() {
+	public String getFechaPractica() {
 		return fechaPractica;
 	}
 
-	public void setFechaPractica(Date fechaPractica) {
+	public void setFechaPractica(String fechaPractica) {
 		this.fechaPractica = fechaPractica;
 	}
 
@@ -83,7 +89,7 @@ public class Practica {
 		this.domicilio_actualPractica = domicilio_actualPractica;
 	}
 
-	public Practica(Long idPractica, @NotNull Date fechaPractica,
+	public Practica(Long idPractica, @NotNull String fechaPractica,
 			@NotNull @Size(max = 20) String nombre_evaluadorPractica,
 			@NotNull @Size(max = 15) String telefono_evaluadorPractica,
 			@NotNull @Size(max = 150) String actividades_realizarPractica,
@@ -98,7 +104,11 @@ public class Practica {
 
 	public Practica() {
 	}
+<<<<<<< HEAD
 
+=======
+	/*
+>>>>>>> 4fc87aad0c388ac94cd90e2ae8e88f5d0ab1dfbc
 	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
@@ -121,10 +131,17 @@ public class Practica {
 
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private Horario horario;
+<<<<<<< HEAD
 
 
 
 
+=======
+	
+	
+	
+	*/
+>>>>>>> 4fc87aad0c388ac94cd90e2ae8e88f5d0ab1dfbc
 
 
 

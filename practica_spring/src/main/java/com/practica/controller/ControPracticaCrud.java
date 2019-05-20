@@ -55,6 +55,7 @@ public class ControPracticaCrud {
 	public String crear(@Valid Practica practica, BindingResult bindingResult, ModelMap mp) {
 		System.out.println(practica);
 		if(bindingResult.hasErrors()) {
+			System.out.println("hola soy un error");
 			return "CrudPractica/nuevoPra";
 		}
 		uc.save(practica);

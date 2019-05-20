@@ -16,7 +16,7 @@ spring boot tools https://spring.io/tools
     CUIDADO CON LOS ATRIBUTOS RELACIONALES; QUE NO SON NECESARIOS ACA!!!!
    Octavio: Alumno - Empresa
 
-   Bastian: Practica - Docente
+   Bastian: Practica - Docente (Completo)
 
    Carlos:  EvaluacionEmpresa  - EvaluacionPractica
 
