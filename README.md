@@ -18,7 +18,7 @@ spring boot tools https://spring.io/tools
 
    Bastian: Practica - Docente (Completo)
 
-   Carlos:  EvaluacionEmpresa  - EvaluacionPractica
+   Carlos:  EvaluacionEmpresa  - EvaluacionPractica (no realizado.)
 
   # Fase intermedia?
 
