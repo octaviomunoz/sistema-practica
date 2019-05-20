@@ -1,4 +1,4 @@
-/* Si tienen problema con cache, lo descomentan.
+
 
 package com.practica.controller;
 
@@ -18,4 +18,3 @@ public class CacheController {
     }
 }
 
-*/

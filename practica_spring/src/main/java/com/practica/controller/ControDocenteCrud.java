@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.practica.model.DocenteCrud;
+import com.practica.repo.DocenteCrud;
 import com.practica.model.Docente;
 
 @Controller		//Indica que es una clase controlador
