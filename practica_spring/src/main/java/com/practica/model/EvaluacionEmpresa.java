@@ -19,11 +19,11 @@ public class EvaluacionEmpresa {
 	@Size(max = 150)
 	private String comentario;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	/*@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_practica")
 	private Practica practica;
 
-
+*/
 
 
 	/**
@@ -78,16 +78,19 @@ public class EvaluacionEmpresa {
 	* Returns value of practica
 	* @return
 	*/
+	/*
 	public Practica getPractica() {
 		return practica;
 	}
-
+*/
 	/**
 	* Sets new value of practica
 	* @param
 	*/
+	/*
 	public void setPractica(Practica practica) {
 		this.practica = practica;
 	}
+	*/
 }
 // no se que onda xD
