@@ -12,25 +12,93 @@ public class Practica {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long idPractica;
 
-
-	private Date fecha;
-
+	@NotNull
+	@Size
+	private Date fechaPractica;
+	
+	@NotNull
 	@Size(max = 20)
-	private String nombre_evaluador;
+	private String nombre_evaluadorPractica;
 
+	@NotNull
 	@Size(max = 15)
-	private String telefono_evaluador;
+	private String telefono_evaluadorPractica;
 
+	@NotNull
 	@Size(max = 150)
-	private String actividades_realizar;
+	private String actividades_realizarPractica;
 
-
+	@NotNull
 	@Size(max = 40)
 	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
-	private String domicilio_actual;
+	private String domicilio_actualPractica;
 
+	public Long getIdPractica() {
+		return idPractica;
+	}
+
+	public void setIdPractica(Long idPractica) {
+		this.idPractica = idPractica;
+	}
+
+	public Date getFechaPractica() {
+		return fechaPractica;
+	}
+
+	public void setFechaPractica(Date fechaPractica) {
+		this.fechaPractica = fechaPractica;
+	}
+
+	public String getNombre_evaluadorPractica() {
+		return nombre_evaluadorPractica;
+	}
+
+	public void setNombre_evaluadorPractica(String nombre_evaluadorPractica) {
+		this.nombre_evaluadorPractica = nombre_evaluadorPractica;
+	}
+
+	public String getTelefono_evaluadorPractica() {
+		return telefono_evaluadorPractica;
+	}
+
+	public void setTelefono_evaluadorPractica(String telefono_evaluadorPractica) {
+		this.telefono_evaluadorPractica = telefono_evaluadorPractica;
+	}
+
+	public String getActividades_realizarPractica() {
+		return actividades_realizarPractica;
+	}
+
+	public void setActividades_realizarPractica(String actividades_realizarPractica) {
+		this.actividades_realizarPractica = actividades_realizarPractica;
+	}
+
+	public String getDomicilio_actualPractica() {
+		return domicilio_actualPractica;
+	}
+
+	public void setDomicilio_actualPractica(String domicilio_actualPractica) {
+		this.domicilio_actualPractica = domicilio_actualPractica;
+	}
+
+	public Practica(Long idPractica, @NotNull Date fechaPractica,
+			@NotNull @Size(max = 20) String nombre_evaluadorPractica,
+			@NotNull @Size(max = 15) String telefono_evaluadorPractica,
+			@NotNull @Size(max = 150) String actividades_realizarPractica,
+			@NotNull @Size(max = 40) @Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros") String domicilio_actualPractica) {
+		this.idPractica = idPractica;
+		this.fechaPractica = fechaPractica;
+		this.nombre_evaluadorPractica = nombre_evaluadorPractica;
+		this.telefono_evaluadorPractica = telefono_evaluadorPractica;
+		this.actividades_realizarPractica = actividades_realizarPractica;
+		this.domicilio_actualPractica = domicilio_actualPractica;
+	}
+
+	public Practica() {
+	}
+	
 	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
@@ -46,203 +114,18 @@ public class Practica {
 
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private EvaluacionPractica evaluacionPractica;
-	/*
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_docente")
 	private Docente docente;
-	*/
+	
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private Horario horario;
+	
+	
+	
 
-	/**
-	* Returns value of id
-	* @return
-	*/
-	public Long getId() {
-		return id;
-	}
 
-	/**
-	* Sets new value of id
-	* @param
-	*/
-	public void setId(Long id) {
-		this.id = id;
-	}
 
-	/**
-	* Returns value of fecha
-	* @return
-	*/
-	public Date getFecha() {
-		return fecha;
-	}
 
-	/**
-	* Sets new value of fecha
-	* @param
-	*/
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-
-	/**
-	* Returns value of nombre_evaluador
-	* @return
-	*/
-	public String getNombre_evaluador() {
-		return nombre_evaluador;
-	}
-
-	/**
-	* Sets new value of nombre_evaluador
-	* @param
-	*/
-	public void setNombre_evaluador(String nombre_evaluador) {
-		this.nombre_evaluador = nombre_evaluador;
-	}
-
-	/**
-	* Returns value of telefono_evaluador
-	* @return
-	*/
-	public String getTelefono_evaluador() {
-		return telefono_evaluador;
-	}
-
-	/**
-	* Sets new value of telefono_evaluador
-	* @param
-	*/
-	public void setTelefono_evaluador(String telefono_evaluador) {
-		this.telefono_evaluador = telefono_evaluador;
-	}
-
-	/**
-	* Returns value of actividades_realizar
-	* @return
-	*/
-	public String getActividades_realizar() {
-		return actividades_realizar;
-	}
-
-	/**
-	* Sets new value of actividades_realizar
-	* @param
-	*/
-	public void setActividades_realizar(String actividades_realizar) {
-		this.actividades_realizar = actividades_realizar;
-	}
-
-	/**
-	* Returns value of domicilio_actual
-	* @return
-	*/
-	public String getDomicilio_actual() {
-		return domicilio_actual;
-	}
-
-	/**
-	* Sets new value of domicilio_actual
-	* @param
-	*/
-	public void setDomicilio_actual(String domicilio_actual) {
-		this.domicilio_actual = domicilio_actual;
-	}
-
-	/**
-	* Returns value of alumno
-	* @return
-	*/
-	public Alumno getAlumno() {
-		return alumno;
-	}
-
-	/**
-	* Sets new value of alumno
-	* @param
-	*/
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
-	}
-
-	/**
-	* Returns value of empresa
-	* @return
-	*/
-	public Empresa getEmpresa() {
-		return empresa;
-	}
-
-	/**
-	* Sets new value of empresa
-	* @param
-	*/
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
-
-	/**
-	* Returns value of evaluacionEmpresa
-	* @return
-	*/
-	public EvaluacionEmpresa getEvaluacionEmpresa() {
-		return evaluacionEmpresa;
-	}
-
-	/**
-	* Sets new value of evaluacionEmpresa
-	* @param
-	*/
-	public void setEvaluacionEmpresa(EvaluacionEmpresa evaluacionEmpresa) {
-		this.evaluacionEmpresa = evaluacionEmpresa;
-	}
-
-	/**
-	* Returns value of evaluacionPractica
-	* @return
-	*/
-	public EvaluacionPractica getEvaluacionPractica() {
-		return evaluacionPractica;
-	}
-
-	/**
-	* Sets new value of evaluacionPractica
-	* @param
-	*/
-	public void setEvaluacionPractica(EvaluacionPractica evaluacionPractica) {
-		this.evaluacionPractica = evaluacionPractica;
-	}
-
-	/**
-	* Returns value of docente
-	* @return
-	*
-	public Docente getDocente() {
-		return docente;
-	}
-	*/
-	/**
-	* Sets new value of docente
-	* @param
-	*
-	public void setDocente(Docente docente) {
-		this.docente = docente;
-	}
-	*/
-	/**
-	* Returns value of horario
-	* @return
-	*/
-	public Horario getHorario() {
-		return horario;
-	}
-
-	/**
-	* Sets new value of horario
-	* @param
-	*/
-	public void setHorario(Horario horario) {
-		this.horario = horario;
-	}
 }

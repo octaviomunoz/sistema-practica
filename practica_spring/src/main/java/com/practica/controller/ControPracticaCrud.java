@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.practica.repo.DocenteCrud;
-import com.practica.model.Docente;
+import com.practica.repo.PracticaCrud;
+import com.practica.model.Practica;
 
 @Controller		//Indica que es una clase controlador
-@RequestMapping("/CrudDocente")	//Indica que el archivo raiz sera localhost:8080/CrudDocente
-public class ControDocenteCrud {
+@RequestMapping("/CrudPractica")	//Indica que el archivo raiz sera localhost:8080/CrudDocente
+public class ControPracticaCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
-	private DocenteCrud uc;
+	private PracticaCrud uc;
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -28,20 +28,20 @@ public class ControDocenteCrud {
 	 * En este caso se los manda a docentes y esta guarda los datos llamados de uc.finall()
 	 * ListaDocentes es lo que retornara en formato .html
 	 */
-	@RequestMapping(value="/ListaDocente", method = RequestMethod.GET)
-	public String ListaDocentes(ModelMap mp) {
-		mp.put("Docentes", uc.findAll() );
-		return "CrudDocente/ListaDocentes";
+	@RequestMapping(value="/ListaPractica", method = RequestMethod.GET)
+	public String ListaPracticas(ModelMap mp) {
+		mp.put("Practicas", uc.findAll() );
+		return "CrudPractica/ListaPracticas";
 	}
 
 	/*
 	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
-	@RequestMapping(value="/nuevoDoc", method=RequestMethod.GET)
-	public String nuevo(Docente docente) {
+	@RequestMapping(value="/nuevoPra", method=RequestMethod.GET)
+	public String nuevo(Practica practica) {
 		System.out.println("Estoy funcionando");
-		return "CrudDocente/nuevoDoc";
+		return "CrudPractica/nuevoPra";
 	}
 
 	/*
@@ -52,51 +52,50 @@ public class ControDocenteCrud {
 	 * usando el uc.save
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
-	public String crear(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
-		System.out.println(docente);
+	public String crear(@Valid Practica practica, BindingResult bindingResult, ModelMap mp) {
+		System.out.println(practica);
 		if(bindingResult.hasErrors()) {
-			return "CrudDocente/nuevoDoc";
+			return "CrudPractica/nuevoPra";
 		}
-		uc.save(docente);
-		return "CrudDocente/DocCreado";
+		uc.save(practica);
+		return "CrudPractica/PraCreado";
 	}
 
 	/*
 	 * Se usa request param para que la vista espere una instancia de la clase docente
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
-	@RequestMapping(value="/DocCreado", method = RequestMethod.POST)
-	public String creado(@RequestParam("Docentes") Docente docente) {
-		return "CrudDocente/DocCreado";
+	@RequestMapping(value="/PraCreado", method = RequestMethod.POST)
+	public String creado(@RequestParam("Practicas") Practica practica) {
+		return "CrudPractica/PraCreado";
 	}
-
 	/*
 	 * Para Elimnar!
 	 */
-	@RequestMapping(value="/borrar/{idDoc}", method = RequestMethod.GET)
-	public String borrar(@PathVariable("idDoc") Long idDoc) {
-		System.out.println(idDoc);
-		uc.deleteById(idDoc);
-		return "redirect:/CrudDocente/ListaDocente";
+	@RequestMapping(value="/borrar/{idPractica}", method = RequestMethod.GET)
+	public String borrar(@PathVariable("idPractica") Long idPractica) {
+		System.out.println(idPractica);
+		uc.deleteById(idPractica);
+		return "redirect:/CrudPractica/ListaPractica";
 	}
 
 	/*
 	 * Para Editar y actualizar!
 	 */
 
-	@RequestMapping(value="/editarDoc/{idDoc}", method = RequestMethod.GET)
-	public String editar(@PathVariable("idDoc") Long idDoc, ModelMap mp) {
-		mp.put("docente",uc.findById(idDoc));
-		return "CrudDocente/editarDoc";
+	@RequestMapping(value="/editarPra/{idPractica}", method = RequestMethod.GET)
+	public String editar(@PathVariable("idPractica") Long idPractica, ModelMap mp) {
+		mp.put("practica",uc.findById(idPractica));
+		return "CrudPractica/editarPra";
 	}
 
-	@RequestMapping(value="/actualizarDoc", method=RequestMethod.POST)
-	public String actualizar(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
+	@RequestMapping(value="/actualizarPra", method=RequestMethod.POST)
+	public String actualizar(@Valid Practica practica, BindingResult bindingResult, ModelMap mp) {
 		if(bindingResult.hasErrors()) {
-			mp.put("docente",docente);
-		return "CrudDocente/editarDoc/"+docente.getIdDoc().toString();
+			mp.put("practica",practica);
+		return "CrudPractica/editarPra/"+practica.getIdPractica().toString();
 		}
-		uc.save(docente);
+		uc.save(practica);
 		/*Docente doc = uc.findOne();
 		doc.setNombreDoc(docente.getNombreDoc());
 		doc.setRunDoc(docente.getRunDoc());
@@ -104,7 +103,7 @@ public class ControDocenteCrud {
 		doc.setDirector(doc.getDirector());
 		uc.save(doc);
 		mp.put("docente", doc);*/
-		return "redirect:/CrudDocente/ListaDocente";
+		return "redirect:/CrudPractica/ListaPractica";
 	}
 
 }

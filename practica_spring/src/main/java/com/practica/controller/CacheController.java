@@ -1,3 +1,5 @@
+
+
 package com.practica.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,3 +17,4 @@ public class CacheController {
         cacheManager.getCacheNames().parallelStream().forEach(name -> cacheManager.getCache(name).clear());
     }
 }
+
