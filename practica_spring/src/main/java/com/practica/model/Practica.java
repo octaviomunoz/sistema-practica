@@ -16,14 +16,9 @@ public class Practica {
 
 	@NotNull
 	@Size
-<<<<<<< HEAD
-	private Date fechaPractica;
 
-=======
-	
 	private String fechaPractica;
-	
->>>>>>> 4fc87aad0c388ac94cd90e2ae8e88f5d0ab1dfbc
+
 	@NotNull
 	@Size(max = 20)
 	private String nombre_evaluadorPractica;
@@ -104,11 +99,7 @@ public class Practica {
 
 	public Practica() {
 	}
-<<<<<<< HEAD
-
-=======
 	/*
->>>>>>> 4fc87aad0c388ac94cd90e2ae8e88f5d0ab1dfbc
 	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
@@ -131,17 +122,10 @@ public class Practica {
 
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private Horario horario;
-<<<<<<< HEAD
 
 
 
-
-=======
-	
-	
-	
 	*/
->>>>>>> 4fc87aad0c388ac94cd90e2ae8e88f5d0ab1dfbc
 
 
 
