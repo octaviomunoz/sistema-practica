@@ -1,0 +1,59 @@
+<head>
+  <title>Lista de Alumnos</title>
+
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+  <script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+</head>
+
+
+<body>
+  <a class="btn btn-primary btn-lg " th:href="@{~/alumno/ingresarDatos}" th:text="'Nuevo Alumno'"></a>
+
+  <div>
+    <table class="table table-sm table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID ALUMNO</th>
+          <th scope="col">RUN</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">APELLIDO PATERNO</th>
+          <th scope="col">APELLIDO MATERNO</th>
+          <th scope="col">DOMICILIO</th>
+          <th scope="col">TELEFONO</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <tr th:each="alumno : ${PageAlumnos}">
+            <td class="align-middle" th:text="${alumno.id}"></td>
+            <td class="align-middle" th:text="${alumno.run}"></td>
+            <td class="align-middle" th:text="${alumno.nombre}"></td>
+            <td class="align-middle" th:text="${alumno.apellido_paterno}"></td>
+            <td class="align-middle" th:text="${alumno.apellido_materno}"></td>
+            <td class="align-middle" th:text="${alumno.domicilio_procedencia}"></td>
+            <td class="align-middle" th:text="${alumno.telefono}"></td>
+            <td>
+              <a class="btn btn-outline-primary" th:href="@{~/alumno/modificarDatos(idALUM=${alumno.id})}" th:text="'Modificar Alumno'"></a>
+              <a class="btn btn-outline-danger" th:href="@{~/alumno/eliminar(idALUM=${alumno.id})}" th:text="'Eliminar Alumno'"></a>
+            </td>
+          </tr>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div>
+    <nav>
+      <ul class="pagination pagination-lg justify-content-center">
+        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
+          <li class="page-item"><a class="page-link" th:href="@{~/alumno/mostrar(page=${num})}" th:text="${num}"></a></li>
+        </td>
+      </ul>
+    </nav>
+  </div>
+
+
+</body>
