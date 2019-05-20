@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="tcal.css" />
+<script type="text/javascript" src="tcal.js"></script> 
+<title>Nueva Practica</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+ 	</nav>
+
+	<div class="page-header">
+		<div class = col-sm-10>
+			<h2>Ingresar Practica</h2>
+		</div>
+    </div>
+    <form action="#" th:action="@{/CrudPractica/crear}" th:object="${practica}" method="post">
+	    <div class="form-group">
+	        <label for="nombre_evaluadorPractica" class="col-sm-2 control-label">Nombre Evaluador</label>
+	        	<div class = col-sm-10>
+	        		<input type="text" class="form-control"  th:field="*{nombre_evaluadorPractica}" placeholder="Bastian..." required="required"/>
+	        		 <p typeth:if="${#fields.hasErrors('nombre_evaluadorPractica')}" th:errors="*{nombre_evaluadorPractica}" class="alert alert-danger" />
+	        	</div>
+	    </div>
+
+	    <div class="form-group">
+	        <label for="telefono_evaluadorPractica" class="col-sm-2 control-label">Telefono Evaluador</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{telefono_evaluadorPractica}" placeholder="+5697..." required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('telefono_evaluadorPractica')}" th:errors="*{telefono_evaluadorPractica}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+
+    <div class="form-group">
+        <label for="domicilio_actualPractica" class="col-sm-2 control-label">Domicilio Practica</label>
+        <div class ="col-sm-10">
+        	<input type="text" class="form-control"  th:field="*{domicilio_actualPractica}" placeholder="Productos Fernandez..(PF)" required="required"/>
+        	<p typeth:if="${#fields.hasErrors('domicilio_actualPractica')}" th:errors="*{domicilio_actualPractica}" class="alert alert-danger" />
+    	</div>
+    </div>
+
+  <div class="form-group">
+        <label for="domicilio_actualPractica" class="col-sm-2 control-label">Fecha Practica</label>
+        <div class ="col-sm-10">
+        	<input type="date" class="form-control"  th:field="*{fechaPractica}" placeholder="" required="required"/>
+        	<p typeth:if="${#fields.hasErrors('fechaPractica')}" th:errors="*{fechaPractica}" class="alert alert-danger" />
+    	</div>
+    </div>
+    
+   	<div class="form-group">
+        <label for="actividades_realizarPractica" class="col-sm-2 control-label">Domicilio Practica</label>
+        <div class ="col-sm-10">
+        	<input type="text" class="form-control"  th:field="*{actividades_realizarPractica}" placeholder="El alumno tiene que ..." required="required"/>
+        	<p typeth:if="${#fields.hasErrors('actividades_realizarPractica')}" th:errors="*{actividades_realizarPractica}" class="alert alert-danger" />
+    	</div>
+    </div>
+
+    <div class="form-group">
+    	<div class="col-sm-offset-2 col-sm-10">
+          	<button type="submit" class="btn btn-success">Crear Docente</button>
+ 			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
+   		 </div>
+    </div>
+	</form>
+</body>
+
+</html>
