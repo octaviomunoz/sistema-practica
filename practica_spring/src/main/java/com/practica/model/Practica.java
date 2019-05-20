@@ -16,14 +16,8 @@ public class Practica {
 
 	@NotNull
 	@Size
+	private String fechaPractica;
 
-<<<<<<< HEAD
-	private String fechaPractica;
-=======
-	
-	private String fechaPractica;
-	
->>>>>>> cb20ee885d1fd901bdfbade92f47e9dec0dde3e0
 
 	@NotNull
 	@Size(max = 20)
@@ -105,13 +99,8 @@ public class Practica {
 
 	public Practica() {
 	}
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> cb20ee885d1fd901bdfbade92f47e9dec0dde3e0
-	/*
+		/*
 	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
@@ -139,17 +128,6 @@ public class Practica {
 
 
 	*/
-=======
-
-
-
-	
-	
-	
-	*/
-
->>>>>>> cb20ee885d1fd901bdfbade92f47e9dec0dde3e0
-
 
 
 }
