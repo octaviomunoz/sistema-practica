@@ -11,13 +11,13 @@ import java.util.Date;
 public class Practica {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPractica;
 
 	@NotNull
 	@Size
 	private Date fechaPractica;
-	
+
 	@NotNull
 	@Size(max = 20)
 	private String nombre_evaluadorPractica;
@@ -98,7 +98,7 @@ public class Practica {
 
 	public Practica() {
 	}
-	
+
 	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
@@ -114,16 +114,16 @@ public class Practica {
 
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private EvaluacionPractica evaluacionPractica;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_docente")
 	private Docente docente;
-	
+
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private Horario horario;
-	
-	
-	
+
+
+
 
 
 

@@ -13,7 +13,7 @@ import javax.validation.constraints.Email;
 public class Docente {
 
   @Id		//Primary key
-  @GeneratedValue(strategy = GenerationType.AUTO) //Autoincrementable.
+  @GeneratedValue(strategy = GenerationType.IDENTITY) //Autoincrementable.
   private Long idDoc;
 
   @NotNull
@@ -30,7 +30,7 @@ public class Docente {
   private String emailDoc;
 
   @NotNull
-  
+
   @Size
   private String director; //Lo ideal es que de un yes or not.
 

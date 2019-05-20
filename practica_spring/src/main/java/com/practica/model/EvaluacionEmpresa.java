@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 public class EvaluacionEmpresa {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull
@@ -90,4 +90,4 @@ public class EvaluacionEmpresa {
 		this.practica = practica;
 	}
 }
-// no se que onda xD 
+// no se que onda xD
