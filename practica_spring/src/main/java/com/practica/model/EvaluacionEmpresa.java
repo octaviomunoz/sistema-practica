@@ -6,8 +6,9 @@ import javax.validation.constraints.Size;
 
 
 @Entity
+@Table(name = "evaluacionempresas")
 public class EvaluacionEmpresa {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
