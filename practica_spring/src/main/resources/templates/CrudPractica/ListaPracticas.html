@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;"/>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+<script th:src="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
+
+<script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+
+
+<title>Lista Practicas</title>
+</head>
+
+	
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 		 <a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  	</nav>
+  	
+	<div class="panel panel-info"> <div class ="panel-heading">
+		<div class = col-sm-10>
+			<h3>Lista de Practica</h3>
+		</div>
+	</div>
+	
+	<table class="table table-striped">
+  <thead>
+  	<tr>
+        <th>Id Practica</th>
+      	<th>Nombre Evaluador</th>
+    	<th>Telefono Evaluador</th>
+     	<th>Domicilio Practica</th>
+     	<th>Actividad a Realizar</th>
+     	<th></th>
+     	<th></th>
+   	</tr>
+  </thead>
+  <tbody>
+    <tr>
+      <tr data-th-each="practica : ${Practicas}">
+      	<td data-th-text="${practica.idPractica}"></td>
+      	<td data-th-text="${practica.nombre_evaluadorPractica}"></td>
+      	<td data-th-text="${practica.telefono_evaluadorPractica}"></td>
+      	<td data-th-text="${practica.domicilio_actualPractica}"></td>
+      	<td data-th-text="${practica.fechaPractica}"></td>
+      	<td data-th-text="${practica.actividades_realizarPractica}"></td>
+      	<td>
+      		<a class="btn btn-outline-primary" th:href="@{'/CrudPractica/editarPra/{idPractica}'(idPractica=${practica.idPractica})}"> Modificar</a>
+      		<a class="btn btn-outline-danger" th:href="@{'/CrudPractica/borrar/{idPractica}'(idPractica=${practica.idPractica})}" > Eliminar </a>
+      		</td>
+      </tr>
+  	</tbody>
+	</table>
+	</div>
+	<br/>
+	<div class = col-sm-10>
+		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
+	</div>
+	</body>
+
+</html>
