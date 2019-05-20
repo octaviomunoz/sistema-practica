@@ -68,11 +68,11 @@ public class EvaluacionPractica {
 	@NotNull
 	@Size(min = 1, max = 200)
 	private String pregunta2;
-
+/*
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_practica")
 	private Practica practica;
-
+*/
 
 
 
@@ -386,6 +386,7 @@ public class EvaluacionPractica {
 	* Returns value of practica
 	* @return
 	*/
+	/*
 	public Practica getPractica() {
 		return practica;
 	}
@@ -394,7 +395,8 @@ public class EvaluacionPractica {
 	* Sets new value of practica
 	* @param
 	*/
+	/*
 	public void setPractica(Practica practica) {
 		this.practica = practica;
-	}
+	}*/
 }
