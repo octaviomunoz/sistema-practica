@@ -21,7 +21,7 @@ public class EvaluacionPractica {
 
 	@NotNull
 	private int tabla1_pregunata2;
-
+/*
 	@NotNull
 	private int tabla1_pregunata3;
 
@@ -45,7 +45,7 @@ public class EvaluacionPractica {
 
 	@NotNull
 	private int tabla1_pregunata0;
-
+*/
 	@NotNull
 	private int tabla2_pregunata1;
 
@@ -54,13 +54,13 @@ public class EvaluacionPractica {
 
 	@NotNull
 	private int tabla2_pregunata3;
-
+/*
 	@NotNull
 	private int tabla2_pregunata4;
 
 	@NotNull
 	private int tabla2_pregunata5;
-
+*/
 	@NotNull
 	@Size(min = 1, max = 200)
 	private String pregunta1;
@@ -145,7 +145,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata3
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata3() {
 		return tabla1_pregunata3;
 	}
@@ -153,7 +153,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata3
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata3(int tabla1_pregunata3) {
 		this.tabla1_pregunata3 = tabla1_pregunata3;
 	}
@@ -161,7 +161,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata4
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata4() {
 		return tabla1_pregunata4;
 	}
@@ -169,7 +169,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata4
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata4(int tabla1_pregunata4) {
 		this.tabla1_pregunata4 = tabla1_pregunata4;
 	}
@@ -177,7 +177,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata5
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata5() {
 		return tabla1_pregunata5;
 	}
@@ -185,7 +185,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata5
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata5(int tabla1_pregunata5) {
 		this.tabla1_pregunata5 = tabla1_pregunata5;
 	}
@@ -193,7 +193,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata6
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata6() {
 		return tabla1_pregunata6;
 	}
@@ -201,7 +201,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata6
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata6(int tabla1_pregunata6) {
 		this.tabla1_pregunata6 = tabla1_pregunata6;
 	}
@@ -209,7 +209,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata7
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata7() {
 		return tabla1_pregunata7;
 	}
@@ -217,7 +217,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata7
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata7(int tabla1_pregunata7) {
 		this.tabla1_pregunata7 = tabla1_pregunata7;
 	}
@@ -225,7 +225,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata8
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata8() {
 		return tabla1_pregunata8;
 	}
@@ -233,7 +233,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata8
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata8(int tabla1_pregunata8) {
 		this.tabla1_pregunata8 = tabla1_pregunata8;
 	}
@@ -241,7 +241,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata9
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata9() {
 		return tabla1_pregunata9;
 	}
@@ -249,7 +249,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata9
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata9(int tabla1_pregunata9) {
 		this.tabla1_pregunata9 = tabla1_pregunata9;
 	}
@@ -257,7 +257,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla1_pregunata0
 	* @return
-	*/
+	*//*
 	public int getTabla1_pregunata0() {
 		return tabla1_pregunata0;
 	}
@@ -265,7 +265,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla1_pregunata0
 	* @param
-	*/
+	*//*
 	public void setTabla1_pregunata0(int tabla1_pregunata0) {
 		this.tabla1_pregunata0 = tabla1_pregunata0;
 	}
@@ -305,7 +305,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla2_pregunata3
 	* @return
-	*/
+	*//*
 	public int getTabla2_pregunata3() {
 		return tabla2_pregunata3;
 	}
@@ -313,7 +313,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla2_pregunata3
 	* @param
-	*/
+	*//*
 	public void setTabla2_pregunata3(int tabla2_pregunata3) {
 		this.tabla2_pregunata3 = tabla2_pregunata3;
 	}
@@ -321,7 +321,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla2_pregunata4
 	* @return
-	*/
+	*//*
 	public int getTabla2_pregunata4() {
 		return tabla2_pregunata4;
 	}
@@ -329,7 +329,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla2_pregunata4
 	* @param
-	*/
+	*//*
 	public void setTabla2_pregunata4(int tabla2_pregunata4) {
 		this.tabla2_pregunata4 = tabla2_pregunata4;
 	}
@@ -337,7 +337,7 @@ public class EvaluacionPractica {
 	/**
 	* Returns value of tabla2_pregunata5
 	* @return
-	*/
+	*//*
 	public int getTabla2_pregunata5() {
 		return tabla2_pregunata5;
 	}
@@ -345,7 +345,7 @@ public class EvaluacionPractica {
 	/**
 	* Sets new value of tabla2_pregunata5
 	* @param
-	*/
+	*//*
 	public void setTabla2_pregunata5(int tabla2_pregunata5) {
 		this.tabla2_pregunata5 = tabla2_pregunata5;
 	}
