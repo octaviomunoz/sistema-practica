@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<title>Editar Evaluacion Empresa</title>
+<title>Editar Evaluacion Practica</title>
 </head>
 <body>
 
@@ -19,27 +19,87 @@
 
 	<div class="page-header">
 		<div class = col-sm-10>
-			<h2>Editar Evaluacion Empresa</h2>
+			<h2>Editar Evaluacion Practica</h2>
 		</div>
     </div>
-    <form action="#" th:action="@{/CrudEvaluacionEmpresa/actualizarEvaluacionEmpresa}" th:object="${evaluacionempresa}" method="post">
+    <form action="#" th:action="@{/CrudEvaluacionPractica/actualizarEvaluacionPractica}" th:object="${evaluacionpractica}" method="post">
 		<input type="hidden" id="id" name="id" th:field="*{id}"/> 	
 	    <div class="form-group">
-	        <label for="nota" class="col-sm-2 control-label">Nota</label>
+	        <label for="fecha" class="col-sm-2 control-label">Fecha</label>
 	        	<div class = col-sm-10>
-	        		<input type="number" step="0.1" min="1.0" max="7.0" class="form-control"  th:field="*{nota}" required="required"/>
-	        		 <p typeth:if="${#fields.hasErrors('nota')}" th:errors="*{nota}" class="alert alert-danger" />
+	        		<input type="date" class="form-control"  th:field="*{fecha}" required="required"/>
+        	<p typeth:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" class="alert alert-danger" />
 	        	</div>
 	    </div>
 
 	    <div class="form-group">
-	        <label for="comentario" class="col-sm-2 control-label">Comentario</label>
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla1_pregunata1}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+	
+	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla1_pregunata2}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+   	
+   	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla2_pregunata1}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+   	
+   	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla2_pregunata2}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+   	
+   	<div class="form-group">
+	        <label for="pregunta1" class="col-sm-2 control-label">Pregunt1</label>
 	        <div class ="col-sm-10">
-	        	<input type="text" class="form-control"  th:field="*{comentario}" required="required"/>
-	         	<p typeth:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}" class="alert alert-danger" />
+	        	<input type="text" class="form-control"  th:field="*{pregunta1}" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('pregunta1')}" th:errors="*{pregunta1}" class="alert alert-danger" />
 	    	</div>
 	    </div>
-
+	    
+	    <div class="form-group">
+	        <label for="pregunta2" class="col-sm-2 control-label">Pregunta2</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{pregunta2}" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('pregunta2')}" th:errors="*{pregunta2}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+   	
 
     <div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">
