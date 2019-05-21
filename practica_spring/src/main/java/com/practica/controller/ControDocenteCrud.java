@@ -40,7 +40,6 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/nuevoDoc", method=RequestMethod.GET)
 	public String nuevo(Docente docente) {
-		System.out.println("Estoy funcionando");
 		return "CrudDocente/nuevoDoc";
 	}
 
@@ -53,11 +52,12 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
 	public String crear(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
-		System.out.println(docente);
 		if(bindingResult.hasErrors()) {
 			return "CrudDocente/nuevoDoc";
 		}
-		uc.save(docente);
+		if(permitirGuardaDocente(docente)){
+			uc.save(docente);
+		}
 		return "CrudDocente/DocCreado";
 	}
 
@@ -75,7 +75,6 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/borrar/{idDoc}", method = RequestMethod.GET)
 	public String borrar(@PathVariable("idDoc") Long idDoc) {
-		System.out.println(idDoc);
 		uc.deleteById(idDoc);
 		return "redirect:/CrudDocente/ListaDocente";
 	}
@@ -96,15 +95,25 @@ public class ControDocenteCrud {
 			mp.put("docente",docente);
 		return "CrudDocente/editarDoc/"+docente.getIdDoc().toString();
 		}
-		uc.save(docente);
-		/*Docente doc = uc.findOne();
-		doc.setNombreDoc(docente.getNombreDoc());
-		doc.setRunDoc(docente.getRunDoc());
-		doc.setEmailDoc(docente.getEmailDoc());
-		doc.setDirector(doc.getDirector());
-		uc.save(doc);
-		mp.put("docente", doc);*/
+		if(permitirGuardaDocente(docente)){
+			uc.save(docente);
+		}
 		return "redirect:/CrudDocente/ListaDocente";
 	}
+
+ //Metodo que veifica si se puede guardar o no un docente de manera que el run se unico
+	public boolean permitirGuardaDocente(Docente docente){
+    boolean permitir = false;
+    if(docente.getIdDoc() != null){
+      if(docente.getIdDoc() == uc.findByRunDoc(docente.getRunDoc()).getIdDoc()){
+        permitir = true;
+      }
+    }else{
+      if(!uc.existsByRunDoc(docente.getRunDoc())){
+        permitir = true;
+      }
+    }
+    return permitir;
+  }
 
 }
