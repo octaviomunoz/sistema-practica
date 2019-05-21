@@ -1,61 +1,81 @@
 <head>
   <title>Formulario Alumno</title>
-
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+  <script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
 </head>
 
 <body>
+  <div class = col-sm-10>
+    <h2>Ingresar Alumno</h2>
+  </div>
+
   <tr th:if="${run_repetido}" >
+    <div class="alert alert-danger" role="alert">
     <td>El Run Ingresado Ya Existe</td>
+    </div>
   </tr>
 
+
   <form action="#" th:action="@{/alumno/validandoAlumno}" th:object="${alumno}" method="post">
-    <table>
 
-      <tr>
-        <td>Run:</td>
-        <td><input type="text" th:field="*{run}"/></td>
-        <td th:if="${#fields.hasErrors('run')}" th:errors="*{run}"></td>
-      </tr>
+    <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Run</span>
+      </div>
+      <input type="number" class="form-control" th:field="*{run}"/>
+      <p th:if="${#fields.hasErrors('run')}" th:errors="*{run}"></p>
 
-      <tr>
-        <td>Nombre:</td>
-        <td><input type="text" th:field="*{nombre}"/></td>
-        <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
-      </tr>
+    </div>
 
-      <tr>
-        <td>Apellido Paterno:</td>
-        <td><input  type="text" th:field="*{apellido_paterno}"/></td>
-        <td th:if="${#fields.hasErrors('apellido_paterno')}" th:errors="*{apellido_paterno}"></td>
-      </tr>
+    <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nombres</span>
+      </div>
+      <input type="text" class="form-control" th:field="*{nombre}"/>
+      <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
 
-      <tr>
-        <td>Apellido Materno:</td>
-        <td><input type="text" th:field="*{apellido_materno}"/></td>
-        <td th:if="${#fields.hasErrors('apellido_materno')}" th:errors="*{apellido_materno}"></td>
+    </div>
 
-      </tr>
+    <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Apellido Paterno</span>
+      </div>
+      <input type="text" class="form-control" th:field="*{apellido_paterno}"/>
+      <p th:if="${#fields.hasErrors('apellido_paterno')}" th:errors="*{apellido_paterno}"></p>
 
-      <tr>
-        <td>Domicilio Procedencia:</td>
-        <td><input type="text" th:field="*{domicilio_procedencia}"/></td>
-        <td th:if="${#fields.hasErrors('domicilio_procedencia')}" th:errors="*{domicilio_procedencia}"></td>
+    </div>
 
-      </tr>
+    <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Apellido Materno</span>
+      </div>
+      <input type="text" class="form-control" th:field="*{apellido_materno}"/>
+      <p th:if="${#fields.hasErrors('apellido_materno')}" th:errors="*{apellido_materno}"></p>
 
-      <tr>
-        <td>Telefono:</td>
-        <td><input type="number" th:field="*{telefono}"/></td>
-      </tr>
+    </div>
 
+    <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Direccion</span>
+      </div>
+      <input type="text" class="form-control" th:field="*{domicilio_procedencia}"/>
+      <p th:if="${#fields.hasErrors('domicilio_procedencia')}" th:errors="*{domicilio_procedencia}"></p>
 
-      <tr>
-        <td><input type="hidden" th:field="*{id}"></td>
-      <tr>
+    </div>
 
-      <tr>
-        <td><button type="submit">Submit</button></td>
-      </tr>
-    </table>
+    <div class="form-group input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Telefono</span>
+      </div>
+      <input type="number" class="form-control" th:field="*{telefono}"/>
+      <p th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></p>
+    </div>
+
+    <div>
+      <input type="hidden" th:field="*{id}">
+    </div>
+    <div>
+      <td><button type="submit" class="btn btn-success">Crear Alumno</button></td>
+    </div>
   </form>
 </body>
