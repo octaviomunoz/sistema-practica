@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.EvaluacionPracticaRepo;
-import com.practica.model.Evaluacionpractica;
 
+import com.practica.model.Evaluacionpractica;
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/CrudEvaluacionPractica")	//Indica que el archivo raiz sera localhost:8080/CrudEvaluacionPractica
@@ -32,7 +32,7 @@ public class EvaluacionPracticaCrud {
 	@RequestMapping(value="/ListaEvaPractica", method = RequestMethod.GET)
 	public String ListaEvaluacionPractica(ModelMap mp) {
 		mp.put("Evaluacionpracticas", uc.findAll() );
-		return "CrudEvaluacionPractica/ListaEvaPracticas";
+		return "CrudEvaluacionPractica/ListaEvaluacionPracticas";
 	}
 
 	/*
@@ -58,14 +58,15 @@ public class EvaluacionPracticaCrud {
 		if(bindingResult.hasErrors()) {
 			return "CrudEvaluacionPractica/nuevoEvaPractica";
 		}
+
 		uc.save(evaluacionpractica);
 		return "CrudEvaluacionPractica/EvaPracticaCreado";
 	}
-
 	/*
 	 * Se usa request param para que la vista espere una instancia de la clase evaluacion practica
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
+
 	@RequestMapping(value="/EvaPracticaCreado", method = RequestMethod.POST)
 	public String creado(@RequestParam("Evaluacionpracticas") Evaluacionpractica evaluacionpractica) {
 		return "CrudEvaluacionPractica/EvaPracticaCreado";
@@ -102,4 +103,7 @@ public class EvaluacionPracticaCrud {
 	}
 
 
+
+
 }
+
