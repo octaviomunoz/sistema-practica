@@ -32,7 +32,7 @@ public class EvaluacionPracticaCrud {
 	@RequestMapping(value="/ListaEvaPractica", method = RequestMethod.GET)
 	public String ListaEvaluacionPractica(ModelMap mp) {
 		mp.put("Evaluacionpracticas", uc.findAll() );
-		return "CrudEvaluacionPractica/ListaEvaluacionPracticas";
+		return "CrudEvaluacionPractica/ListaEvaPracticas";
 	}
 
 	/*
