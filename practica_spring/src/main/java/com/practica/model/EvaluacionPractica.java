@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
+@Table(name = "evaluacionpracticas")
 public class EvaluacionPractica {
 
 	@Id
@@ -51,7 +52,7 @@ public class EvaluacionPractica {
 
 	@NotNull
 	private int tabla2_pregunata2;
-
+/*
 	@NotNull
 	private int tabla2_pregunata3;
 /*
