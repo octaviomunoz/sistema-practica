@@ -22,7 +22,7 @@
 		</div>
     </div>
     <form action="#" th:action="@{/CrudPractica/actualizarPra}" th:object="${practica}" method="post">
-	    <input type="hidden" id="idPractica" name="idPractica" th:field="*{idPractica}"/>
+	    <input type="hidden" id="id" name="id" th:field="*{id}"/>
 	    <div class="form-group">
 	        <label for="nombre_evaluadorPractica" class="col-sm-2 control-label">Nombre Evaluador</label>
 	        	<div class = col-sm-10>
