@@ -31,7 +31,7 @@
 	<table class="table table-striped">
   <thead>
   	<tr>
-        <th>Id EvaluacionEmpresa</th>
+        <th>Id Evaluacion Empresa</th>
       	<th>Nota Evaluacion Empresa</th>
     	<th>Comentario Evaluacion Empresa.</th>
      	<th></th>
@@ -43,14 +43,14 @@
   </thead>
   <tbody>
     <tr>
-      <tr data-th-each="evaluacionempresa : ${EvaluacionEmpresas}">
+      <tr data-th-each="evaluacionempresa : ${Evaluacionempresas}">
       	<td data-th-text="${evaluacionempresa.id}"></td>
       	<td data-th-text="${evaluacionempresa.nota}"></td>
-      	<td data-th-text="${evaluacion empresa.comentario}"></td>
+      	<td data-th-text="${evaluacionempresa.comentario}"></td>
       	<td>
       	
-      		<a class="btn btn-outline-primary" th:href="@{'/EvaluacionEmpresaCrud/editarEvaluacionEmpresa/{id}'(id=${evaluacionempresa.id})}"> Modificar</a>
-      		<a class="btn btn-outline-danger" th:href="@{'/EvaluacionEmpresaCrud/borrar/{id}'(id=${evaluacionempresa.id})}" > Eliminar </a>
+      		<a class="btn btn-outline-primary" th:href="@{'/CrudEvaluacionEmpresa/editarEvaluacionEmpresa/{id}'(id=${evaluacionempresa.id})}"> Modificar</a>
+      		<a class="btn btn-outline-danger" th:href="@{'/CrudEvaluacionEmpresa/borrar/{id}'(id=${evaluacionempresa.id})}" > Eliminar </a>
       		</td>
       </tr>
 

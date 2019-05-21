@@ -7,14 +7,14 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "evaluacionempresas")
-public class EvaluacionEmpresa {
+public class Evaluacionempresa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull
-	private int nota;
+	private float nota;
 
 	@NotNull
 	@Size(max = 150)
@@ -47,7 +47,7 @@ public class EvaluacionEmpresa {
 	* Returns value of nota
 	* @return
 	*/
-	public int getNota() {
+	public float getNota() {
 		return nota;
 	}
 
@@ -55,7 +55,7 @@ public class EvaluacionEmpresa {
 	* Sets new value of nota
 	* @param
 	*/
-	public void setNota(int nota) {
+	public void setNota(float nota) {
 		this.nota = nota;
 	}
 

@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.EvaluacionEmpresaRepo;
-import com.practica.model.Docente;
-import com.practica.model.EvaluacionEmpresa;
+import com.practica.model.Evaluacionempresa;
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/CrudEvaluacionEmpresa")	//Indica que el archivo raiz sera localhost:8080/CrudEvaluacionEmpresa
@@ -40,7 +39,7 @@ public class EvaluacionEmpresaCrud {
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
 	@RequestMapping(value="/nuevoEvaEmpresa", method=RequestMethod.GET)
-	public String nuevo(EvaluacionEmpresa evaluacionEmpresa) {
+	public String nuevo(Evaluacionempresa evaluacionempresa) {
 		System.out.println("Estoy funcionando");
 		return "CrudEvaluacionEmpresa/nuevoEvaEmpresa";
 	}
@@ -53,12 +52,12 @@ public class EvaluacionEmpresaCrud {
 	 * usando el uc.save
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
-	public String crear(@Valid EvaluacionEmpresa evaluacionEmpresa, BindingResult bindingResult, ModelMap mp) {
-		System.out.println(evaluacionEmpresa);
+	public String crear(@Valid Evaluacionempresa evaluacionempresa, BindingResult bindingResult, ModelMap mp) {
+		System.out.println(evaluacionempresa);
 		if(bindingResult.hasErrors()) {
 			return "CrudEvaluacionEmpresa/nuevoEvaEmpresa";
 		}
-		uc.save(evaluacionEmpresa);
+		uc.save(evaluacionempresa);
 		return "CrudEvaluacionEmpresa/EvaluacionEmpresaCreado";
 	}
 
@@ -67,7 +66,7 @@ public class EvaluacionEmpresaCrud {
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
 	@RequestMapping(value="/EvaluacionEmpresaCreado", method = RequestMethod.POST)
-	public String creado(@RequestParam("Evaluacionempresas") EvaluacionEmpresa evaluacionEmpresa) {
+	public String creado(@RequestParam("Evaluacionempresas") Evaluacionempresa evaluacionempresa) {
 		return "CrudEvaluacionEmpresa/EvaluacionEmpresaCreado";
 	}
 	/*
@@ -91,7 +90,7 @@ public class EvaluacionEmpresaCrud {
 	}
 
 	@RequestMapping(value="/actualizarEvaluacionEmpresa", method=RequestMethod.POST)
-	public String actualizar(@Valid EvaluacionEmpresa evaluacionempresa, BindingResult bindingResult, ModelMap mp) {
+	public String actualizar(@Valid Evaluacionempresa evaluacionempresa, BindingResult bindingResult, ModelMap mp) {
 		if(bindingResult.hasErrors()) {
 			mp.put("evaluacionempresa",evaluacionempresa);
 		return "CrudEvaluacionEmpresa/editarEvaluacionEmpresa/"+evaluacionempresa.getId().toString();
