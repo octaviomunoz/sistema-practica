@@ -26,7 +26,7 @@
 	    <div class="form-group">
 	        <label for="nota" class="col-sm-2 control-label">Nota</label>
 	        	<div class = col-sm-10>
-	        		<input type="number" class="form-control"  th:field="*{nota}" placeholder="1.0 - 7.0" required="required"/>
+	        		<input type="text" class="form-control"  th:field="*{nota}" placeholder="1.0 - 7.0" required="required"/>
 	        		 <p typeth:if="${#fields.hasErrors('id')}" th:errors="*{nota}" class="alert alert-danger" />
 	        	</div>
 	    </div>
