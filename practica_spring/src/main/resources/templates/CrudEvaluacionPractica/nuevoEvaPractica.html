@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<title>Nuevo Docente</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="#">Practica </a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+ 	</nav>
+
+	<div class="page-header">
+		<div class = col-sm-10>
+			<h2>Ingresar Evaluacion Empresa</h2>
+		</div>
+    </div>
+    <form action="#" th:action="@{/CrudEvaluacionEmpresa/crear}" th:object="${evaluacionempresa}" method="post">
+	    <div class="form-group">
+	        <label for="nota" class="col-sm-2 control-label">Nota</label>
+	        	<div class = col-sm-10>
+	        		<input type="number" step="0.1" min="1.0" max="7.0" class="form-control"  th:field="*{nota}" placeholder="1.0 - 7.0" required="required"/>
+	        		 <p typeth:if="${#fields.hasErrors('nota')}" th:errors="*{nota}" class="alert alert-danger" />
+	        	</div>
+	    </div>
+
+	    <div class="form-group">
+	        <label for="comentario" class="col-sm-2 control-label">Comentario</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{comentario}" placeholder="Agrege algun Comentario" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+
+    <div class="form-group">
+    	<div class="col-sm-offset-2 col-sm-10">
+          	<button type="submit" class="btn btn-success">Crear Evaluacion Empresa</button>
+ 			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
+   		 </div>
+    </div>
+	</form>
+</body>
+
+</html>
