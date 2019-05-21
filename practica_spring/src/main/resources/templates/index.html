@@ -48,28 +48,44 @@
    </div>
 </nav>
 
-	<div class="jumbotron">
-  		<h1 class="display-4">Hello, Pez!</h1>
-  		<p class="lead">Aca solo va informacion sobre el pescadito.</p>
-  		<hr class="my-4">
- 		 <p>Si quieres obtener mas informacion de esto puedes apretar en leer mas.</p>
-  		<a class="btn btn-primary btn-lg" href="https://es.wikipedia.org/wiki/Pez" role="button">Leer mas</a>
-	</div>
+	<div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example" data-slide-to="1"></li>
+    <li data-target="#carousel-example" data-slide-to="2"></li>
+  </ol>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-3">
-			  	<div class="card" style="width: 18rem;">
-  					<img src="https://www.cocinadominicana.com/wp-content/uploads/2003/01/fried-fish-recipe.jpg" class="card-img-top" alt="...">
-					<div class="card-body">
-    					<h5 class="card-title">Pescado Frito</h5>
-    					<p class="card-text">Rico pescado frito acompañado de lechuga</p>
-    					<a href="https://en.wikipedia.org/wiki/Pescado_frito" class="btn btn-primary">Pedir YA!</a>
-  					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="carousel-inner">
+    <div class="item active">
+      <a href="#"><img src="http://placekitten.com/1600/600" /></a>
+      <div class="carousel-caption">
+        <h3>Meow</h3>
+        <p>Just Kitten Around</p>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="http://placekitten.com/1600/600" /></a>
+      <div class="carousel-caption">
+        <h3>Meow</h3>
+        <p>Just Kitten Around</p>
+      </div>
+    </div>
+    <div class="item">
+      <a href="#"><img src="http://placekitten.com/1600/600" /></a>
+      <div class="carousel-caption">
+        <h3>Meow</h3>
+        <p>Just Kitten Around</p>
+      </div>
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
 </body>
 
 
