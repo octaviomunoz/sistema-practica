@@ -14,11 +14,13 @@ spring boot tools https://spring.io/tools
     Hay que hacer los CRUD de las tablas:
     Los CRUD trabajarlos en controller distintos 
     CUIDADO CON LOS ATRIBUTOS RELACIONALES; QUE NO SON NECESARIOS ACA!!!!
-   Octavio: Alumno - Empresa
+   Octavio: Alumno - Empresa (Completo)
 
    Bastian: Practica - Docente (Completo)
 
-   Carlos:  EvaluacionEmpresa  - EvaluacionPractica (no realizado.)
+   Carlos:  EvaluacionEmpresa  - EvaluacionPractica (Completo)
+   
+  # Toda la funcionalidad esta en un Index. El tema del login queda para la siguiente fase debido a errores.
 
   # Fase intermedia?
 
