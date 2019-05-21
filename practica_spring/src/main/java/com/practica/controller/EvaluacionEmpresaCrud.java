@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.EvaluacionEmpresaRepo;
+import com.practica.model.Docente;
 import com.practica.model.EvaluacionEmpresa;
 
 @Controller		//Indica que es una clase controlador
@@ -28,10 +29,10 @@ public class EvaluacionEmpresaCrud {
 	 * En este caso se los manda a evaluacionempresas y esta guarda los datos llamados de uc.finall()
 	 * Listaempresa es lo que retornara en formato .html
 	 */
-	@RequestMapping(value="/ListaEvaEmpresa", method = RequestMethod.GET)
-	public String ListaEmpresa(ModelMap mp) {
+	@RequestMapping(value="/ListaEvaluacionEmpresa", method = RequestMethod.GET)
+	public String ListaEvaluacionEmpresa(ModelMap mp) {
 		mp.put("Evaluacionempresas", uc.findAll() );
-		return "CrudEvaluacionEmpresa/ListaEvaEmpresas";
+		return "CrudEvaluacionEmpresa/ListaEvaluacionEmpresas";
 	}
 
 	/*
@@ -58,16 +59,48 @@ public class EvaluacionEmpresaCrud {
 			return "CrudEvaluacionEmpresa/nuevoEvaEmpresa";
 		}
 		uc.save(evaluacionEmpresa);
-		return "CrudEvaluacionEmpresa/EvaEmpresaCreado";
+		return "CrudEvaluacionEmpresa/EvaluacionEmpresaCreado";
 	}
 
 	/*
 	 * Se usa request param para que la vista espere una instancia de la clase evaluacion empresa
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
-	@RequestMapping(value="/EvaEmpresaCreado", method = RequestMethod.POST)
+	@RequestMapping(value="/EvaluacionEmpresaCreado", method = RequestMethod.POST)
 	public String creado(@RequestParam("Evaluacionempresas") EvaluacionEmpresa evaluacionEmpresa) {
-		return "EvaluacionEmpresaRepo/EvaEmpresaCreado";
+		return "CrudEvaluacionEmpresa/EvaluacionEmpresaCreado";
 	}
+	/*
+	 * Para Elimnar!
+	 */
+	@RequestMapping(value="/borrar/{id}", method = RequestMethod.GET)
+	public String borrar(@PathVariable("id") Long id) {
+		System.out.println(id);
+		uc.deleteById(id);
+		return "redirect:/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa";
+	}
+
+	/*
+	 * Para Editar y actualizar!
+	 */
+
+	@RequestMapping(value="/editarEvaluacionEmpresa/{id}", method = RequestMethod.GET)
+	public String editar(@PathVariable("id") Long id, ModelMap mp) {
+		mp.put("evaluacionempresa",uc.findById(id));
+		return "CrudEvaluacionEmpresa/editarEvaluacionEmpresa";
+	}
+
+	@RequestMapping(value="/actualizarEvaluacionEmpresa", method=RequestMethod.POST)
+	public String actualizar(@Valid EvaluacionEmpresa evaluacionempresa, BindingResult bindingResult, ModelMap mp) {
+		if(bindingResult.hasErrors()) {
+			mp.put("evaluacionempresa",evaluacionempresa);
+		return "CrudEvaluacionEmpresa/editarEvaluacionEmpresa/"+evaluacionempresa.getId().toString();
+		}
+		uc.save(evaluacionempresa);
+		return "redirect:/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa";
+	}
+
+
+
 
 }
