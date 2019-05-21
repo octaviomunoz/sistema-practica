@@ -25,25 +25,25 @@ public class Alumno {
 	@NotNull
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 30)
-	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
+	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
 	private String nombre;
 
 	@NotNull
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 15)
-	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
+	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
 	private String apellido_paterno;
 
 	@NotNull
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 15)
-	@Pattern(regexp = "[A-Za-z]+", message = "Solo admite letras")
+	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
 	private String apellido_materno;
 
 	@NotNull
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 40)
-	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
+	@Pattern(regexp = "[A-Za-z0-9 ]+", message = "Solo admite letras y numeros")
 	private String domicilio_procedencia;
 
 	@NotNull

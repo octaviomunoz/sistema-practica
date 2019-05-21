@@ -20,13 +20,13 @@ public class Empresa {
 	@NotNull
 	@Size(max = 20)
 	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
+	@Pattern(regexp = "[A-Za-z0-9 ]+", message = "Solo admite letras y numeros")
 	private String nombre;
 
 	@NotNull
 	@Size(max = 40)
 	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Pattern(regexp = "[A-Za-z0-9]+", message = "Solo admite letras y numeros")
+	@Pattern(regexp = "[A-Za-z0-9 ]+", message = "Solo admite letras y numeros")
 	private String direccion;
 
 	@NotNull
