@@ -60,8 +60,7 @@ public class alumnoController {
     String direccion = "redirect:/alumno/mostrar";
     if (bindingResult.hasErrors() ){
       direccion = "alumno/formAlumno";
-    }
-    if (permitirGuardaAlumno(alumno)){
+    }else if (permitirGuardaAlumno(alumno)){
       alumnorepo.save(alumno);
     }else{
       model.addAttribute("run_repetido", true);
