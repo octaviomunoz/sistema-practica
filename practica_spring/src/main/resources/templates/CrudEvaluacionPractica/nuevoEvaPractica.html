@@ -22,7 +22,7 @@
 			<h2>Ingresar Evaluacion Practica</h2>
 		</div>
     </div>
-    <form action="#" th:action="@{/CrudEvaluacionPractica/actualizarEvaluacionPractica}" th:object="${evaluacionpractica}" method="post">
+    <form action="#" th:action="@{/CrudEvaluacionPractica/crear}" th:object="${evaluacionpractica}" method="post">
 		<input type="hidden" id="id" name="id" th:field="*{id}"/> 	
 	    <div class="form-group">
 	        <label for="fecha" class="col-sm-2 control-label">Fecha</label>
@@ -85,7 +85,7 @@
    	</div>
    	
    	<div class="form-group">
-	        <label for="pregunta1" class="col-sm-2 control-label">Pregunt1</label>
+	        <label for="pregunta1" class="col-sm-2 control-label">Pregunta1</label>
 	        <div class ="col-sm-10">
 	        	<input type="text" class="form-control"  th:field="*{pregunta1}" required="required"/>
 	         	<p typeth:if="${#fields.hasErrors('pregunta1')}" th:errors="*{pregunta1}" class="alert alert-danger" />

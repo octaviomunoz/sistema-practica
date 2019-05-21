@@ -8,20 +8,20 @@ import java.util.Date;
 
 @Entity
 @Table(name = "evaluacionpracticas")
-public class EvaluacionPractica {
+public class Evaluacionpractica {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotNull
-	private Date fecha;
+	private String fecha;
 
 	@NotNull
-	private int tabla1_pregunata1;
+	private String tabla1_pregunata1;
 
 	@NotNull
-	private int tabla1_pregunata2;
+	private String tabla1_pregunata2;
 /*
 	@NotNull
 	private int tabla1_pregunata3;
@@ -48,10 +48,10 @@ public class EvaluacionPractica {
 	private int tabla1_pregunata0;
 */
 	@NotNull
-	private int tabla2_pregunata1;
+	private String tabla2_pregunata1;
 
 	@NotNull
-	private int tabla2_pregunata2;
+	private String tabla2_pregunata2;
 /*
 	@NotNull
 	private int tabla2_pregunata3;
@@ -99,7 +99,7 @@ public class EvaluacionPractica {
 	* Returns value of fecha
 	* @return
 	*/
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
@@ -107,7 +107,7 @@ public class EvaluacionPractica {
 	* Sets new value of fecha
 	* @param
 	*/
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
@@ -115,7 +115,7 @@ public class EvaluacionPractica {
 	* Returns value of tabla1_pregunata1
 	* @return
 	*/
-	public int getTabla1_pregunata1() {
+	public String getTabla1_pregunata1() {
 		return tabla1_pregunata1;
 	}
 
@@ -123,7 +123,7 @@ public class EvaluacionPractica {
 	* Sets new value of tabla1_pregunata1
 	* @param
 	*/
-	public void setTabla1_pregunata1(int tabla1_pregunata1) {
+	public void setTabla1_pregunata1(String tabla1_pregunata1) {
 		this.tabla1_pregunata1 = tabla1_pregunata1;
 	}
 
@@ -131,7 +131,7 @@ public class EvaluacionPractica {
 	* Returns value of tabla1_pregunata2
 	* @return
 	*/
-	public int getTabla1_pregunata2() {
+	public String getTabla1_pregunata2() {
 		return tabla1_pregunata2;
 	}
 
@@ -139,7 +139,7 @@ public class EvaluacionPractica {
 	* Sets new value of tabla1_pregunata2
 	* @param
 	*/
-	public void setTabla1_pregunata2(int tabla1_pregunata2) {
+	public void setTabla1_pregunata2(String tabla1_pregunata2) {
 		this.tabla1_pregunata2 = tabla1_pregunata2;
 	}
 
@@ -275,7 +275,7 @@ public class EvaluacionPractica {
 	* Returns value of tabla2_pregunata1
 	* @return
 	*/
-	public int getTabla2_pregunata1() {
+	public String getTabla2_pregunata1() {
 		return tabla2_pregunata1;
 	}
 
@@ -283,7 +283,7 @@ public class EvaluacionPractica {
 	* Sets new value of tabla2_pregunata1
 	* @param
 	*/
-	public void setTabla2_pregunata1(int tabla2_pregunata1) {
+	public void setTabla2_pregunata1(String tabla2_pregunata1) {
 		this.tabla2_pregunata1 = tabla2_pregunata1;
 	}
 
@@ -291,7 +291,7 @@ public class EvaluacionPractica {
 	* Returns value of tabla2_pregunata2
 	* @return
 	*/
-	public int getTabla2_pregunata2() {
+	public String getTabla2_pregunata2() {
 		return tabla2_pregunata2;
 	}
 
@@ -299,7 +299,7 @@ public class EvaluacionPractica {
 	* Sets new value of tabla2_pregunata2
 	* @param
 	*/
-	public void setTabla2_pregunata2(int tabla2_pregunata2) {
+	public void setTabla2_pregunata2(String tabla2_pregunata2) {
 		this.tabla2_pregunata2 = tabla2_pregunata2;
 	}
 
