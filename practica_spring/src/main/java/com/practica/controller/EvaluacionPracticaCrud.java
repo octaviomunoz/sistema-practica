@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.EvaluacionPracticaRepo;
 import com.practica.model.EvaluacionPractica;
+import com.practica.model.Evaluacionempresa;
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/CrudEvaluacionPractica")	//Indica que el archivo raiz sera localhost:8080/CrudEvaluacionPractica
@@ -28,10 +29,10 @@ public class EvaluacionPracticaCrud {
 	 * En este caso se los manda a evaluacionempresas y esta guarda los datos llamados de uc.finall()
 	 * Listaempresa es lo que retornara en formato .html
 	 */
-	@RequestMapping(value="/ListaEvaPractica", method = RequestMethod.GET)
-	public String ListaPractica(ModelMap mp) {
+	@RequestMapping(value="/ListaEvaluacionPractica", method = RequestMethod.GET)
+	public String ListaEvaluacionPractica(ModelMap mp) {
 		mp.put("Evaluacionpracticas", uc.findAll() );
-		return "CrudEvaluacionPractica/ListaEvaPracticas";
+		return "CrudEvaluacionPractica/ListaEvaluacionPracticas";
 	}
 
 	/*
@@ -58,16 +59,49 @@ public class EvaluacionPracticaCrud {
 			return "CrudEvaluacionPractica/nuevoEvaPractica";
 		}
 		uc.save(evaluacionPractica);
-		return "CrudEvaluacionPractica/EvaPracticaCreado";
+		return "CrudEvaluacionPractica/EvaluacionPracticaCreado";
 	}
 
 	/*
 	 * Se usa request param para que la vista espere una instancia de la clase evaluacion practica
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
-	@RequestMapping(value="/EvaPracticaCreado", method = RequestMethod.POST)
+	@RequestMapping(value="/EvaluacionPracticaCreado", method = RequestMethod.POST)
 	public String creado(@RequestParam("Evaluacionpracticas") EvaluacionPractica evaluacionPractica) {
-		return "EvaluacionPracticaRepo/EvaPracticaCreado";
+		return "CrudEvaluacionPractica/EvaluacionPracticaCreado";
+	}
+	/*
+	 * Para Elimnar!
+	 */
+	@RequestMapping(value="/borrar/{id}", method = RequestMethod.GET)
+	public String borrar(@PathVariable("id") Long id) {
+		System.out.println(id);
+		uc.deleteById(id);
+		return "redirect:/CrudEvaluacionPractica/ListaEvaluacionPractica";
 	}
 
+	/*
+	 * Para Editar y actualizar!
+	 */
+
+	@RequestMapping(value="/editarEvaluacionPractica/{id}", method = RequestMethod.GET)
+	public String editar(@PathVariable("id") Long id, ModelMap mp) {
+		mp.put("evaluacionpractica",uc.findById(id));
+		return "CrudEvaluacionPractica/editarEvaluacionPractica";
+	}
+
+	@RequestMapping(value="/actualizarEvaluacionPractica", method=RequestMethod.POST)
+	public String actualizar(@Valid EvaluacionPractica evaluacionpractica, BindingResult bindingResult, ModelMap mp) {
+		if(bindingResult.hasErrors()) {
+			mp.put("evaluacionpractica",evaluacionpractica);
+		return "CrudEvaluacionPractica/editarEvaluacionPractica/"+evaluacionpractica.getId().toString();
+		}
+		uc.save(evaluacionpractica);
+		return "redirect:/CrudEvaluacionPractica/ListaEvaluacionPractica";
+	}
+
+
+
+
 }
+
