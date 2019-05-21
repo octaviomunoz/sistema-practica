@@ -21,12 +21,12 @@ public class EvaluacionEmpresaCrud {
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private EvaluacionEmpresaRepo  uc;
 
-	/*Se ejecuta para listar los docentes.
-	 * findAll() leera todos los registros de la tabla "docentes"
+	/*Se ejecuta para listar las evaluaciones de empresas.
+	 * findAll() leera todos los registros de la tabla "evaluacion empresa"
 	 * El resultado se almacena en el ModelMap
 	 * Modelmap es una clase que se utiliza para mandarle los valores a las vistas.
-	 * En este caso se los manda a docentes y esta guarda los datos llamados de uc.finall()
-	 * ListaDocentes es lo que retornara en formato .html
+	 * En este caso se los manda a evaluacionempresas y esta guarda los datos llamados de uc.finall()
+	 * Listaempresa es lo que retornara en formato .html
 	 */
 	@RequestMapping(value="/ListaEvaEmpresa", method = RequestMethod.GET)
 	public String ListaEmpresa(ModelMap mp) {
@@ -35,7 +35,7 @@ public class EvaluacionEmpresaCrud {
 	}
 
 	/*
-	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
+	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de evaluacion de empresa sin inicializar
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
 	@RequestMapping(value="/nuevoEvaEmpresa", method=RequestMethod.GET)
@@ -62,7 +62,7 @@ public class EvaluacionEmpresaCrud {
 	}
 
 	/*
-	 * Se usa request param para que la vista espere una instancia de la clase docente
+	 * Se usa request param para que la vista espere una instancia de la clase evaluacion empresa
 	 * la vista recibe con el metodo post para mostrar los valores.
 	 */
 	@RequestMapping(value="/EvaEmpresaCreado", method = RequestMethod.POST)
