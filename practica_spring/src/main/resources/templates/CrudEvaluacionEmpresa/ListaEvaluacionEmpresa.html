@@ -24,7 +24,7 @@
   	
 	<div class="panel panel-info"> <div class ="panel-heading">
 		<div class = col-sm-10>
-			<h3>Lista de Evaluacio nEmpresa</h3>
+			<h3>Lista de Evaluacio Empresa</h3>
 		</div>
 	</div>
 	
@@ -32,8 +32,8 @@
   <thead>
   	<tr>
         <th>Id EvaluacionEmpresa</th>
-      	<th>Nota EvaluacionEmpresa</th>
-    	<th>Comentario EvaluacionEmpresa</th>
+      	<th>Nota Evaluacion Empresa</th>
+    	<th>Comentario Evaluacion Empresa</th>
      	<th></th>
      	<th></th>
      	
@@ -43,13 +43,13 @@
   </thead>
   <tbody>
     <tr>
-      <tr data-th-each="evaluacionEmpresa : ${Evaluacionempresas}">
+      <tr data-th-each="evaluacionempresa : ${EvaluacionEmpresas}">
       	<td data-th-text="${evaluacionempresa.id}"></td>
       	<td data-th-text="${evaluacionempresa.nota}"></td>
       	<td data-th-text="${evaluacion empresa.comentario}"></td>
       	<td>
       	
-      		<a class="btn btn-outline-primary" th:href="@{'/EvaluacionEmpresaCrud/editarEvaEmpresa/{id}'(id=${evaluacionempresa.id})}"> Modificar</a>
+      		<a class="btn btn-outline-primary" th:href="@{'/EvaluacionEmpresaCrud/editarEvaluacionEmpresa/{id}'(id=${evaluacionempresa.id})}"> Modificar</a>
       		<a class="btn btn-outline-danger" th:href="@{'/EvaluacionEmpresaCrud/borrar/{id}'(id=${evaluacionempresa.id})}" > Eliminar </a>
       		</td>
       </tr>
