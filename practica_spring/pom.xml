@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.practica</groupId>
 	<artifactId>sistemaPractica</artifactId>
-	<version>0.0.1</version>
+	<version>1.1</version>
 	<name>sistemaPractica</name>
 	<description>Sistema de Practica</description>
 
