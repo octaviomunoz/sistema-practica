@@ -1,0 +1,31 @@
+<head>
+  <title>Inicio Sesion</title>
+
+  <!-- BOOTSTRAP -->
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+  <script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+  <!-- FONT AWESOME -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../static/fontawesome/css/all.css" />
+
+</head>
+
+<body>
+
+  <!--FORMULARIO DE INICIO DE SESION-->
+  <form action="#" th:action="@{/login}" method="post">
+
+    <input type="number" placeholder="RUN" name="username"/>
+
+    <input type="password" placeholder="Contraseña" name="password"/>
+
+    <button type="submit">Ingresar</button>
+
+  </form>
+
+  <div th:if="${param.error}" class="alert alert-danger" role="alert">
+        Usuario y Contraseña incorrecta.
+  </div>
+  <div th:if="${param.logout}" class="alert alert-success" role="alert">
+        Usted a Cerrado Sesion.
+  </div>
+</body>

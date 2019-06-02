@@ -49,13 +49,8 @@
           Empresa
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
-          <a class="dropdown-item" th:href="@{~/empresa/mostrar}">Lista de Empresa</a>
-          	 <a class="dropdown-item" th:href="@{~/empresa/ingresarDatos}">Crear Practicas</a>
-=======
           <a class="dropdown-item" th:href="@{~/empresa/mostrar}">Lista de Empresas</a>
           	 <a class="dropdown-item" th:href="@{~/empresa/ingresarDatos}">Crear Empresa</a>
->>>>>>> f53b5ed1191034ef0f37a4ba73e2af476ac73cf5
          </div>
       </li>
         <li class="nav-item dropdown">
@@ -85,6 +80,12 @@
           	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica}">Crear Evaluacion Practica</a>
          </div>
       </li>
+
+			<li class="nav-item">
+				<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar Sesion"/>
+        </form>
+			</li>
     </ul>
    </div>
 </nav>

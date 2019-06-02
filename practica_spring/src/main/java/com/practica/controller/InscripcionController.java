@@ -28,7 +28,7 @@ import com.practica.repo.RegionRepo;
 
 @Controller
 @RequestMapping("inscripcion")
-public class inscripcionController {
+public class InscripcionController {
 
 	@Autowired
   private AlumnoRepo alumnorepo;
