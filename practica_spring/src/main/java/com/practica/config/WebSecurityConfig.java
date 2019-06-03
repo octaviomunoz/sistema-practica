@@ -23,10 +23,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             "/include/**","/css/**","/fontawesome/**","/img/**","/js/**","/layer/**"
     };
 
+    //Para que los recursos no esten restringidos
     @Override
     public void configure(WebSecurity web) throws Exception {
       web.ignoring().antMatchers(resources);
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -36,16 +38,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
           .authorizeRequests()
 	        //.antMatchers(resources).permitAll()
           .antMatchers("/").permitAll()
-	        //.antMatchers("/admin*", "/empresa*").access("hasRole('ADMIN')")
-          .antMatchers("/admin/**", "/empresa/**").hasRole("ADMIN")
-          .antMatchers("/alumno/**").hasRole("USER")
-	        //.antMatchers("/alumno*").access("hasRole('USER')")
+          .antMatchers("/alumno/mostrar", "/empresa/**").hasRole("ADMIN")
+          .antMatchers("/alumno/**").hasRole("ALUMNO")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/", true)
                 .failureUrl("/login?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
@@ -54,7 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .permitAll()
                 .logoutSuccessUrl("/login?logout");
 
-
+        //Si no tiene los permisos para etar en esa pagina lo redirecciona a el index        
+        http.exceptionHandling().accessDeniedPage("/");
     }
 
 
@@ -74,9 +75,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     //Registra el service para usuarios y el encriptador de contrasena
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
-        // Setting Service to find User in the database.
-        // And Setting PassswordEncoder
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 }

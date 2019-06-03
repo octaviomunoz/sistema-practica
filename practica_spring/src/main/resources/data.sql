@@ -4,11 +4,17 @@ INSERT INTO users (enabled,password,username) VALUES
 (false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','12345'),
 (false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','98765');
 
-INSERT INTO authorities (authority) VALUES ('ROLE_ADMIN');
-INSERT INTO authorities (authority) VALUES ('ROLE_USER');
+INSERT INTO authorities (authority) VALUES
+('ROLE_ADMIN'),
+('ROLE_DOCENTE'),
+('ROLE_DIRECTOR'),
+('ROLE_ALUMNO');
+
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,1);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,2);
-INSERT INTO authorities_users (usuario_id, authority_id) VALUES (2,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,3);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (2,4);
 
 
 
