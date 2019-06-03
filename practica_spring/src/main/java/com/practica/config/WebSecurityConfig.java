@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .permitAll()
                 .logoutSuccessUrl("/login?logout");
 
-        //Si no tiene los permisos para etar en esa pagina lo redirecciona a el index        
+        //Si no tiene los permisos para etar en esa pagina lo redirecciona a el index
         http.exceptionHandling().accessDeniedPage("/");
     }
 
