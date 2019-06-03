@@ -1,6 +1,7 @@
 package com.practica.config;
 
 
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +20,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     //Necesario para evitar que la seguridad se aplique a los resources
     //Como los css, imagenes y javascripts
     String[] resources = new String[]{
-            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
+            "/include/**","/css/**","/fontawesome/**","/img/**","/js/**","/layer/**"
     };
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+      web.ignoring().antMatchers(resources);
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -29,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
         http
           .authorizeRequests()
-	        .antMatchers(resources).permitAll()
+	        //.antMatchers(resources).permitAll()
           .antMatchers("/").permitAll()
 	        //.antMatchers("/admin*", "/empresa*").access("hasRole('ADMIN')")
           .antMatchers("/admin/**", "/empresa/**").hasRole("ADMIN")
