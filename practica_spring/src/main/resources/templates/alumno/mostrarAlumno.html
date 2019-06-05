@@ -1,12 +1,18 @@
 <head>
   <title>Lista de Alumnos</title>
 
+  <!-- BOOTSTRAP -->
   <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
   <script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+  <!-- FONT AWESOME -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../static/fontawesome/css/all.css" />
+
 </head>
 
 
 <body>
+
+
   <a class="btn btn-primary btn-lg " th:href="@{~/alumno/ingresarDatos}" th:text="'Nuevo Alumno'"></a>
         <a th:href="@{~/}" class="btn btn-secondary" th:text="'Volver a inicio'"> </a>
 
@@ -36,8 +42,12 @@
             <td class="align-middle" th:text="${alumno.domicilio_procedencia}"></td>
             <td class="align-middle" th:text="${alumno.telefono}"></td>
             <td>
-              <a class="btn btn-outline-primary" th:href="@{~/alumno/modificarDatos(idALUM=${alumno.id})}" th:text="'Modificar Alumno'"></a>
-              <a class="btn btn-outline-danger" th:href="@{~/alumno/eliminar(idALUM=${alumno.id})}" th:text="'Eliminar Alumno'"></a>
+              <a class="btn btn-outline-primary" th:href="@{~/alumno/modificarDatos(idALUM=${alumno.id})}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a class="btn btn-outline-danger" th:href="@{~/alumno/eliminar(idALUM=${alumno.id})}">
+                <i class="fas fa-trash-alt"></i>
+              </a>
             </td>
           </tr>
         </tr>

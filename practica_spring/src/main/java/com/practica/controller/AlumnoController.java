@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @RequestMapping("/alumno")
-public class alumnoController {
+public class AlumnoController {
 
   @Autowired
   private AlumnoRepo alumnorepo;

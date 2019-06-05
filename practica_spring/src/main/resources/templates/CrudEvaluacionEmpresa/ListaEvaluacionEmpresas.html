@@ -2,17 +2,18 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html;"/>
-<link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
-<script th:src="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
+	<meta http-equiv="Content-Type" content="text/html;"/>
+	<!-- BOOTSTRAP -->
+	<link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+	<script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+	<!-- FONT AWESOME -->
+	<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../static/fontawesome/css/all.css" />
 
-<script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
 
-
-<title>Lista Evaluacion Empresa</title>
+	<title>Lista Evaluacion Empresa</title>
 </head>
 
-	
+
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,13 +22,13 @@
     		<span class="navbar-toggler-icon"></span>
   		</button>
   	</nav>
-  	
+
 	<div class="panel panel-info"> <div class ="panel-heading">
 		<div class = col-sm-10>
 			<h3>Lista de Evaluacio Empresa</h3>
 		</div>
 	</div>
-	
+
 	<table class="table table-striped">
   <thead>
   	<tr>
@@ -36,10 +37,10 @@
     	<th>Comentario Evaluacion Empresa.</th>
      	<th></th>
      	<th></th>
-     	
-     
+
+
    	</tr>
-    
+
   </thead>
   <tbody>
     <tr>
@@ -48,9 +49,9 @@
       	<td data-th-text="${evaluacionempresa.nota}"></td>
       	<td data-th-text="${evaluacionempresa.comentario}"></td>
       	<td>
-      	
-      		<a class="btn btn-outline-primary" th:href="@{'/CrudEvaluacionEmpresa/editarEvaluacionEmpresa/{id}'(id=${evaluacionempresa.id})}"> Modificar</a>
-      		<a class="btn btn-outline-danger" th:href="@{'/CrudEvaluacionEmpresa/borrar/{id}'(id=${evaluacionempresa.id})}" > Eliminar </a>
+
+      		<a class="btn btn-outline-primary" th:href="@{'/CrudEvaluacionEmpresa/editarEvaluacionEmpresa/{id}'(id=${evaluacionempresa.id})}"><i class="fas fa-edit"></i></a>
+      		<a class="btn btn-outline-danger" th:href="@{'/CrudEvaluacionEmpresa/borrar/{id}'(id=${evaluacionempresa.id})}" ><i class="fas fa-trash-alt"></i></a>
       		</td>
       </tr>
 

@@ -3,6 +3,8 @@ package com.practica.controller;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +28,7 @@ import com.practica.repo.RegionRepo;
 
 @Controller
 @RequestMapping("inscripcion")
-public class inscripcionController {
+public class InscripcionController {
 
 	@Autowired
   private AlumnoRepo alumnorepo;
@@ -92,7 +94,13 @@ public class inscripcionController {
   }
 
   @GetMapping("/empresa")
-  public String inscripcionEmpresa(Empresa empresa){
+  public String inscripcionEmpresa(Empresa empresa, Model model){
+		List<Empresa> nombreEmpresas =  new ArrayList<>();
+
+		System.out.println(nombreEmpresas);
+
+
+
     return "formInscripcionEmpresa";
   }
 
@@ -104,6 +112,8 @@ public class inscripcionController {
 
     return "results";
   }
+
+
 
 
 	//HttpServletRequest Donde se guarda los datos del ajax

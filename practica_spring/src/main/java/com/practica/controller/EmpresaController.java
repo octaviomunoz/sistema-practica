@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @RequestMapping("/empresa")
-public class empresaController {
+public class EmpresaController {
 
   @Autowired
   private EmpresaRepo empresarepo;

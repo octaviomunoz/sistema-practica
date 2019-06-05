@@ -80,11 +80,17 @@
           	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica}">Crear Evaluacion Practica</a>
          </div>
       </li>
+
+			<li class="nav-item">
+				<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar Sesion"/>
+        </form>
+			</li>
     </ul>
    </div>
 </nav>
-	
-	
+
+
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -110,7 +116,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-  
+
 </div>
 </body>
 
