@@ -120,6 +120,8 @@ private Set<Authority> authority;
 		this.authority = authority;
 	}
 
-
-
+	@Override
+	public String toString() {
+		return "Alumno [id=" + id + ", username=" + username + ",password=" + password + " ]" ;
+	}
 }
