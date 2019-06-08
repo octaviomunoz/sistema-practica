@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "evaluacionempresas")
 public class Evaluacionempresa {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -20,11 +20,11 @@ public class Evaluacionempresa {
 	@Size(max = 150)
 	private String comentario;
 
-	/*@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_practica")
 	private Practica practica;
 
-*/
+
 
 
 	/**
@@ -79,19 +79,19 @@ public class Evaluacionempresa {
 	* Returns value of practica
 	* @return
 	*/
-	/*
+
 	public Practica getPractica() {
 		return practica;
 	}
-*/
+
 	/**
 	* Sets new value of practica
 	* @param
 	*/
-	/*
+
 	public void setPractica(Practica practica) {
 		this.practica = practica;
 	}
-	*/
+
 }
 // no se que onda xD

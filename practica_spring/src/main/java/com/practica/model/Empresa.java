@@ -37,8 +37,8 @@ public class Empresa {
 	@JoinColumn(name = "id_comuna")
 	private Comuna comuna;
 
-	//@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
-	//private List<Practica> practica = new ArrayList<>();
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	private List<Practica> practica = new ArrayList<>();
 
 
 
@@ -128,20 +128,20 @@ public class Empresa {
 	* Returns value of practica
 	* @return
 	*/
-	/*
+
 	public List<Practica> getPractica() {
 		return practica;
 	}
-	*/
+
 	/**
 	* Sets new value of practica
 	* @param
 	*/
-	/*
+	
 	public void setPractica(List<Practica> practica) {
 		this.practica = practica;
 	}
-	*/
+
 	/**
 	* Create string representation of Empresa for printing
 	* @return

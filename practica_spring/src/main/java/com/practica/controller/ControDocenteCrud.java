@@ -104,15 +104,7 @@ public class ControDocenteCrud {
  //Metodo que veifica si se puede guardar o no un docente de manera que el run se unico
 	public boolean permitirGuardaDocente(Docente docente){
     boolean permitir = false;
-    if(docente.getIdDoc() != null){
-      if(docente.getIdDoc() == uc.findByRunDoc(docente.getRunDoc()).getIdDoc()){
-        permitir = true;
-      }
-    }else{
-      if(!uc.existsByRunDoc(docente.getRunDoc())){
-        permitir = true;
-      }
-    }
+    
     return permitir;
   }
 

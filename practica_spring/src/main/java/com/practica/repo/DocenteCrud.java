@@ -6,7 +6,4 @@ import com.practica.model.Docente;
 
 public interface DocenteCrud extends JpaRepository<Docente, Long> {
 
-  Docente findByRunDoc(String runDoc);
-
-  Boolean existsByRunDoc(String runDoc);
 }

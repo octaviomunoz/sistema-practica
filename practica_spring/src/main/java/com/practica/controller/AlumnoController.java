@@ -1,5 +1,6 @@
 package com.practica.controller;
 
+
 import org.springframework.validation.BindingResult;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,16 +9,25 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.practica.repo.AlumnoRepo;
-import com.practica.model.Alumno;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
+import com.practica.model.Alumno;
+import com.practica.model.User;
+
+import com.practica.util.Sistema;
+
+
+import com.practica.repo.AlumnoRepo;
+import com.practica.repo.UserRepo;
 
 @Controller
 @RequestMapping("/alumno")
 public class AlumnoController {
+
+  @Autowired
+  private UserRepo userrepo;
 
   @Autowired
   private AlumnoRepo alumnorepo;
@@ -60,8 +70,6 @@ public class AlumnoController {
     String direccion = "redirect:/alumno/mostrar";
     if (bindingResult.hasErrors() ){
       direccion = "alumno/formAlumno";
-    }else if (permitirGuardaAlumno(alumno)){
-      alumnorepo.save(alumno);
     }else{
       model.addAttribute("run_repetido", true);
       direccion = "alumno/formAlumno";
@@ -80,25 +88,21 @@ public class AlumnoController {
     return "redirect:/alumno/mostrar";
   }
 
-  //Metodo que veifica si se puede guardar o no un alumno de manera que el run se unico
-  public boolean permitirGuardaAlumno(Alumno alumno){
-    boolean permitir = false;
-    if(alumno.getId() != null){
-      if(alumno.getId() == alumnorepo.findByRun(alumno.getRun()).getId()){
-        permitir = true;
-      }
-    }else{
-      if(!alumnorepo.existsByRun(alumno.getRun())){
-        permitir = true;
-      }
-    }
-    return permitir;
+
+
+
+
+  //Metodo que muestra los datos del alumno por la pantalla
+  @RequestMapping(value="/info", method = RequestMethod.GET)
+  public String infoAlumno(Model model){
+
+    User user = userrepo.findByUsername(Sistema.RecuperarUsuarioLogeado());
+
+    model.addAttribute("user", user);
+    model.addAttribute("alumno", alumnorepo.findByUsuario(user));
+
+    return "alumno/infoAlumno";
   }
-
-
-
-
-
 
 
 

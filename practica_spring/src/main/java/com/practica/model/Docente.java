@@ -17,11 +17,6 @@ public class Docente {
   private Long idDoc;
 
   @NotNull
-  @Size(max = 15)
-  @Column(unique = true)
-  private String runDoc;
-
-  @NotNull
   @Size(max = 20)
   private String nombreDoc;
 
@@ -34,22 +29,31 @@ public class Docente {
   @Size
   private String director; //Lo ideal es que de un yes or not.
 
+  @OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_usuario")
+	private User usuario;
+
+  @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
+	private List<Practica> practica = new ArrayList<>();
+
+  public User getUsuario(){
+    return usuario;
+  }
+  public void setUsuario(User usuario){
+    this.usuario = usuario;
+  }
+  public List<Practica> getPractica(){
+    return practica;
+  }
+  public void setPractica(List<Practica> practica){
+    this.practica = practica;
+  }
+
 
 	public Long getIdDoc() {
 		return idDoc;
 	}
 
-	public void setIdDoc(Long idDoc) {
-		this.idDoc = idDoc;
-	}
-
-	public String getRunDoc() {
-		return runDoc;
-	}
-
-	public void setRunDoc(String runDoc) {
-		this.runDoc = runDoc;
-	}
 
 	public String getNombreDoc() {
 		return nombreDoc;
@@ -81,33 +85,10 @@ public class Docente {
 	public Docente(Long idDoc, @NotNull @Size(max = 15) String runDoc, @NotNull @Size(max = 20) String nombreDoc,
 			@NotNull @Email String emailDoc, @NotNull @Size String director) {
 		this.idDoc = idDoc;
-		this.runDoc = runDoc;
 		this.nombreDoc = nombreDoc;
 		this.emailDoc = emailDoc;
 		this.director = director;
 	}
 
 
-  /*
-  @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
-  private List<Practica> practica = new ArrayList<>();
-*/
-
-	/**
-	* Returns value of alumno
-	* @return
-	*/
-	/* 		Atributos de otras tablas.
-	public List<Practica> getPractica() {
-		return practica;
-	}
-
-	/**
-	* Sets new value of alumno
-	* @param
-
-	public void setPractica(List<Practica> practica) {
-		this.practica = practica;
-	}
-	*/
 }

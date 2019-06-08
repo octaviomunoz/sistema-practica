@@ -122,6 +122,6 @@ private Set<Authority> authority;
 
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", username=" + username + ",password=" + password + " ]" ;
+		return "Usuario [id=" + id + ", username=" + username + ",password=" + password + " ]" ;
 	}
 }

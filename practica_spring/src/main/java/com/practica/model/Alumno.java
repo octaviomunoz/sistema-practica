@@ -18,12 +18,6 @@ public class Alumno {
 
 	@NotNull
 	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Size(max = 15)
-	@Column(unique = true)
-	private String run;
-
-	@NotNull
-	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 30)
 	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
 	private String nombre;
@@ -44,12 +38,16 @@ public class Alumno {
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 40)
 	@Pattern(regexp = "[A-Za-z0-9 ]+", message = "Solo admite letras y numeros")
-	private String domicilio_procedencia;
+	private String domicilio;
 
 	@NotNull
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 15)
 	private String telefono;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_usuario")
+	private User usuario;
 
 	//@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
 	//private Practica practica;
@@ -61,8 +59,7 @@ public class Alumno {
 	*/
 	@Override
 	public String toString() {
-		return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", telefono=" + telefono +"]";
-		//return "Alumno [id=" + id + ", run=" + run + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio_procedencia=" + domicilio_procedencia + ", telefono=" + telefono +", practica=" + practica + "]";
+		return "Alumno [id=" + id + ", nombre=" + nombre + ", apellido_paterno=" + apellido_paterno + ", apellido_materno=" + apellido_materno + ", domicilio=" + domicilio + ", telefono=" + telefono +"]";
 	}
 
 	/**
@@ -79,22 +76,6 @@ public class Alumno {
 	*/
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	/**
-	* Returns value of run
-	* @return
-	*/
-	public String getRun() {
-		return run;
-	}
-
-	/**
-	* Sets new value of run
-	* @param
-	*/
-	public void setRun(String run) {
-		this.run = run;
 	}
 
 	/**
@@ -146,19 +127,19 @@ public class Alumno {
 	}
 
 	/**
-	* Returns value of domicilio_procedencia
+	* Returns value of domicilio
 	* @return
 	*/
-	public String getDomicilio_procedencia() {
-		return domicilio_procedencia;
+	public String getDomicilio() {
+		return domicilio;
 	}
 
 	/**
-	* Sets new value of domicilio_procedencia
+	* Sets new value of domicilio
 	* @param
 	*/
-	public void setDomicilio_procedencia(String domicilio_procedencia) {
-		this.domicilio_procedencia = domicilio_procedencia;
+	public void setDomicilio(String domicilio) {
+		this.domicilio = domicilio;
 	}
 
 	/**
@@ -196,6 +177,14 @@ public class Alumno {
 		this.practica = practica;
 	}
 	*/
+
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
 
 
 }

@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserDetailsService {
 
      //Buscar el usuario con el repositorio y si no existe lanzar una exepcion
      com.practica.model.User appUser =
-                 userRepo.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No existe usuario"));
+                 userRepo.findByUsername(username);
 
     //Mapear nuestra lista de Authority con la de spring security
     List grantList = new ArrayList();
