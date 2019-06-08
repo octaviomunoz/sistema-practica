@@ -1,20 +1,19 @@
-
-
 INSERT INTO users (enabled,password,username) VALUES
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','12345'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','98765');
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','12345');
 
+/*Roles*/
 INSERT INTO authorities (authority) VALUES
-('ROLE_ADMIN'),
-('ROLE_DOCENTE'),
-('ROLE_DIRECTOR'),
-('ROLE_ALUMNO');
+('ROLE_ADMIN'),     /*1*/
+('ROLE_DOCENTE'),   /*2*/
+('ROLE_DIRECTOR'),  /*3*/
+('ROLE_ALUMNO'),    /*4*/
+('ROLE_EMPRESA');   /*5*/
+
 
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,1);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,2);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,3);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,4);
-INSERT INTO authorities_users (usuario_id, authority_id) VALUES (2,4);
 
 
 
@@ -22,69 +21,135 @@ INSERT INTO authorities_users (usuario_id, authority_id) VALUES (2,4);
 
 
 INSERT INTO regiones (nombre) VALUES
-('Maule'),
-('Ñuble');
+('O’Higgins'),  /*1*/
+('Maule'),      /*2*/
+('Ñuble'),      /*3*/
+('BioBio');     /*4*/
 
 INSERT INTO comunas (nombre, region_id) VALUES
-('Curico', 1),
-('Rauco', 1),
-('Teno', 1),
-('Talca', 1),
-('stgo', 1),
-('pichilemu', 1),
-('sanclemente', 1),
-('linares', 1),
-('maule', 1),
-('asdasd', 1);
+('San Fernando', 1),
+('Chépica', 1),
+('Rancagua', 1),
 
-INSERT INTO docentes(director, email_doc, nombre_doc, run_doc) VALUES
-('false','nombre1@docente.com', 'nombre1', 1),
-('true','nombre2@docente.com', 'nombre2', 2),
-('false','nombre3@docente.com', 'nombre3', 3),
-('false','nombre4@docente.com', 'nombre4', 4),
-('true','nombre5@docente.com', 'nombre5', 5),
-('false','nombre6@docente.com', 'nombre6', 6),
-('false','nombre7@docente.com', 'nombre7', 7),
-('true','nombre8@docente.com', 'nombre8', 8),
-('false','nombre9@docente.com', 'nombre9', 9),
-('false','nombre10@docente.com', 'nombre10', 10);
+('Curico', 2),
+('Rauco', 2),
+('Teno', 2),
+('Talca', 2),
+
+('Chillán', 3),
+('San Carlos', 3),
+
+('Concepción', 4);
+
 
 
 INSERT INTO empresas(convenio, direccion, nombre, id_comuna) VALUES
 ('false', 'direccion1', 'nombreE1', 1),
-('false', 'direccion2', 'nombreE2', 1),
-('true', 'direccion3', 'nombreE3', 2),
-('false', 'direccion4', 'nombreE4', 1),
-('false', 'direccion5', 'nombreE5', 1),
-('true', 'direccion6', 'nombreE6', 4),
-('false', 'direccion7', 'nombreE7', 5),
-('false', 'direccion8', 'nombreE8', 3),
-('true', 'direccion9', 'nombreE9', 2),
-('false', 'direccion10', 'nombreE10', 1);
+('false', 'direccion2', 'nombreE2', 2),
+('true', 'direccion3', 'nombreE3', 3),
+('false', 'direccion4', 'nombreE4', 4),
+('false', 'direccion5', 'nombreE5', 5),
+('true', 'direccion6', 'nombreE6', 6),
+('false', 'direccion7', 'nombreE7', 7),
+('false', 'direccion8', 'nombreE8', 7),
+('true', 'direccion9', 'nombreE9', 8),
+('false', 'direccion10', 'nombreE10', 9);
 
-INSERT INTO alumnos(apellido_paterno,apellido_materno,domicilio_procedencia,nombre,run,telefono) VALUES
-('escalona','morales','30oriente','bastian',191769538,'97219277'),
-('farfan','retamal','linares','carlos',183441930,'546565498'),
-('vergara','pereira','5norte','carlos',181547431,'3213223'),
-('riffo','araya','linares5sur','tomas',207598410,'2316545'),
-('muñoz','pereira','84norte','matias',174231542,'21474513'),
-('farfan','morales','sur18oriente','bastian',401237841,'32132561'),
-('riffo','retamal','poniente1','carlos',151234567,'4655632'),
-('alambrito','caldito','talca','edificio',132134654,'64873212'),
-('maldito','enojadito','1norte','ditto',784123145,'123456223'),
-('pikachu','ketchup','pueblopaleta','ash',321211246,'654987321');
+/*Usuarios Dispuestos a los alumnos Contraseña 1234*/
+INSERT INTO users (enabled,password,username) VALUES
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4401'),  /*2*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4402'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4403'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4404'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4405'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4406'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4407'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4408'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4409'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','4410');  /*11*/
 
-INSERT INTO practicas(actividades_realizar_practica,domicilio_actual_practica,fecha_practica,nombre_evaluador_practica,telefono_evaluador_practica) VALUES
-('crear','santiago','2019-07-22','marco','97219277'),
-('crear','santiago','2019-08-12','bastian','12312332'),
-('editar','santiago','2019-06-10','tomas','432423423'),
-('editar','santiago','2019-07-25','carlos','456456456'),
-('modificar','santiago','2019-10-31','matias','45645765'),
-('modificar','talca','2019-09-31','carlos','123123123'),
-('eliminar','talca','2019-08-31','ignacio','452342334'),
-('eliminar','talca','2019-07-31','lillo','123123132'),
-('formulario','talca','2019-06-31','matias','23423423'),
-('formulario','talca','2019-05-31','tomate','234234234');
+/*Asignacion de usuario al alumno*/
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (2,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (3,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (4,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (5,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (6,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (7,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (8,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (9,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (10,4);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (11,4);
+
+INSERT INTO alumnos(apellido_paterno,apellido_materno,domicilio,nombre,telefono, id_usuario) VALUES
+('escalona','morales','30oriente','bastian','97219277', 2),
+('farfan','retamal','linares','carlos','546565498', 3),
+('vergara','pereira','5norte','carlos','3213223', 4),
+('riffo','araya','linares5sur','tomas','2316545', 5),
+('muñoz','pereira','84norte','matias','21474513', 6),
+('farfan','morales','sur18oriente','bastian','32132561', 7),
+('riffo','retamal','poniente1','carlos','4655632', 8),
+('alambrito','caldito','talca','edificio','64873212', 9),
+('maldito','enojadito','1norte','ditto','123456223', 10),
+('pikachu','ketchup','pueblopaleta','ash','654987321', 11);
+
+
+/*Usuarios Dispuestos a los docente Contraseña 1234*/
+INSERT INTO users (enabled,password,username) VALUES
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2201'),  /*12*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2202'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2203'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2204'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2205'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2206'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2207'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2208'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2209'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','3301'); /*21*/
+
+/*Asignando roles a los docentes*/
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (12,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (13,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (14,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (15,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (16,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (17,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (18,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (19,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (20,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (21,2);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (21,3);
+
+
+INSERT INTO docentes(director, email_doc, nombre_doc, id_usuario) VALUES
+('false','nombre1@docente.com', 'nombre1', 12),
+('false','nombre2@docente.com', 'nombre2', 13),
+('false','nombre3@docente.com', 'nombre3', 14),
+('false','nombre4@docente.com', 'nombre4', 15),
+('false','nombre5@docente.com', 'nombre5', 16),
+('false','nombre6@docente.com', 'nombre6', 17),
+('false','nombre7@docente.com', 'nombre7', 18),
+('false','nombre8@docente.com', 'nombre8', 19),
+('false','nombre9@docente.com', 'nombre9', 20),
+('true','nombre10@docente.com', 'nombre10', 21);
+
+/*Usuarios Dispuestos a los evaluadores Contraseña 1234*/
+INSERT INTO users (enabled,password,username) VALUES
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','5501'),  /*22*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','5502'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','5503');  /*24*/
+
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (22,5);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (23,5);
+INSERT INTO authorities_users (usuario_id, authority_id) VALUES (24,5);
+
+INSERT INTO evaluadores(nombre, email, telefono, id_usuario) VALUES
+('nombre1', 'nombre1@em.com', '12345', 22),
+('nombre2', 'nombre2@em.com', '12341', 23),
+('nombre3', 'nombre3@em.com', '12343', 24);
+
+INSERT INTO practicas(actividades_realizar_practica, fecha_practica, id_alumno, id_empresa, id_evaluador, id_docente) VALUES
+('crear','2019-07-22',1, 1, 1, 1),
+('crear','2019-08-12',1, 1, 1, 2);
 
 INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2) VALUES
 ('2019-06-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
