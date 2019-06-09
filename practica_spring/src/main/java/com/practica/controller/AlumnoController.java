@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import com.practica.model.Alumno;
 import com.practica.model.User;
+import com.practica.model.Practica;
 
 import com.practica.util.Sistema;
 
@@ -97,9 +98,14 @@ public class AlumnoController {
   public String infoAlumno(Model model){
 
     User user = userrepo.findByUsername(Sistema.RecuperarUsuarioLogeado());
+    Alumno alumno = alumnorepo.findByUsuario(user);
+    Practica practica = alumno.getPractica();
+    if (practica != null){
+      model.addAttribute("practica", practica);
+    }
 
     model.addAttribute("user", user);
-    model.addAttribute("alumno", alumnorepo.findByUsuario(user));
+    model.addAttribute("alumno", alumno);
 
     return "alumno/infoAlumno";
   }

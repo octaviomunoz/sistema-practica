@@ -45,12 +45,14 @@ public class Alumno {
 	@Size(max = 15)
 	private String telefono;
 
+	private String email;
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private User usuario;
 
-	//@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
-	//private Practica practica;
+	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
+	private Practica practica;
 
 
 	/**
@@ -164,19 +166,19 @@ public class Alumno {
 	* Returns value of practica
 	* @return
 	*/
-	/*public Practica getPractica() {
+	public Practica getPractica() {
 		return practica;
 	}
-	*/
+
 	/**
 	* Sets new value of practica
 	* @param
 	*/
-	/*
+
 	public void setPractica(Practica practica) {
 		this.practica = practica;
 	}
-	*/
+
 
 	public User getUsuario() {
 		return usuario;
@@ -186,5 +188,12 @@ public class Alumno {
 		this.usuario = usuario;
 	}
 
+	public String getEmail(){
+		return email;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
+	}
 
 }
