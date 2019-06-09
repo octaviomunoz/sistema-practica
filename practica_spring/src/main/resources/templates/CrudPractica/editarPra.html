@@ -23,29 +23,9 @@
     </div>
     <form action="#" th:action="@{/CrudPractica/actualizarPra}" th:object="${practica}" method="post">
 	    <input type="hidden" id="idPractica" name="idPractica" th:field="*{idPractica}"/>
-	    <div class="form-group">
-	        <label for="nombre_evaluadorPractica" class="col-sm-2 control-label">Nombre Evaluador</label>
-	        	<div class = col-sm-10>
-	        		<input type="text" class="form-control"  th:field="*{nombre_evaluadorPractica}" required="required"/>
-	        		 <p typeth:if="${#fields.hasErrors('nombre_evaluadorPractica')}" th:errors="*{nombre_evaluadorPractica}" class="alert alert-danger" />
-	        	</div>
-	    </div>
 
-	    <div class="form-group">
-	        <label for="telefono_evaluadorPractica" class="col-sm-2 control-label">Telefono Evaluador</label>
-	        <div class ="col-sm-10">
-	        	<input type="text" class="form-control"  th:field="*{telefono_evaluadorPractica}" required="required"/>
-	         	<p typeth:if="${#fields.hasErrors('telefono_evaluadorPractica')}" th:errors="*{telefono_evaluadorPractica}" class="alert alert-danger" />
-	    	</div>
-	    </div>
 
-    <div class="form-group">
-        <label for="domicilio_actualPractica" class="col-sm-2 control-label">Domicilio Practica</label>
-        <div class ="col-sm-10">
-        	<input type="text" class="form-control"  th:field="*{domicilio_actualPractica}" required="required"/>
-        	<p typeth:if="${#fields.hasErrors('domicilio_actualPractica')}" th:errors="*{domicilio_actualPractica}" class="alert alert-danger" />
-    	</div>
-    </div>
+    
 
   <div class="form-group">
         <label for="domicilio_actualPractica" class="col-sm-2 control-label">Fecha Practica</label>
@@ -54,7 +34,7 @@
         	<p typeth:if="${#fields.hasErrors('fechaPractica')}" th:errors="*{fechaPractica}" class="alert alert-danger" />
     	</div>
     </div>
-    
+
    	<div class="form-group">
         <label for="actividades_realizarPractica" class="col-sm-2 control-label">Domicilio Practica</label>
         <div class ="col-sm-10">
