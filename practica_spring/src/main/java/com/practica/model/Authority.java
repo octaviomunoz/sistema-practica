@@ -19,6 +19,10 @@ public class Authority {
 	@Column
 	private String authority;
 
+	public Long getId(){
+		return id;
+	}
+
 	public String getAuthority() {
 		return authority;
 	}

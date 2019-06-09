@@ -1,5 +1,6 @@
 package com.practica.model;
 
+import java.util.HashSet;
 import javax.persistence.Table;
 import java.util.Set;
 import javax.persistence.Column;
@@ -38,7 +39,18 @@ inverseJoinColumns=@JoinColumn(name="authority_id"))
 private Set<Authority> authority;
 
 
+	public User(){
+		this.enabled = false;
+		this.authority = new HashSet<Authority>();
+	}
 
+	public User(String username, String password){
+		this.username = username;
+		this.password = password;
+		this.enabled = false;
+		this.authority = new HashSet<Authority>();
+		
+	}
 
 	/**
 	* Returns value of id
@@ -118,6 +130,10 @@ private Set<Authority> authority;
 	*/
 	public void setAuthority(Set<Authority> authority) {
 		this.authority = authority;
+	}
+
+	public void addAuthority(Authority authority){
+		this.authority.add(authority);
 	}
 
 	@Override

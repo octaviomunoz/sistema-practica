@@ -18,6 +18,7 @@ import com.practica.model.User;
 import com.practica.model.Practica;
 
 import com.practica.util.Sistema;
+import com.practica.util.Roles;
 
 
 import com.practica.repo.AlumnoRepo;
@@ -32,6 +33,9 @@ public class AlumnoController {
 
   @Autowired
   private AlumnoRepo alumnorepo;
+
+  @Autowired
+  private Sistema sistema;
 
   //Funcion que consigue las alumnos para mostrar en la vista
   @RequestMapping(value = "/mostrar", method = RequestMethod.GET)
@@ -97,7 +101,7 @@ public class AlumnoController {
   @RequestMapping(value="/info", method = RequestMethod.GET)
   public String infoAlumno(Model model){
 
-    User user = userrepo.findByUsername(Sistema.RecuperarUsuarioLogeado());
+    User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
     Alumno alumno = alumnorepo.findByUsuario(user);
     Practica practica = alumno.getPractica();
     if (practica != null){
