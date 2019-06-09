@@ -17,83 +17,8 @@
 
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Practica</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Alumno
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" th:href="@{~/alumno/mostrar}">Listar Alumno</a>
-          	 <a class="dropdown-item" th:href="@{~/alumno/ingresarDatos}">Crear Alumno</a>
-         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Docente
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocente}">Listar Docentes</a>
-          	 <a class="dropdown-item" th:href="@{~/CrudDocente/nuevoDoc}">Crear Docente</a>
-         </div>
-      </li>
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Empresa
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" th:href="@{~/empresa/mostrar}">Lista de Empresas</a>
-          	 <a class="dropdown-item" th:href="@{~/empresa/ingresarDatos}">Crear Empresa</a>
-         </div>
-      </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Practica
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" th:href="@{~/CrudPractica/ListaPractica}">Lista de Practicas</a>
-          	 <a class="dropdown-item" th:href="@{~/CrudPractica/nuevoPra}">Crear Practicas</a>
-         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Evaluacion Empresa
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa}">Lista Evaluacion Empresas</a>
-          	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/nuevoEvaEmpresa}">Crear Evaluacion Empresa</a>
-         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Evaluacion Practica
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/ListaEvaPractica}">Lista Evaluacion Practica</a>
-          	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica}">Crear Evaluacion Practica</a>
-         </div>
-      </li>
-
-			<li class="nav-item">
-				<div sec:authorize="isAuthenticated()">
-				<form th:action="@{/logout}" method="post">
-            <input class="btn btn-danger btn-sm"type="submit" value="Cerrar Sesion"/>
-        </form>
-
-			</div>
-			</li>
-    </ul>
-   </div>
-</nav>
+	<div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
 
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

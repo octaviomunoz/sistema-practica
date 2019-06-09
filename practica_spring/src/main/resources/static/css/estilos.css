@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.box{
+  position: relative;
+  width: 90%;
+  margin: 80px auto;
+  padding: 30px 30px 30px 30px;
+}
+
+.box label{
+  font-size: 20px;
+}
+
+.box h2{
+  font-size: 50px;
+}
