@@ -100,12 +100,14 @@
           <li class="nav-item">
     				<div sec:authorize="isAuthenticated()">
       				<form th:action="@{/logout}" method="post">
-                <!--
 
-                  <input class="btn btn-danger btn-sm"type="submit" value="Cerrar Sesion"/> -->
                   <a class="nav-link" href="javascript:$('form').submit();">Cerrar Sesion</a>
               </form>
     			</div>
+          <div sec:authorize="isAnonymous()">
+            <a class="nav-link" th:href="@{~/login}">Iniciar Sesion</a>
+
+          </div>
     			</li>
         </ul>
        </div>
