@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     //Necesario para evitar que la seguridad se aplique a los resources
     //Como los css, imagenes y javascripts
     String[] resources = new String[]{
-            "/include/**","/css/**","/fontawesome/**","/img/**","/js/**","/layer/**"
+            "/static/**","/css/**","/fontawesome/**","/img/**","/js/**","/layer/**", "/bootstrap/**"
     };
 
     //Para que los recursos no esten restringidos
