@@ -9,37 +9,20 @@ postgresql https://www.postgresql.org/ Server con conexion user and pass "postgr
 spring boot tools https://spring.io/tools
 
 
-## Trabajo
-  # Fase entrega 1 CRUD
-    Hay que hacer los CRUD de las tablas:
-    Los CRUD trabajarlos en controller distintos 
-    CUIDADO CON LOS ATRIBUTOS RELACIONALES; QUE NO SON NECESARIOS ACA!!!!
-   Octavio: Alumno - Empresa (Completo)
+## Trabajo Fase Final
 
-   Bastian: Practica - Docente (Completo)
+Todo tiene que estar separado por los roles que le correspondan.
 
-   Carlos:  EvaluacionEmpresa  - EvaluacionPractica (Completo)
-   
-  # Toda la funcionalidad esta en un Index. El tema del login queda para la siguiente fase debido a errores.
+  (Octavio) : la implementacion de el alumno para inscribir una practica, en donde se seleccionara
+  la empresa, el docente.
+  Luego la implementacion del alumno para elegir una hora donde se expondra.
+  anexar el registro de los usuarios para incorporar los datos de usuario para el uso del login.
 
-  # Fase intermedia?
+  (Bastian) : la implementacion para que el profesor pueda ver a todos los alumnos que hacen practicas
+   con el. Cuando un alumno finalice la practica muestre simbolo de advertencia si el evaluador no ha
+    hecho la evaluacion de la practica.
+    Formulario de registro para un evaluador.
 
-   1 Creación del formulario de inscripción de la practica (Octavio)
-
-   Para esta parte se trata que el alumno ingrese los datos de la tabla
-     Alumno y Empresa. Para la empresa hay que verificar que exite, si no
-     hay que crearla.
-
-   2 Creación de la autorización de la empresa. y la evaluación del alumno a la empresa. (Bastian)
-
-   Para este paso la empresa ya exite en la base de datos, de esta formal el evaluador de la empresa tiene que elegir la empresa, al           alumno al cual tiene que supervisar. Y rellenar algunos datos que son propios del evaluador.
-
-   Tambien tiene que hacer que el alumno pueda generar una evaluacion de la empresa,con una nota y un comentario
-
-  3 Evaluación de la practica y la toma de horarios. (carlos)
-
-   se tiene que hacer el formulario propio de la evaluacion de practica por parte del evaluador.
-   Y la creacion de la asignacion de horarios para la presentacion de la practica.
-
-   # Fase Final
-   ...
+  (Carlos) : Una lista de todos los alumnos a los cuales tiene que supervisar y cuando la practica este
+   completa un boton que lo redireccione al formulario de evaluacion del alumno que corresponda.
+   El evaluador tendra que seleccionar a un alumno al cual va a supervisar.
