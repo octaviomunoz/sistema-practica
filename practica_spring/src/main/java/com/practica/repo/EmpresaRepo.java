@@ -1,16 +1,17 @@
 package com.practica.repo;
 
+import java.util.List;
 
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.practica.model.Empresa;
+import com.practica.model.Comuna;
 
 
 
 public interface EmpresaRepo extends JpaRepository<Empresa, Long>, PagingAndSortingRepository<Empresa, Long>{
 
-  //@Query("select e from empresas e where e.id = ?1")
-  //Collection<Empresa> getEmpresa(int id);
+  List<Empresa> findByComuna(Comuna comuna);
 
 }

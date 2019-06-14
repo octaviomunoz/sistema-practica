@@ -13,7 +13,7 @@
   <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  
+
   <link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
   <script th:src="@{/js/select.js}" type="text/javascript" src="../../static/js/select.js"/>
 
@@ -55,7 +55,7 @@
           <h3>Empresa</h3>
           <div class="fomr-group">
             <label>Region</label>
-            <select class="form-control" required="required" th:value="*{region.id}" name="id" id="region" onchange="cargarComunas()">
+            <select class="form-control" required="required" name="id" id="region" onchange="cargarComunas()">
               <option disabled="disabled" selected="selected">Regiones</option>
               <option th:each="reg: ${regiones}" th:value="${reg.id}" th:text="${reg.nombre}" value=${reg.id}> </option>
             </select>
@@ -63,15 +63,15 @@
 
           <div class="form-group">
             <label>Comuna</label>
-            <select class="form-control" th:value="${comuna.id}" name="id" id="comuna" required="required">
+            <select class="form-control" name="id" id="comuna" required="required" onchange="cargarEmpresas()">
               <option disabled="disabled" selected="selected">Comuna</option>
             </select>
           </div>
 
-          <div class="">
-            <label>Nombre de Empresa</label>
-            <select class="" name="">
-
+          <div class="form-group">
+            <label>Empresa</label>
+            <select class="form-control"   th:value="${empresa.id}" required="required" name="id" id="empresa">
+              <option disabled="disabled" selected="selected">Empresa</option>
             </select>
           </div>
 

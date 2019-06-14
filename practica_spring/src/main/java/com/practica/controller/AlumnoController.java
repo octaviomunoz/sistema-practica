@@ -22,6 +22,7 @@ import com.practica.model.User;
 import com.practica.model.Practica;
 import com.practica.model.Region;
 import com.practica.model.Comuna;
+import com.practica.model.Empresa;
 
 import com.practica.util.Sistema;
 import com.practica.util.Roles;
@@ -32,6 +33,7 @@ import com.practica.repo.UserRepo;
 import com.practica.repo.RegionRepo;
 import com.practica.repo.ComunaRepo;
 import com.practica.repo.DocenteCrud;
+import com.practica.repo.EmpresaRepo;
 
 @Controller
 @RequestMapping("/alumno")
@@ -51,6 +53,9 @@ public class AlumnoController {
 
   @Autowired
   private DocenteCrud docenterepo;
+
+  @Autowired
+  private EmpresaRepo empresarepo;
 
   @Autowired
   private Sistema sistema;
@@ -143,8 +148,9 @@ public class AlumnoController {
     model.addAttribute("alumno", alumno);
     model.addAttribute("regiones", regionrepo.findAll());
     model.addAttribute("docentes", docenterepo.findAll());
-    model.addAttribute("region", new Region());
+    model.addAttribute("empresa", new Empresa());
     model.addAttribute("comuna", new Comuna());
+
 
 
     return "alumno/inscripcion";
@@ -159,6 +165,18 @@ public class AlumnoController {
       comunas = comunarepo.findByRegion(regionrepo.getOne(id_region));
     }
     return comunas;
+  }
+
+
+  //Funcion que es llamada por una funcion ajax para conseguir las Empresas
+  //que pertenecen a la comuna que corresponde el id
+  @RequestMapping(value="/empresas", method = RequestMethod.GET, produces="application/json")
+  public @ResponseBody List<Empresa> listaempresas(@RequestParam(value = "idComuna", required = true) Long id_comuna) {
+    List<Empresa> empresa = null;
+    if (comunarepo.existsById(id_comuna)){
+      empresa = empresarepo.findByComuna(comunarepo.getOne(id_comuna));
+    }
+    return empresa;
   }
 
 

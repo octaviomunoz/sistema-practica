@@ -8,6 +8,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "empresas")
@@ -33,10 +35,12 @@ public class Empresa {
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	private String convenio;
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_comuna")
 	private Comuna comuna;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private List<Practica> practica = new ArrayList<>();
 
@@ -137,7 +141,7 @@ public class Empresa {
 	* Sets new value of practica
 	* @param
 	*/
-	
+
 	public void setPractica(List<Practica> practica) {
 		this.practica = practica;
 	}
