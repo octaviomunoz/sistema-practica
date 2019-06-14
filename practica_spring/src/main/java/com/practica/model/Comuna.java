@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "comunas")
@@ -18,10 +20,12 @@ public class Comuna {
 	@Size(max = 15)
 	private String nombre;
 
+	@JsonIgnore // se utiliza para que al formar el json no se cree un bucle infinito
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_id")
 	private Region region;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "comuna", cascade = CascadeType.ALL)
 	private List<Empresa> empresa = new ArrayList<>();
 
@@ -91,4 +95,11 @@ public class Comuna {
 	public void setEmpresa(List<Empresa> empresa) {
 		this.empresa = empresa;
 	}
+
+	@Override
+	public String toString(){
+		return "Comunas [" + nombre + "]";
+	}
+
+
 }
