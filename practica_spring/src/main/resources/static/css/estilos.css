@@ -17,3 +17,10 @@
 .box h2{
   font-size: 50px;
 }
+
+
+.form-box .empresa{
+  width: 95%;
+  max-width: 500px;
+  min-width: 400px;
+}

@@ -1,6 +1,10 @@
 package com.practica.controller;
 
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.validation.BindingResult;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +20,8 @@ import org.springframework.stereotype.Controller;
 import com.practica.model.Alumno;
 import com.practica.model.User;
 import com.practica.model.Practica;
+import com.practica.model.Region;
+import com.practica.model.Comuna;
 
 import com.practica.util.Sistema;
 import com.practica.util.Roles;
@@ -23,6 +29,9 @@ import com.practica.util.Roles;
 
 import com.practica.repo.AlumnoRepo;
 import com.practica.repo.UserRepo;
+import com.practica.repo.RegionRepo;
+import com.practica.repo.ComunaRepo;
+import com.practica.repo.DocenteCrud;
 
 @Controller
 @RequestMapping("/alumno")
@@ -33,6 +42,15 @@ public class AlumnoController {
 
   @Autowired
   private AlumnoRepo alumnorepo;
+
+  @Autowired
+  private RegionRepo regionrepo;
+
+  @Autowired
+  private ComunaRepo comunarepo;
+
+  @Autowired
+  private DocenteCrud docenterepo;
 
   @Autowired
   private Sistema sistema;
@@ -115,8 +133,33 @@ public class AlumnoController {
   }
 
 
+  @RequestMapping(value="/inscripcion", method = RequestMethod.GET)
+  public String inscripcionPractica(Model model){
+    User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
+    Alumno alumno = alumnorepo.findByUsuario(user);
 
 
+    model.addAttribute("user", user);
+    model.addAttribute("alumno", alumno);
+    model.addAttribute("regiones", regionrepo.findAll());
+    model.addAttribute("docentes", docenterepo.findAll());
+    model.addAttribute("region", new Region());
+    model.addAttribute("comuna", new Comuna());
+
+
+    return "alumno/inscripcion";
+  }
+
+  @RequestMapping(value="/comunas", method = RequestMethod.GET, produces="application/json")
+  public @ResponseBody List<Comuna> listacomunas(@RequestParam(value = "idRegion", required = true) Long id_region) {
+    List<Comuna> comunas = null;
+    System.out.println(id_region);
+    if (regionrepo.existsById(id_region)){
+      comunas = comunarepo.findByRegion(regionrepo.getOne(id_region));
+    }
+    System.out.println(comunas);
+    return comunas;
+  }
 
 
 
