@@ -24,6 +24,9 @@ public class Practica {
 	@Size(max = 150)
 	private String actividades_realizarPractica;
 
+
+	private Boolean activo = false;
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_alumno")
 	private Alumno alumno;
@@ -48,6 +51,15 @@ public class Practica {
 
 	@OneToOne(mappedBy = "practica", fetch = FetchType.LAZY)
 	private Horario horario;
+
+
+	public Boolean getActivo(){
+		return activo;
+	}
+
+	public void setActivo(Boolean activo){
+		this.activo = activo;
+	}
 
 	public Alumno getAlumno(){
 		return alumno;
