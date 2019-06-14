@@ -21,15 +21,13 @@
   function cargarComunas(){
     var dato = $("#region").val();
     var json = {"idRegion": dato};
-    console.log(json);
     $.ajax({
       type: "GET",
       url: "/alumno/comunas",
       data: json,
       dataType : 'JSON',
       success: function(result){
-        console.log(result);
-        var html = '<option value=""> Comunas </option>';
+        var html = '<option disabled="disabled" selected="selected"> Comuna </option>';
         var len = result.length;
         for (var i=0; i<len ; i++){
           html += '<option value="' + result[i].id + '">'

@@ -150,14 +150,14 @@ public class AlumnoController {
     return "alumno/inscripcion";
   }
 
+  //Funcion que es llamada por una funcion ajax para conseguir las Comunas
+  //que pertenecen a la region que corresponde el id
   @RequestMapping(value="/comunas", method = RequestMethod.GET, produces="application/json")
   public @ResponseBody List<Comuna> listacomunas(@RequestParam(value = "idRegion", required = true) Long id_region) {
     List<Comuna> comunas = null;
-    System.out.println(id_region);
     if (regionrepo.existsById(id_region)){
       comunas = comunarepo.findByRegion(regionrepo.getOne(id_region));
     }
-    System.out.println(comunas);
     return comunas;
   }
 
