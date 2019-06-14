@@ -23,6 +23,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             "/static/**","/css/**","/fontawesome/**","/img/**","/js/**","/layer/**", "/bootstrap/**"
     };
 
+    String[] soloAlumnos = new String[]{
+      "/alumno/inscripcion", "/alumno/info"
+    };
+
     //Para que los recursos no esten restringidos
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -39,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	        //.antMatchers(resources).permitAll()
           .antMatchers("/").permitAll()
           .antMatchers("/alumno/mostrar", "/empresa/**").hasRole("ADMIN")
-          .antMatchers("/alumno/**").hasRole("ALUMNO")
+          .antMatchers(soloAlumnos).hasRole("ALUMNO")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
