@@ -1,3 +1,22 @@
+function direccionEmpresa(x){
+  console.log(x);
+  document.getElementById('dirEmpresa').innerText=x;
+};
+
+function agregandoSelectEmpresa(result){
+  var html = '<option disabled="disabled" selected="selected"> Empresa </option>';
+  if (result != null){
+    var len = result.length;
+    for (var i=0; i<len ; i++){
+      html += '<option th:value="'+ result[i] + '" value="'+result[i].direccion+'">'
+              + result[i].nombre + '</option>';
+    }
+    html += '</option>';
+  }
+  $('#empresa').html(html);
+};
+
+
   function cargarComunas(){
     var dato = $("#region").val();
     var json = {"idRegion": dato};
@@ -15,6 +34,8 @@
         }
         html += '</option>';
         $('#comuna').html(html);
+        direccionEmpresa('');
+        agregandoSelectEmpresa(null);
       }
     })
   };
@@ -29,15 +50,13 @@
       data: json,
       datatype: 'JSON',
       success: function(result){
-        var html = '<option disabled="disabled" selected="selected"> Empresa </option>';
-        var len = result.length;
-        for (var i=0; i<len ; i++){
-          html += '<option value="' + result[i].id + '">'
-                  + result[i].nombre + '</option>';
-        }
-        html += '</option>';
-        $('#empresa').html(html);
-
+        agregandoSelectEmpresa(result)
       }
     })
+  };
+
+
+
+  function cambioRegion(){
+
   };

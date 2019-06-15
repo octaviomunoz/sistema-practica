@@ -18,8 +18,13 @@
   font-size: 50px;
 }
 
+.form-box{
+  position: relative;
+  margin: 80px auto;
+}
 
-.form-box .empresa{
+.form-box #form-empresa,
+.form-box #form-docente{
   width: 95%;
   max-width: 500px;
   min-width: 400px;

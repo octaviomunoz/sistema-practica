@@ -17,12 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
-import com.practica.model.Alumno;
-import com.practica.model.User;
-import com.practica.model.Practica;
-import com.practica.model.Region;
-import com.practica.model.Comuna;
-import com.practica.model.Empresa;
+import com.practica.model.*;
 
 import com.practica.util.Sistema;
 import com.practica.util.Roles;
@@ -150,7 +145,7 @@ public class AlumnoController {
     model.addAttribute("docentes", docenterepo.findAll());
     model.addAttribute("empresa", new Empresa());
     model.addAttribute("comuna", new Comuna());
-
+ 
 
 
     return "alumno/inscripcion";
