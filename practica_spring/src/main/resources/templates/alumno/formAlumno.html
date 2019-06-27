@@ -1,15 +1,18 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Font Awesome -->
-  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../static/fontawesome/css/all.css" />
-  <script th:src="@{/fontawesome/js/all.js}" src="../static/fontawesome/js/all.js"></script>
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
 
   <!-- Bootstrap -->
-  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
-  <script th:src ="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+
+  <link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
 
   <!-- CSS -->
-  <link th:href="@{/css/form.css}" rel="stylesheet" type="text/css" href="../static/css/form.css">
+  <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css" href="../static/css/estilos.css">
 
   <title>Fomrulario Alumno</title>
 </head>
@@ -62,8 +65,8 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">Direccion</span>
       </div>
-      <input type="text" class="form-control" th:field="*{domicilio_procedencia}"/>
-      <p th:if="${#fields.hasErrors('domicilio_procedencia')}" th:errors="*{domicilio_procedencia}"></p>
+      <input type="text" class="form-control" th:field="*{domicilio}"/>
+      <p th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></p>
 
     </div>
 

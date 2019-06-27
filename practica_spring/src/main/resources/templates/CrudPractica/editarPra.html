@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th = "http://www.thymeleaf.org">
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
 
-<meta http-equiv="Content-Type" content="text/html;"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 <title>Editar Practica</title>
 </head>
 <body>
@@ -25,7 +30,7 @@
 	    <input type="hidden" id="idPractica" name="idPractica" th:field="*{idPractica}"/>
 
 
-    
+
 
   <div class="form-group">
         <label for="domicilio_actualPractica" class="col-sm-2 control-label">Fecha Practica</label>

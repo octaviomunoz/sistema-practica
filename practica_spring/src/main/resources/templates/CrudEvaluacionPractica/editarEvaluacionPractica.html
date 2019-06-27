@@ -2,10 +2,15 @@
 <html xmlns:th = "http://www.thymeleaf.org">
 <head>
 
-<meta http-equiv="Content-Type" content="text/html;"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
 
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 <title>Editar Evaluacion Practica</title>
 </head>
 <body>
@@ -23,7 +28,7 @@
 		</div>
     </div>
     <form action="#" th:action="@{/CrudEvaluacionPractica/actualizarEvaluacionPractica}" th:object="${evaluacionpractica}" method="post">
-		<input type="hidden" id="id" name="id" th:field="*{id}"/> 	
+		<input type="hidden" id="id" name="id" th:field="*{id}"/>
 	    <div class="form-group">
 	        <label for="fecha" class="col-sm-2 control-label">Fecha</label>
 	        	<div class = col-sm-10>
@@ -44,7 +49,7 @@
         	</select>
    	 	</div>
    	</div>
-	
+
 	<div class="form-group">
         <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
         <div class ="col-sm-10">
@@ -57,7 +62,7 @@
         	</select>
    	 	</div>
    	</div>
-   	
+
    	<div class="form-group">
         <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
         <div class ="col-sm-10">
@@ -70,7 +75,7 @@
         	</select>
    	 	</div>
    	</div>
-   	
+
    	<div class="form-group">
         <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
         <div class ="col-sm-10">
@@ -83,7 +88,7 @@
         	</select>
    	 	</div>
    	</div>
-   	
+
    	<div class="form-group">
 	        <label for="pregunta1" class="col-sm-2 control-label">Pregunt1</label>
 	        <div class ="col-sm-10">
@@ -91,7 +96,7 @@
 	         	<p typeth:if="${#fields.hasErrors('pregunta1')}" th:errors="*{pregunta1}" class="alert alert-danger" />
 	    	</div>
 	    </div>
-	    
+
 	    <div class="form-group">
 	        <label for="pregunta2" class="col-sm-2 control-label">Pregunta2</label>
 	        <div class ="col-sm-10">
@@ -99,7 +104,7 @@
 	         	<p typeth:if="${#fields.hasErrors('pregunta2')}" th:errors="*{pregunta2}" class="alert alert-danger" />
 	    	</div>
 	    </div>
-   	
+
 
     <div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">

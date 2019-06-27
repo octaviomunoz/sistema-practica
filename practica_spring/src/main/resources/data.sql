@@ -11,13 +11,6 @@ INSERT INTO authorities (authority) VALUES
 
 
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,1);
-INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,2);
-INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,3);
-INSERT INTO authorities_users (usuario_id, authority_id) VALUES (1,4);
-
-
-
-
 
 
 INSERT INTO regiones (nombre) VALUES
