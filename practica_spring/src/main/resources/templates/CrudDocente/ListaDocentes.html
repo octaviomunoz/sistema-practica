@@ -34,7 +34,6 @@
   <thead>
   	<tr>
         <th>Id Docente</th>
-      	<th>Rut Docente</th>
     	<th>Nombre Docente</th>
      	<th>Email Docente</th>
      	<th>Es Director?</th>
@@ -62,6 +61,13 @@
   	</tbody>
 	</table>
 	</div>
+	<nav>
+      <ul class="pagination pagination-lg justify-content-center">
+        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
+          <li class="page-item"><a class="page-link" th:href="@{~/CrudDocente/ListaDocente(page=${num})}" th:text="${num}"></a></li>
+        </td>
+      </ul>
+    </nav>
 	<br/>
 	<div class = col-sm-10>
 		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>

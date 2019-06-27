@@ -3,7 +3,11 @@ package com.practica.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.DocenteCrud;
+
 import com.practica.model.Docente;
 
 @Controller		//Indica que es una clase controlador
@@ -29,11 +34,14 @@ public class ControDocenteCrud {
 	 * ListaDocentes es lo que retornara en formato .html
 	 */
 	@RequestMapping(value="/ListaDocente", method = RequestMethod.GET)
-	public String ListaDocentes(ModelMap mp) {
-		mp.put("Docentes", uc.findAll() );
+	public String ListaDocentes(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
+		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
+		 Page<Docente> docen_page = uc.findAll(pageable);
+		 mp.addAttribute("PageDocentes", docen_page);
+		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
+		
 		return "CrudDocente/ListaDocentes";
 	}
-
 	/*
 	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
