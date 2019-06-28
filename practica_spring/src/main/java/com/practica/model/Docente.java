@@ -25,16 +25,28 @@ public class Docente {
   private String emailDoc;
 
   @NotNull
-
   @Size
   private String director; //Lo ideal es que de un yes or not.
 
-  @OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private User usuario;
 
-  @OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
 	private List<Practica> practica = new ArrayList<>();
+  
+  
+  public Docente(Long idDoc, @NotNull @Size(max = 20) String nombreDoc, @NotNull @Email String emailDoc,
+		@NotNull @Size String director, User usuario, List<Practica> practica) {
+	this.idDoc = idDoc;
+	this.nombreDoc = nombreDoc;
+	this.emailDoc = emailDoc;
+	this.director = director;
+	this.usuario = usuario;
+	this.practica = practica;
+}
+
+
 
   public User getUsuario(){
     return usuario;
@@ -78,17 +90,5 @@ public class Docente {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-
-	public Docente() {
-	}
-
-	public Docente(Long idDoc, @NotNull @Size(max = 15) String runDoc, @NotNull @Size(max = 20) String nombreDoc,
-			@NotNull @Email String emailDoc, @NotNull @Size String director) {
-		this.idDoc = idDoc;
-		this.nombreDoc = nombreDoc;
-		this.emailDoc = emailDoc;
-		this.director = director;
-	}
-
 
 }
