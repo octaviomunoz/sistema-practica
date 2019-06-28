@@ -1,5 +1,7 @@
 package com.practica.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.practica.repo.DocenteCrud;
-
+import com.practica.repo.PracticaCrud;
+import com.practica.model.Comuna;
 import com.practica.model.Docente;
+import com.practica.model.Practica;
+
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/CrudDocente")	//Indica que el archivo raiz sera localhost:8080/CrudDocente
@@ -25,6 +31,9 @@ public class ControDocenteCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private DocenteCrud uc;
+	
+	@Autowired
+	private PracticaCrud pc;
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -115,5 +124,17 @@ public class ControDocenteCrud {
     
     return permitir;
   }
+	
+//Robado al octavio xd Deberia mostrar todas las practicas que contempla el docente no??!?
+	 //Funcion que es llamada por una funcion ajax para conseguir las Comunas
+	  //que pertenecen a la region que corresponde el id
+	  @RequestMapping(value="/practicas", method = RequestMethod.GET, produces="application/json")
+	  public @ResponseBody List<Practica> listacomunas(@RequestParam(value = "idRegion", required = true) Long id_docente) {
+	    List<Practica> practicas = null;
+	    if (uc.existsById(id_docente)){
+	      practicas = pc.findByDocente(uc.getOne(id_docente));
+	    }
+	    return practicas;
+	  }
 
 }
