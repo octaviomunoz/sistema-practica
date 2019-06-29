@@ -53,7 +53,7 @@ public class ControDocenteCrud {
 	@RequestMapping(value="/ListaDocenPra", method = RequestMethod.GET)
 	public String ListaDocenPra(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
-		 Page<Docente> docen_page = uc.findAll(pageable, );
+		 Page<Docente> docen_page = uc.findAll(pageable, ); //Tengo que mostrar en pantalla todas las practicas que tiene en comun la misma id. getpractica()
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 		
