@@ -37,14 +37,16 @@ public class Docente {
   
   
   public Docente(Long idDoc, @NotNull @Size(max = 20) String nombreDoc, @NotNull @Email String emailDoc,
-		@NotNull @Size String director, User usuario, List<Practica> practica) {
+		@NotNull @Size String director, User usuario) {
 	this.idDoc = idDoc;
 	this.nombreDoc = nombreDoc;
 	this.emailDoc = emailDoc;
 	this.director = director;
 	this.usuario = usuario;
-	this.practica = practica;
-}
+  }
+  
+  public Docente() {
+	}
 
 
 

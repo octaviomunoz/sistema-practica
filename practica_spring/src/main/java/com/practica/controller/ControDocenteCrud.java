@@ -32,8 +32,6 @@ public class ControDocenteCrud {
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private DocenteCrud uc;
 	
-	@Autowired
-	private PracticaCrud pc;
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -51,6 +49,17 @@ public class ControDocenteCrud {
 		
 		return "CrudDocente/ListaDocentes";
 	}
+	
+	@RequestMapping(value="/ListaDocenPra", method = RequestMethod.GET)
+	public String ListaDocenPra(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
+		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
+		 Page<Docente> docen_page = uc.findAll(pageable, );
+		 mp.addAttribute("PageDocentes", docen_page);
+		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
+		
+		return "CrudDocente/ListaDocenPracs";
+	}
+	
 	/*
 	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
@@ -125,7 +134,8 @@ public class ControDocenteCrud {
     return permitir;
   }
 	
-//Robado al octavio xd Deberia mostrar todas las practicas que contempla el docente no??!?
+/*
+	//Robado al octavio xd Deberia mostrar todas las practicas que contempla el docente no??!?
 	 //Funcion que es llamada por una funcion ajax para conseguir las Comunas
 	  //que pertenecen a la region que corresponde el id
 	  @RequestMapping(value="/practicas", method = RequestMethod.GET, produces="application/json")
@@ -136,5 +146,5 @@ public class ControDocenteCrud {
 	    }
 	    return practicas;
 	  }
-
+*/
 }

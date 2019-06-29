@@ -12,5 +12,5 @@ import com.practica.model.Region;
 
 public interface PracticaCrud extends JpaRepository<Practica, Long> {
 
-	List<Practica> findByDocente(Docente docente);
+	//List<Practica> findByDocente(Docente docente);
 }
