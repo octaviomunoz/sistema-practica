@@ -51,9 +51,9 @@
       	<td data-th-text="${docente.nombreDoc}"></td>
       	<td data-th-text="${docente.emailDoc}"></td>
       	<td data-th-text="${docente.director}"></td>
-      	<td>
-
-      		<a class="btn btn-outline-primary" th:href="@{'/CrudDocente/editarDoc/{idDoc}'(idDoc=${docente.idDoc})}"><i class="fas fa-edit"></i></a>
+      	
+      	<td >
+         <a class="btn btn-outline-primary" th:href="@{'/CrudDocente/editarDoc/{idDoc}'(idDoc=${docente.idDoc})}"><i class="fas fa-edit"></i></a>
       		<a class="btn btn-outline-danger" th:href="@{'/CrudDocente/borrar/{idDoc}'(idDoc=${docente.idDoc})}" ><i class="fas fa-trash-alt"></i></a>
       		</td>
       </tr>
