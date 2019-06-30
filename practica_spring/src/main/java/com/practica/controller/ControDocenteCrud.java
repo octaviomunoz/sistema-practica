@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,10 +47,17 @@ public class ControDocenteCrud {
 		 Page<Docente> docen_page = uc.findAll(pageable);
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
-		
 		return "CrudDocente/ListaDocentes";
 	}
 	
+	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
+	public String ListaPracticas(@ModelAttribute("Docente") Docente docente, ModelMap mp) {
+		mp.addAttribute("practicas", docente.getPractica());
+				
+		return "CrudDocente/ListaDocentePracticas";
+	}
+	
+	/*
 	@RequestMapping(value="/ListaDocenPra", method = RequestMethod.GET)
 	public String ListaDocenPra(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
@@ -59,7 +67,7 @@ public class ControDocenteCrud {
 		
 		return "CrudDocente/ListaDocenPracs";
 	}
-	
+	*/
 	/*
 	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap

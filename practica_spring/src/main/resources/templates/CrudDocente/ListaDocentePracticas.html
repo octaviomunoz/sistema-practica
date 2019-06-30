@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+	<title>Lista Docentes</title>
+</head>
+
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 		 <a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  	</nav>
+
+	<div class="panel panel-info"> <div class ="panel-heading">
+		<div class = col-sm-10>
+			<h3>Lista de Docentes</h3>
+		</div>
+	</div>
+
+	<table class="table table-striped">
+  <thead>
+  	<tr>
+        <th>Id Docente</th>
+    	<th>Nombre Docente</th>
+     	<th>Email Docente</th>
+     	<th>Es Director?</th>
+     	<th></th>
+     	<th></th>
+
+
+   	</tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <tr data-th-each="docente : ${Docentes}">
+      	<td data-th-text="${docente.idDoc}"></td>
+      	<td data-th-text="${docente.nombreDoc}"></td>
+      	<td data-th-text="${docente.emailDoc}"></td>
+      	<td data-th-text="${docente.director}"></td>
+      	<td data-th-text="${docente.practica}"></td>
+      	<td>
+
+      		<a class="btn btn-outline-primary" th:href="@{'/CrudDocente/editarDoc/{idDoc}'(idDoc=${docente.idDoc})}"><i class="fas fa-edit"></i></a>
+      		<a class="btn btn-outline-danger" th:href="@{'/CrudDocente/borrar/{idDoc}'(idDoc=${docente.idDoc})}" ><i class="fas fa-trash-alt"></i></a>
+      		</td>
+      </tr>
+
+  	</tbody>
+	</table>
+	</div>
+	<br/>
+	<div class = col-sm-10>
+		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
+	</div>
+	</body>
+
+</html>
