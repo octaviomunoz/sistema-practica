@@ -54,17 +54,12 @@ public class ControDocenteCrud {
 	}
 	
 	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
-	public String ListaPracticas(@ModelAttribute("Docente") Docente docente, ModelMap mp) {
-		
-		List<?> practicas = docente.getPractica();
-		
-		mp.addAttribute("practicas", practicas);
-		
-		mp.addAttribute("id",docente.getIdDoc());
-		
-	
-				
-		return "CrudDocente/ListaDocentePracticas";
+	public String Listadocepracticas(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
+		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
+		 Page<Docente> docen_page = uc.findAll(pageable);
+		 mp.addAttribute("PageDocentes", docen_page);
+		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
+	     return "CrudDocente/ListaDocentePracticas";
 	}
 	
 	/*
