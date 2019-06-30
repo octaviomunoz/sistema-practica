@@ -56,8 +56,10 @@ public class ControDocenteCrud {
 	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
 	public String ListaPracticas(@ModelAttribute("Docente") Docente docente, ModelMap mp) {
 		
+		List<?> practicas = docente.getPractica();
 		
-		mp.addAttribute("practicas", docente.getPractica());
+		mp.addAttribute("practicas", practicas);
+		
 		mp.addAttribute("id",docente.getIdDoc());
 		
 	
