@@ -37,6 +37,7 @@
     	<th>Nombre Docente</th>
      	<th>Email Docente</th>
      	<th>Es Director?</th>
+     	<th>Id Alumno + Estado practica</th>
      	<th></th>
      	<th></th>
 
@@ -46,12 +47,21 @@
   </thead>
   <tbody>
     <tr>
-      <tr data-th-each="docente : ${Docentes}">
+      <tr data-th-each="docente : ${PageDocentes}">
       	<td data-th-text="${docente.idDoc}"></td>
       	<td data-th-text="${docente.nombreDoc}"></td>
       	<td data-th-text="${docente.emailDoc}"></td>
       	<td data-th-text="${docente.director}"></td>
-      	<td data-th-text="${docente.practica}"></td>
+      	<td>
+      		<ul	data-th-each="practica : ${docente.practica}">
+      			<li data-th-text= "${practica.idPractica} + ' ' + ${practica.activo}">
+      			</li>  
+      			<li data-th-text= "${practica.alumno.nombre}"> 
+      			</li>
+      		</ul>
+      		
+      	</td>
+      	
       	<td>
 
       		<a class="btn btn-outline-primary" th:href="@{'/CrudDocente/editarDoc/{idDoc}'(idDoc=${docente.idDoc})}"><i class="fas fa-edit"></i></a>
@@ -62,6 +72,13 @@
   	</tbody>
 	</table>
 	</div>
+	<nav>
+      <ul class="pagination pagination-lg justify-content-center">
+        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
+          <li class="page-item"><a class="page-link" th:href="@{~/CrudDocente/ListaDocente(page=${num})}" th:text="${num}"></a></li>
+        </td>
+      </ul>
+    </nav>
 	<br/>
 	<div class = col-sm-10>
 		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
