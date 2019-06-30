@@ -1,6 +1,8 @@
 package com.practica.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -33,6 +35,7 @@ public class ControDocenteCrud {
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private DocenteCrud uc;
 	
+	
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -52,7 +55,12 @@ public class ControDocenteCrud {
 	
 	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
 	public String ListaPracticas(@ModelAttribute("Docente") Docente docente, ModelMap mp) {
+		
+		
 		mp.addAttribute("practicas", docente.getPractica());
+		mp.addAttribute("id",docente.getIdDoc());
+		
+	
 				
 		return "CrudDocente/ListaDocentePracticas";
 	}
