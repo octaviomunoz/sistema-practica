@@ -37,17 +37,17 @@ public class ControDocenteCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private DocenteCrud uc;
-	
+
 	@Autowired
 	private PracticaCrud pc;
-	
+
 	@Autowired
 	private UserRepo userrepo;
-	
+
 	@Autowired
 	private Sistema sistema;
 
-	
+
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -64,7 +64,7 @@ public class ControDocenteCrud {
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 		return "CrudDocente/ListaDocentes";
 	}
-	
+
 	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
 	public String Listadocepracticas(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
@@ -73,20 +73,22 @@ public class ControDocenteCrud {
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 	     return "CrudDocente/ListaDocentePracticas";
 	}
-	
+
 	@RequestMapping(value="/Listapracticadocente", method = RequestMethod.GET)
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
 		 User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
-		 Page<Practica> docen_pra = pc.findAll(pageable);
-	
-		 
+		 Docente docente = uc.findByUsuario(user);
+		 //Page<Practica> docen_pra = pc.findAll(pageable);
+		 Page<Practica> docen_pra = pc.findByDocente(docente, pageable);
+
+
 		 mp.addAttribute("usuario", user);
 		 mp.addAttribute("PagePracticas", docen_pra);
 		 mp.addAttribute("numPaginas", docen_pra.getTotalPages());
 	     return "CrudDocente/ListaPracticasDocentes";
 	}
-	
+
 	/*
 	@RequestMapping(value="/ListaDocenPra", method = RequestMethod.GET)
 	public String ListaDocenPra(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
@@ -94,7 +96,7 @@ public class ControDocenteCrud {
 		 Page<Docente> docen_page = uc.findAll(pageable, ); //Tengo que mostrar en pantalla todas las practicas que tiene en comun la misma id. getpractica()
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
-		
+
 		return "CrudDocente/ListaDocenPracs";
 	}
 	*/
@@ -168,10 +170,10 @@ public class ControDocenteCrud {
  //Metodo que veifica si se puede guardar o no un docente de manera que el run se unico
 	public boolean permitirGuardaDocente(Docente docente){
     boolean permitir = false;
-    
+
     return permitir;
   }
-	
+
 /*
 	//Robado al octavio xd Deberia mostrar todas las practicas que contempla el docente no??!?
 	 //Funcion que es llamada por una funcion ajax para conseguir las Comunas
