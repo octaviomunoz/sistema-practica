@@ -34,8 +34,8 @@ public class Docente {
 
 	@OneToMany(mappedBy = "docente", cascade = CascadeType.ALL)
 	private List<Practica> practica = new ArrayList<>();
-  
-  
+
+
   public Docente(Long idDoc, @NotNull @Size(max = 20) String nombreDoc, @NotNull @Email String emailDoc,
 		@NotNull @Size String director, User usuario) {
 	this.idDoc = idDoc;
@@ -44,10 +44,14 @@ public class Docente {
 	this.director = director;
 	this.usuario = usuario;
   }
-  
+
   public Docente() {
 	}
 
+  @Override
+	public String toString() {
+    return "Docente [id="+ idDoc +", nombre= " + nombreDoc +"]";
+  }
 
 
   public User getUsuario(){
@@ -67,6 +71,10 @@ public class Docente {
 	public Long getIdDoc() {
 		return idDoc;
 	}
+
+  public void setIdDoc(Long idDoc){
+    this.idDoc = idDoc;
+  }
 
 
 	public String getNombreDoc() {

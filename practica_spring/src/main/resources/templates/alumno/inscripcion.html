@@ -37,53 +37,48 @@
         <label th:text="${alumno.nombre} +' ' +${alumno.apellido_paterno} +' '+ ${alumno.apellido_materno}"></label>
       </div>
 
-      <form action="#" th:action="@{~/}" method="post">
-
+      <form action="#" th:action="@{~/alumno/inscripcion_validando}" method="post">
         <div id="form-docente">
 
           <h3>Docente</h3>
+
           <div class="form-group">
             <label>Nombre del Docente</label>
-            <select class="form-control" th:value="${docente}" name="id">
-              <option disabled="disabled" selected="select">Docentes</option>
-              <option th:each="doc: ${docentes}" th:value="${doc}" th:text="${doc.nombreDoc}"></option>
+            <select class="form-control" th:value="${docente.idDoc}" name="idDoc" onchange="direccionEmpresa(this.value)">
+              <option disabled="disabled" selected="select">Nombre Docentes</option>
+              <option th:each="doc: ${docentes}" th:text="${doc.nombreDoc}" th:value="${doc.idDoc}" value="1"></option>
             </select>
           </div>
         </div>
+
 
         <div id="form-empresa">
 
           <h3>Empresa</h3>
           <div class="fomr-group">
             <label>Region</label>
-            <select class="form-control" required="required" name="id" id="region" onchange="cargarComunas()">
+            <select class="form-control" required="required" name="region_id" id="region" onchange="cargarComunas()">
               <option disabled="disabled" selected="selected">Regiones</option>
-              <option th:each="reg: ${regiones}" th:value="${reg.id}" th:text="${reg.nombre}" value=${reg.id}> </option>
+              <option th:each="reg: ${regiones}" th:value="${reg.id}" th:text="${reg.nombre}"> </option>
             </select>
           </div>
 
           <div class="form-group">
             <label>Comuna</label>
-            <select class="form-control" name="id" id="comuna" required="required" onchange="cargarEmpresas()">
+            <select class="form-control" name="comuna_id" id="comuna" required="required" onchange="cargarEmpresas()">
               <option disabled="disabled" selected="selected">Comuna</option>
             </select>
           </div>
 
           <div class="form-group">
             <label>Empresa</label>
-            <select class="form-control"  th:value="${empresa}" required="required" name="id" id="empresa" onchange="direccionEmpresa(this.value)">
+            <select class="form-control"  th:value="${empresa.id}" required="required" name="id" id="empresa" onchange="direccionEmpresa(this.value)">
               <option disabled="disabled" selected="selected">Empresa</option>
             </select>
           </div>
 
-          <div class="form-group">
-            <label>Direccion : </label>
-            <label id="dirEmpresa"></label>
-          </div>
-
         </div>
-
-        <button type="button" class="btn btn-primary" name="button">Inscribir</button>
+        <button type="submit" class="btn btn-primary" name="button">Inscribir</button>
 
 
       </form>

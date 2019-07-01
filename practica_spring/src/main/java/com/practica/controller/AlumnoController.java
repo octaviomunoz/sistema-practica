@@ -18,17 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
 import com.practica.model.*;
-
-import com.practica.util.Sistema;
-import com.practica.util.Roles;
-
-
-import com.practica.repo.AlumnoRepo;
-import com.practica.repo.UserRepo;
-import com.practica.repo.RegionRepo;
-import com.practica.repo.ComunaRepo;
-import com.practica.repo.DocenteCrud;
-import com.practica.repo.EmpresaRepo;
+import com.practica.util.*;
+import com.practica.repo.*;
 
 @Controller
 @RequestMapping("/alumno")
@@ -51,6 +42,9 @@ public class AlumnoController {
 
   @Autowired
   private EmpresaRepo empresarepo;
+
+  @Autowired
+  private PracticaCrud practicarepo;
 
   @Autowired
   private Sistema sistema;
@@ -132,12 +126,11 @@ public class AlumnoController {
     return "alumno/infoAlumno";
   }
 
-
+//Controlador que llama para la inscripcion de una practica
   @RequestMapping(value="/inscripcion", method = RequestMethod.GET)
   public String inscripcionPractica(Model model){
     User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
     Alumno alumno = alumnorepo.findByUsuario(user);
-
 
     model.addAttribute("user", user);
     model.addAttribute("alumno", alumno);
@@ -145,11 +138,29 @@ public class AlumnoController {
     model.addAttribute("docentes", docenterepo.findAll());
     model.addAttribute("empresa", new Empresa());
     model.addAttribute("comuna", new Comuna());
- 
-
+    model.addAttribute("docente", new Docente());
 
     return "alumno/inscripcion";
   }
+
+  //Controlador que valida la Practica
+  @RequestMapping(value="/inscripcion_validando", method=RequestMethod.POST)
+  public String validarPractica(Docente docente, Empresa empresa){
+    Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
+    Practica practica = new Practica();
+
+
+    practica.setDocente(docenterepo.getOne(docente.getIdDoc()));
+    practica.setEmpresa(empresarepo.getOne(empresa.getId()));
+    practica.setAlumno(alumno);
+
+    practicarepo.save(practica);
+    return "redirect:/alumno/info"; 
+  }
+
+
+
+
 
   //Funcion que es llamada por una funcion ajax para conseguir las Comunas
   //que pertenecen a la region que corresponde el id

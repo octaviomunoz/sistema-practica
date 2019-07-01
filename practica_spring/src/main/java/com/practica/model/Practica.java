@@ -16,11 +16,10 @@ public class Practica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPractica;
 
-	@NotNull
 	@Size
 	private String fechaPractica;
 
-	@NotNull
+
 	@Size(max = 150)
 	private String actividades_realizarPractica;
 

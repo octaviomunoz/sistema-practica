@@ -1,6 +1,7 @@
 function direccionEmpresa(x){
   console.log(x);
-  document.getElementById('dirEmpresa').innerText=x;
+  //document.getElementById('dirEmpresa').innerText=x;
+
 };
 
 function agregandoSelectEmpresa(result){
@@ -8,14 +9,14 @@ function agregandoSelectEmpresa(result){
   if (result != null){
     var len = result.length;
     for (var i=0; i<len ; i++){
-      html += '<option th:value="'+ result[i] + '" value="'+result[i].direccion+'">'
-              + result[i].nombre + '</option>';
+      console.log(result[i]);
+      html += '<option value="' + result[i].id + '">'
+                      + result[i].nombre + '</option>';
     }
     html += '</option>';
   }
   $('#empresa').html(html);
 };
-
 
   function cargarComunas(){
     var dato = $("#region").val();
@@ -34,7 +35,6 @@ function agregandoSelectEmpresa(result){
         }
         html += '</option>';
         $('#comuna').html(html);
-        direccionEmpresa('');
         agregandoSelectEmpresa(null);
       }
     })
@@ -53,10 +53,4 @@ function agregandoSelectEmpresa(result){
         agregandoSelectEmpresa(result)
       }
     })
-  };
-
-
-
-  function cambioRegion(){
-
   };
