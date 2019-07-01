@@ -33,12 +33,11 @@
 	<table class="table table-striped">
   <thead>
   	<tr>
-        <th>Id Docente</th>
-    	<th>Nombre Docente</th>
-     	<th>Email Docente</th>
-     	<th>Es Director?</th>
-     	<th>Id Alumno + Estado practica</th>
-     	<th></th>
+        <th>Id del Practicante</th>
+        <th>Nombre Completo del Practicante</th>
+    	<th>Email del Practicante</th>
+     	<th>Estado de practica</th>
+    	<th></th>
      	<th></th>
 
 
@@ -48,14 +47,13 @@
   <tbody>
     <tr>
       <tr data-th-each="docente : ${PageDocentes}">
-      	<td data-th-text="${docente.idDoc}"></td>
-      	<td data-th-text="${docente.nombreDoc}"></td>
-      	<td data-th-text="${docente.emailDoc}"></td>
-      	<td data-th-text="${docente.director}"></td>
+      	<td data-th-text="${docente.idDoc}" style="display:none;"></td>
       	<td>
       		<ul	data-th-each="practica : ${docente.practica}">
-      			<li data-th-text= "${practica.idPractica} + ' ' + ${practica.activo}">
-      			
+      			<li data-th-text= "${practica.idPractica}">
+      			<li data-th-text= "${practica.alumno.nombre} +' ' + ${practica.alumno.apellido_paterno} + ' ' + ${practica.alumno.apellido_materno} ">
+      			<li data-th-text= "${practica.alumno.email}">
+      			<li data-th-text= "${practica.activo}">
       		</ul>
       		
       	</td>
@@ -64,7 +62,7 @@
 
       		<a class="btn btn-outline-primary" th:href="@{'/CrudDocente/editarDoc/{idDoc}'(idDoc=${docente.idDoc})}"><i class="fas fa-edit"></i></a>
       		<a class="btn btn-outline-danger" th:href="@{'/CrudDocente/borrar/{idDoc}'(idDoc=${docente.idDoc})}" ><i class="fas fa-trash-alt"></i></a>
-      		</td>
+      	</td>
       </tr>
 
   	</tbody>

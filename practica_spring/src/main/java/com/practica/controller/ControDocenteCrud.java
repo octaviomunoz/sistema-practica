@@ -35,6 +35,8 @@ public class ControDocenteCrud {
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private DocenteCrud uc;
 	
+	@Autowired
+	private PracticaCrud pc;
 	
 
 	/*Se ejecuta para listar los docentes.
@@ -60,6 +62,15 @@ public class ControDocenteCrud {
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 	     return "CrudDocente/ListaDocentePracticas";
+	}
+	
+	@RequestMapping(value="/Listapracticadocente", method = RequestMethod.GET)
+	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
+		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
+		 Page<Practica> docen_pra = pc.findAll(pageable);
+		 mp.addAttribute("PagePracticas", docen_pra);
+		 mp.addAttribute("numPaginas", docen_pra.getTotalPages());
+	     return "CrudDocente/ListaPracticasDocentes";
 	}
 	
 	/*

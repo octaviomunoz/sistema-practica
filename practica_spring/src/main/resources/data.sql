@@ -140,10 +140,11 @@ INSERT INTO evaluadores(nombre, email, telefono, id_usuario) VALUES
 ('nombre2', 'nombre2@em.com', '12341', 23),
 ('nombre3', 'nombre3@em.com', '12343', 24);
 
-INSERT INTO practicas(actividades_realizar_practica, fecha_practica, id_alumno, id_empresa, id_evaluador, id_docente) VALUES
-('crear','2019-07-22',1, 1, 1, 1),
-('crear','2019-07-22',1, 1, 1, 1),
-('crear','2019-08-12',1, 1, 1, 2);
+INSERT INTO practicas(actividades_realizar_practica, fecha_practica, id_alumno, id_empresa, id_evaluador, id_docente,activo) VALUES
+('crear','2019-07-22',1, 1, 1, 1,'false'),
+('crear','2019-07-22',2, 1, 1, 1,'true'),
+('crear','2019-07-22',3, 1, 1, 1,'false'),
+('crear','2019-08-12',1, 1, 1, 2,'false');
 
 INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2) VALUES
 ('2019-06-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
