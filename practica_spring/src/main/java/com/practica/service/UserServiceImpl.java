@@ -24,16 +24,15 @@ public class UserServiceImpl implements UserDetailsService {
     @Override
      public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-     //Buscar el usuario con el repositorio y si no existe lanzar una exepcion
-     com.practica.model.User appUser =
-                 userRepo.findByUsername(username);
+       //Buscar el usuario con el repositorio y si no existe lanzar una exepcion
+       com.practica.model.User appUser = userRepo.findByUsername(username);
 
-    //Mapear nuestra lista de Authority con la de spring security
-    List grantList = new ArrayList();
-    for (Authority authority: appUser.getAuthority()) {
-        // ROLE_USER, ROLE_ADMIN,..
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getAuthority());
-            grantList.add(grantedAuthority);
+      //Mapear nuestra lista de Authority con la de spring security
+      List grantList = new ArrayList();
+      for (Authority authority: appUser.getAuthority()) {
+          // ROLE_USER, ROLE_ADMIN,..
+          GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority.getAuthority());
+              grantList.add(grantedAuthority);
     }
 
     //Crear El objeto UserDetails que va a ir en sesion y retornarlo.
