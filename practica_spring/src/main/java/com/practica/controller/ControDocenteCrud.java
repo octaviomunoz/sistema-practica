@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.practica.repo.DocenteCrud;
 import com.practica.repo.PracticaCrud;
+import com.practica.repo.UserRepo;
+import com.practica.util.Sistema;
 import com.practica.model.Comuna;
 import com.practica.model.Docente;
 import com.practica.model.Practica;
+import com.practica.model.User;
 
 
 @Controller		//Indica que es una clase controlador
@@ -37,6 +40,13 @@ public class ControDocenteCrud {
 	
 	@Autowired
 	private PracticaCrud pc;
+	
+	@Autowired
+	private UserRepo userrepo;
+	
+	@Autowired
+	private Sistema sistema;
+
 	
 
 	/*Se ejecuta para listar los docentes.
@@ -67,7 +77,11 @@ public class ControDocenteCrud {
 	@RequestMapping(value="/Listapracticadocente", method = RequestMethod.GET)
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
+		 User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
 		 Page<Practica> docen_pra = pc.findAll(pageable);
+	
+		 
+		 mp.addAttribute("usuario", user);
 		 mp.addAttribute("PagePracticas", docen_pra);
 		 mp.addAttribute("numPaginas", docen_pra.getTotalPages());
 	     return "CrudDocente/ListaPracticasDocentes";
