@@ -80,6 +80,7 @@ public class ControDocenteCrud {
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
 		 User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
+		 
 		 Docente docente = uc.findByUsuario(user);
 		 //Page<Practica> docen_pra = pc.findAll(pageable);
 		 Page<Practica> docen_pra = pc.findByDocente(docente, pageable);

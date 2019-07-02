@@ -52,19 +52,27 @@
               Docente
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocente}">Listar Docentes</a>
-                <a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocentePractica}">Prueba</a>
-                 <a class="dropdown-item" th:href="@{~/CrudDocente/Listapracticadocente}">Prueba2</a>
-            	 <a class="dropdown-item" th:href="@{~/CrudDocente/nuevoDoc}">Crear Docente</a>
+            		<div sec:authorize="hasRole('ROLE_ADMIN')">
+    						<a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocente}">Listar Docentes</a>
+    						<a class="dropdown-item" th:href="@{~/CrudDocente/nuevoDoc}">Crear Docente</a>
+    				</div>
+    				<div sec:authorize="hasRole('ROLE_DOCENTE')">
+    					 <a class="dropdown-item" th:href="@{~/CrudDocente/Listapracticadocente}">Mis alumnos practicantes</a>
+    				</div>           
              </div>
           </li>
            <li class="nav-item dropdown">
+           
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Empresa
+              Empresa              
             </a>
+            
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" th:href="@{~/empresa/mostrar}">Lista de Empresas</a>
-              	 <a class="dropdown-item" th:href="@{~/empresa/ingresarDatos}">Crear Empresa</a>
+             	<div sec:authorize="hasRole('ROLE_ADMIN')">
+    				<a class="dropdown-item" th:href="@{~/empresa/mostrar}">Lista de Empresas</a>
+              	 	<a class="dropdown-item" th:href="@{~/empresa/ingresarDatos}">Crear Empresa</a>
+    			</div>
+             	 
              </div>
           </li>
             <li class="nav-item dropdown">
@@ -72,8 +80,11 @@
               Practica
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" th:href="@{~/CrudPractica/ListaPractica}">Lista de Practicas</a>
-              	 <a class="dropdown-item" th:href="@{~/CrudPractica/nuevoPra}">Crear Practicas</a>
+            	 	<div sec:authorize="hasRole('ROLE_ADMIN')">
+  						<a class="dropdown-item" th:href="@{~/CrudPractica/ListaPractica}">Lista de Practicas</a>
+ 						<a class="dropdown-item" th:href="@{~/CrudPractica/nuevoPra}">Crear Practicas</a>
+    				</div>
+            
              </div>
           </li>
           <li class="nav-item dropdown">
@@ -81,8 +92,12 @@
               Evaluador
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           	 <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/nuevoEvaluador}">Crear Evaluador</a>
-           	 <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno}">Crear Evaluador</a>
+            	<div sec:authorize="hasRole('ROLE_EMPRESA')">
+           			 <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/nuevoEvaluador}">Crear Evaluador</a>
+    			</div>      	       	
+    			<a class="dropdown-item" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno}">Mostrar alumnos del evaluador</a>
+ 
+
              </div>
           </li>
           
@@ -91,8 +106,10 @@
               Evaluacion Empresa
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa}">Lista Evaluacion Empresas</a>
-              	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/nuevoEvaEmpresa}">Crear Evaluacion Empresa</a>
+               	<div sec:authorize="hasRole('ROLE_ADMIN')">
+  						<a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa}">Lista Evaluacion Empresas</a>
+ 						<a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/nuevoEvaEmpresa}">Crear Evaluacion Empresa</a>
+    				</div>                         	 
              </div>
           </li>
           <li class="nav-item dropdown">
@@ -100,8 +117,12 @@
               Evaluacion Practica
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/ListaEvaPractica}">Lista Evaluacion Practica</a>
-              	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica}">Crear Evaluacion Practica</a>
+              	<div sec:authorize="hasRole('ROLE_ADMIN')">
+  					<a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/ListaEvaPractica}">Lista Evaluacion Practica</a>
+              	 	<a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica}">Crear Evaluacion Practica</a>
+    			</div>
+             
+
              </div>
           </li>
 
