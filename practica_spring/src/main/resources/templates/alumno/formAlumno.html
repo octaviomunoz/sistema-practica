@@ -35,16 +35,29 @@
         <!--usuario-->
         <div class="">
 
-          <input type="hidden" th:value="${user.id}" name="id">
+          <input type="hidden" th:value="${user.id}" name="">
 
-          <div class="form-group">
-            <i class="far fa-user"></i>
-            <input type="number" th:value="${user.username}" name="username" placeholder="RUN" required="required"/>
+          <div th:unless="${modificar}">
+            <div class="form-group">
+              <i class="far fa-user"></i>
+              <input type="number" th:value="${user.username}" name="username" placeholder="RUN" required="required"/>
+            </div>
+
+            <div class="form-group">
+              <i class="fas fa-key"></i>
+              <input type="password" th:value="${user.password}" name="password" placeholder="Cotraseña" required="required" >
+            </div>
           </div>
+          <div th:if="${modificar}">
+            <div class="form-group">
+              <i class="far fa-user"></i>
+              <input type="number" th:value="${user.username}" name="username" placeholder="RUN" required="required" disabled/>
+            </div>
 
-          <div class="form-group">
-            <i class="fas fa-key"></i>
-            <input type="password" th:value="${user.password}" name="password" placeholder="Cotraseña" required="required">
+            <div class="form-group">
+              <i class="fas fa-key"></i>
+              <input type="password" th:value="${user.password}" name="password" placeholder="Cotraseña" required="required" disabled>
+            </div>
           </div>
 
         </div>

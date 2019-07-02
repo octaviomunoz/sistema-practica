@@ -50,7 +50,7 @@ public class AlumnoController {
   private Sistema sistema;
 
   //Funcion que consigue las alumnos para mostrar en la vista
-  @RequestMapping(value = "/mostrar", method = RequestMethod.GET)
+  @RequestMapping(value = "/mostrar", method = RequestMethod.GET) 
   public String mostrarAlumno(@RequestParam(name="page", required=false, defaultValue="1")String page, Model model){
     Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
     Page<Alumno> alum_page = alumnorepo.findAll(pageable);
@@ -61,7 +61,8 @@ public class AlumnoController {
 
   //Fucion que muestra la vista con el formulario para ingresar una alumno
   @RequestMapping(value = "/ingresarDatos", method = RequestMethod.GET)
-  public String inscripcionAlumno(Alumno alumno, User user){
+  public String inscripcionAlumno(Alumno alumno, User user, Model model){
+    model.addAttribute("modificar", false);
     return "alumno/formAlumno";
   }
 
@@ -72,7 +73,12 @@ public class AlumnoController {
     Long id_alumno = Long.parseLong(idALUM);
     String direccion;
     if(alumnorepo.existsById(id_alumno)){
-      model.addAttribute("alumno", alumnorepo.getOne(id_alumno));
+      Alumno alumno = alumnorepo.getOne(id_alumno);
+      User usuario = alumno.getUsuario();
+      usuario.setPassword("");
+      model.addAttribute("alumno", alumno);
+      model.addAttribute("user", usuario);
+      model.addAttribute("modificar", true);
       direccion = "alumno/formAlumno";
     }else{
       direccion = "redirect:/alumno/mostrar";
@@ -83,14 +89,18 @@ public class AlumnoController {
   //Funcion que valida si los datos ingresados sean correctos
   //Si son correctos los guarda en la base de datos
   @RequestMapping(value = "/validandoAlumno", method = RequestMethod.POST)
-  public String validacionAlumno(Alumno alumno, User user, BindingResult bindingResult, Model model){
+  public String validacionAlumno(Alumno alumno, User user){
     String direccion = "redirect:/alumno/mostrar";
     User usuario = sistema.GuardarUsuario(user, Roles.ROLE_ALUMNO);
+    System.out.println(user);
     if (usuario != null){
-      alumno.setUsuario(usuario);
-      alumnorepo.save(alumno);
-    }else{
-      direccion = "/alumno/formAlumno";
+        alumno.setUsuario(usuario);
+        alumnorepo.save(alumno);
+    }else if(userrepo.existsById(user.getId())){
+          alumno.setUsuario(userrepo.getOne(user.getId()));
+          alumnorepo.save(alumno);
+    }else {
+        direccion = "/alumno/formAlumno";
     }
     return direccion;
   }
@@ -101,7 +111,15 @@ public class AlumnoController {
   public String eliminacioAlumno(@RequestParam(name="idALUM", required=true, defaultValue="0")String idALUM){
     Long id_alumno = Long.parseLong(idALUM);
     if(alumnorepo.existsById(id_alumno)){
-      alumnorepo.deleteById(id_alumno);
+      Alumno alumno = alumnorepo.getOne(id_alumno);
+      User usuario = alumno.getUsuario();
+
+      System.out.println("");
+
+      System.out.println(alumno);
+      System.out.println(usuario);
+      alumnorepo.delete(alumno);
+      userrepo.delete(usuario);
     }
     return "redirect:/alumno/mostrar";
   }
@@ -119,6 +137,7 @@ public class AlumnoController {
     Practica practica = alumno.getPractica();
     if (practica != null){
       model.addAttribute("practica", practica);
+      model.addAttribute("docente", practica.getDocente());
     }
 
     model.addAttribute("user", user);

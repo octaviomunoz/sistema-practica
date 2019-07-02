@@ -32,13 +32,14 @@
 
 
 .formulario{
-  position: absolute;
+  position: relative;
   width: 90%;
   max-width: 600px;
   min-width: 400px;
 
-  margin: 40px auto;
+  margin: 80px auto;
   padding-left: 30px;
+  padding-top: 40px;
 }
 
 .formulario input{
@@ -48,6 +49,10 @@
   width: 70%;
   padding-left: 40px;
   border: 2px solid #787878;
+}
+
+.formulario input[type=radio]{
+  height: 18px;
 }
 
 .formulario .form-group .fa-user,
