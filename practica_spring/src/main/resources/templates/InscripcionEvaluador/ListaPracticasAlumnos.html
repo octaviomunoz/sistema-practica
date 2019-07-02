@@ -62,7 +62,7 @@
 	<nav>
       <ul class="pagination pagination-lg justify-content-center">
         <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
-          <li class="page-item"><a class="page-link" th:href="@{~/CrudDocente/Listapracticadocente(page=${num})}" th:text="${num}"></a></li>
+          <li class="page-item"><a class="page-link" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno(page=${num})}" th:text="${num}"></a></li>
         </td>
       </ul>
     </nav>
