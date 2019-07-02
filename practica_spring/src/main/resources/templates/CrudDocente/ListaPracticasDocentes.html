@@ -11,7 +11,7 @@
   <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
   <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
   <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
-	<title>Lista Docentes</title>
+	<title>Lista Alumnos</title>
 </head>
 
 
@@ -26,18 +26,18 @@
 
 	<div class="panel panel-info"> <div class ="panel-heading">
 		<div class = col-sm-10>
-			<h3>Lista de Docentes</h3>
+			<h3>Mis Alumnos en Practica</h3>
 		</div>
 	</div>
 
 	<table class="table table-striped">
   <thead>
   	<tr>
-        <th>Id del Practicante</th>
-        <th>Id del Docente</th>
-        <th>Id de Usuario</th>
-		<th>Nombre del Alumno</th>
-    	<th>Estado</th>
+        <th>Id de la Practica</th>
+        <th>Rut del Alumno</th>
+        <th>Nombre del Alumno</th>
+        <th>Nombre del Empresa</th>
+      	<th>Practica Terminada? </th>
     	<th></th>
      	<th></th>
 
@@ -47,12 +47,11 @@
   </thead>
   <tbody>
     <tr>
-       <td data-th-text="${usuario.id}"></td>
-      <tr data-th-each="practica : ${PagePracticas}">
+        <tr data-th-each="practica : ${PagePracticas}">
        	<td data-th-text="${practica.idPractica}"></td>
-       	<td data-th-text="${practica.docente.idDoc}"></td>
-       	<td data-th-text="${practica.docente.usuario}"></td>
+       	<td data-th-text="${practica.alumno.usuario.username}"></td>
       	<td data-th-text="${practica.alumno.nombre}"></td>
+      	<td data-th-text="${practica.empresa.nombre}"></td>
       	<td data-th-text="${practica.activo}"></td>
       	<td>
       		<span th:if="!${practica.activo}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
