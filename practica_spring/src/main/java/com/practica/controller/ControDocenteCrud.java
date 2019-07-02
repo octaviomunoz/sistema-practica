@@ -64,7 +64,7 @@ public class ControDocenteCrud {
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 		return "CrudDocente/ListaDocentes";
 	}
-
+/*
 	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
 	public String Listadocepracticas(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
@@ -73,6 +73,8 @@ public class ControDocenteCrud {
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 	     return "CrudDocente/ListaDocentePracticas";
 	}
+	
+	*/
 
 	@RequestMapping(value="/Listapracticadocente", method = RequestMethod.GET)
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
