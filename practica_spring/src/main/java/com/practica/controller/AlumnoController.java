@@ -61,7 +61,7 @@ public class AlumnoController {
 
   //Fucion que muestra la vista con el formulario para ingresar una alumno
   @RequestMapping(value = "/ingresarDatos", method = RequestMethod.GET)
-  public String inscripcionAlumno(Alumno alumno){
+  public String inscripcionAlumno(Alumno alumno, User user){
     return "alumno/formAlumno";
   }
 
@@ -83,13 +83,14 @@ public class AlumnoController {
   //Funcion que valida si los datos ingresados sean correctos
   //Si son correctos los guarda en la base de datos
   @RequestMapping(value = "/validandoAlumno", method = RequestMethod.POST)
-  public String validacionAlumno(@Valid Alumno alumno, BindingResult bindingResult, Model model){
+  public String validacionAlumno(Alumno alumno, User user, BindingResult bindingResult, Model model){
     String direccion = "redirect:/alumno/mostrar";
-    if (bindingResult.hasErrors() ){
-      direccion = "alumno/formAlumno";
+    User usuario = sistema.GuardarUsuario(user, Roles.ROLE_ALUMNO);
+    if (usuario != null){
+      alumno.setUsuario(usuario);
+      alumnorepo.save(alumno);
     }else{
-      model.addAttribute("run_repetido", true);
-      direccion = "alumno/formAlumno";
+      direccion = "/alumno/formAlumno";
     }
     return direccion;
   }
@@ -155,7 +156,7 @@ public class AlumnoController {
     practica.setAlumno(alumno);
 
     practicarepo.save(practica);
-    return "redirect:/alumno/info"; 
+    return "redirect:/alumno/info";
   }
 
 

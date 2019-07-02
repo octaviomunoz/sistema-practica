@@ -1,46 +1,31 @@
 package com.practica.model;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
 
 @Entity
-@Table(name = "alumnos")
+@Table(name = "alumnos") 
 public class Alumno {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
-	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Size(max = 30)
-	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
+
 	private String nombre;
 
-	@NotNull
-	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Size(max = 15)
-	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
 	private String apellido_paterno;
 
-	@NotNull
-	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Size(max = 15)
-	@Pattern(regexp = "[A-Za-z ]+", message = "Solo admite letras")
+
 	private String apellido_materno;
 
-	@NotNull
-	@NotEmpty(message = "Este Campo no puede estar vacio")
-	@Size(max = 40)
-	@Pattern(regexp = "[A-Za-z0-9 ]+", message = "Solo admite letras y numeros")
+
 	private String domicilio;
 
-	@NotNull
+
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 15)
 	private String telefono;
