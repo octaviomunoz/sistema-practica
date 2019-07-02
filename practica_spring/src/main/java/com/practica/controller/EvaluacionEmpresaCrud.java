@@ -40,7 +40,6 @@ public class EvaluacionEmpresaCrud {
 	 */
 	@RequestMapping(value="/nuevoEvaEmpresa", method=RequestMethod.GET)
 	public String nuevo(Evaluacionempresa evaluacionempresa) {
-		System.out.println("Estoy funcionando");
 		return "CrudEvaluacionEmpresa/nuevoEvaEmpresa";
 	}
 

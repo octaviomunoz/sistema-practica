@@ -63,7 +63,7 @@ public class AlumnoController {
   @RequestMapping(value = "/ingresarDatos", method = RequestMethod.GET)
   public String inscripcionAlumno(Alumno alumno, User user, Model model){
     model.addAttribute("modificar", false);
-    return "alumno/formAlumno";   
+    return "alumno/formAlumno";
   }
 
   //Funcion que muestra que muestra el formulario para ingresar alumno y si no encuentra
@@ -176,6 +176,27 @@ public class AlumnoController {
 
     practicarepo.save(practica);
     return "redirect:/alumno/info";
+  }
+
+
+  @RequestMapping(value="/finalizarPractica", method= RequestMethod.GET)
+  public String finalizarPractica(){
+    Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
+    Practica practica = alumno.getPractica();
+    practica.setActivo(true);
+    practicarepo.save(practica);
+    return "redirect:/alumno/info";
+  }
+
+  @RequestMapping(value="/realizarEvaluacionEmpresa", method=RequestMethod.GET)
+  public String evaluarEmpresa(){
+    String redireccion = "redirect:/alumno/info";
+    Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
+    Practica practica = alumno.getPractica();
+    if(practica.getEvaluacionEmpresa() == null){
+      redireccion = "redirect:/CrudEvaluacionEmpresa/nuevoEvaEmpresa";
+    }
+    return redireccion;
   }
 
 
