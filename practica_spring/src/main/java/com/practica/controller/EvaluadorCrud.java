@@ -3,7 +3,11 @@ package com.practica.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +16,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.repo.EvaluadorRepo;
+import com.practica.repo.PracticaCrud;
+import com.practica.repo.UserRepo;
+import com.practica.util.Sistema;
+import com.practica.model.Docente;
 import com.practica.model.Evaluador;
+import com.practica.model.Practica;
+import com.practica.model.User;
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/InscripcionEvaluador")	//Indica que el archivo raiz sera localhost:8080/CrudDocente
@@ -20,6 +30,21 @@ public class EvaluadorCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private EvaluadorRepo uc;
+	
+	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
+	private PracticaCrud pc;
+	
+	/////////
+	
+	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
+	private UserRepo userrepo;
+	
+	
+	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
+	private Sistema sistema;
+	/////////
+	
+	
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -33,6 +58,30 @@ public class EvaluadorCrud {
 		mp.put("Evaluadores", uc.findAll() );
 		return "InscripcionEvaluador/ListaEvaluadores";
 	}
+	
+	
+	
+	
+	///////////////////////////
+	@RequestMapping(value="/ListaPracticaAlumno", method = RequestMethod.GET)
+	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
+		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
+		 User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
+		 Evaluador evaluador = uc.findByUsuario(user);
+		 //Page<Practica> docen_pra = pc.findAll(pageable);
+		 Page<Practica> eva_pra = pc.findByEvaluador(evaluador, pageable);
+
+
+		 mp.addAttribute("usuario", user);
+		 mp.addAttribute("PagePracticas", eva_pra);
+		 mp.addAttribute("numPaginas", eva_pra.getTotalPages());
+	     return "InscripcionEvaluador/ListaPracticasAlumnos";
+	}
+	
+	
+	////////////////////////////
+	
+	
 
 	/*
 	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
