@@ -23,6 +23,6 @@ Todo tiene que estar separado por los roles que le correspondan.
     hecho la evaluacion de la practica.
     Formulario de registro para un evaluador.
 
-  (Carlos) : Una lista de todos los alumnos a los cuales tiene que supervisar y cuando la practica este
-   completa un boton que lo redireccione al formulario de evaluacion del alumno que corresponda.
+  (Carlos) : Una lista de todos los alumnos a los cuales tiene que supervisar (Del evaluador???????) y cuando la practica este
+   completa un boton que lo redireccione al formulario de evaluacion del alumno que corresponda. (Desde el evaluador??????)
    El evaluador tendra que seleccionar a un alumno al cual va a supervisar.
