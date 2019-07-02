@@ -70,7 +70,7 @@ public class EvaluadorCrud {
 		 Evaluador evaluador = uc.findByUsuario(user);
 		 //Page<Practica> docen_pra = pc.findAll(pageable);
 		 Page<Practica> eva_pra = pc.findByEvaluador(evaluador, pageable);
-// pag
+// pag 2
 
 		 mp.addAttribute("usuario", user);
 		 mp.addAttribute("PagePracticas", eva_pra);
