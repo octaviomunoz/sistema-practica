@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+	<title>Lista Evaluacion Practica</title>
+</head>
+
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 		 <a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  	</nav>
+
+	<div class="panel panel-info"> <div class ="panel-heading">
+		<div class = col-sm-10>
+			<h3>Lista de Evaluacion Practica</h3>
+		</div>
+	</div>
+
+	<table class="table table-striped">
+  <thead>
+  	<tr>
+        <th>Id Evaluacion Practica </th>
+      	<th>Fecha Evaluacion Practica</th>
+    	<th>Tabla1 pregunta 1</th>
+    	<th>Tabla1 pregunta 2</th>
+    	<th>Tabla2 pregunta 1</th>
+    	<th>Tabla2 pregunta 2</th>
+    	<th>Pregunta 1</th>
+    	<th>Pregunta 2</th>
+     	<th></th>
+     	<th></th>
+
+
+   	</tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <tr data-th-each="evaluacionpractica : ${Evaluacionpracticas}">
+      	<td data-th-text="${evaluacionpractica.id}"></td>
+      	<td data-th-text="${evaluacionpractica.fecha}"></td>
+      	<td data-th-text="${evaluacionpractica.tabla1_pregunata1}"></td>
+      	<td data-th-text="${evaluacionpractica.tabla1_pregunata2}"></td>
+      	<td data-th-text="${evaluacionpractica.tabla2_pregunata1}"></td>
+      	<td data-th-text="${evaluacionpractica.tabla2_pregunata2}"></td>
+      	<td data-th-text="${evaluacionpractica.pregunta1}"></td>
+      	<td data-th-text="${evaluacionpractica.pregunta2}"></td>
+      	<td>
+
+      		<a class="btn btn-outline-primary" th:href="@{'/CrudEvaluacionPractica/editarEvaluacionPractica/{id}'(id=${evaluacionpractica.id})}"><i class="fas fa-edit"></i></a>
+      		<a class="btn btn-outline-danger" th:href="@{'/CrudEvaluacionPractica/borrar/{id}'(id=${evaluacionpractica.id})}" ><i class="fas fa-trash-alt"></i></a>
+      		</td>
+      </tr>
+
+  	</tbody>
+	</table>
+	</div>
+	<br/>
+	<div class = col-sm-10>
+		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
+	</div>
+	</body>
+
+</html>

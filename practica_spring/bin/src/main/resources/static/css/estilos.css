@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.box{
+  position: relative;
+  width: 90%;
+  margin: 80px auto;
+  padding: 30px 30px 30px 30px;
+}
+
+.box label{
+  font-size: 20px;
+}
+
+.box h2{
+  font-size: 50px;
+}
+
+.form-box{
+  position: relative;
+  margin: 80px auto;
+}
+
+.form-box #form-empresa,
+.form-box #form-docente{
+  width: 95%;
+  max-width: 500px;
+  min-width: 400px;
+}
+
+
+.formulario{
+  position: absolute;
+  width: 90%;
+  max-width: 600px;
+  min-width: 400px;
+
+  margin: 40px auto;
+  padding-left: 30px;
+}
+
+.formulario input{
+  height: 36px;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 70%;
+  padding-left: 40px;
+  border: 2px solid #787878;
+}
+
+.formulario .form-group .fa-user,
+.formulario .form-group .fa-key,
+.formulario .form-group .fa-home,
+.formulario .form-group .fa-phone,
+.formulario .form-group .fa-envelope
+{
+  position: absolute;
+  font-size: 25px;
+  margin: 5px;
+}
+
+.formulario .form-group button{
+  width: 40%;
+  height: 45px;
+  position: relative;
+  margin: auto 50px;
+}
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

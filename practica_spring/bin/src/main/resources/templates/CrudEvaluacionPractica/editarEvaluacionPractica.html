@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+<title>Editar Evaluacion Practica</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+ 	</nav>
+
+	<div class="page-header">
+		<div class = col-sm-10>
+			<h2>Editar Evaluacion Practica</h2>
+		</div>
+    </div>
+    <form action="#" th:action="@{/CrudEvaluacionPractica/actualizarEvaluacionPractica}" th:object="${evaluacionpractica}" method="post">
+		<input type="hidden" id="id" name="id" th:field="*{id}"/>
+	    <div class="form-group">
+	        <label for="fecha" class="col-sm-2 control-label">Fecha</label>
+	        	<div class = col-sm-10>
+	        		<input type="date" class="form-control"  th:field="*{fecha}" required="required"/>
+        	<p typeth:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" class="alert alert-danger" />
+	        	</div>
+	    </div>
+
+	    <div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla1_pregunata1}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+
+	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla1_pregunata2}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+
+   	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla2_pregunata1}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+
+   	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla2_pregunata2}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
+
+   	<div class="form-group">
+	        <label for="pregunta1" class="col-sm-2 control-label">Pregunt1</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{pregunta1}" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('pregunta1')}" th:errors="*{pregunta1}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+
+	    <div class="form-group">
+	        <label for="pregunta2" class="col-sm-2 control-label">Pregunta2</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{pregunta2}" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('pregunta2')}" th:errors="*{pregunta2}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+
+
+    <div class="form-group">
+    	<div class="col-sm-offset-2 col-sm-10">
+          	<button type="submit" class="btn btn-success">Modificar</button>
+		 </div>
+    </div>
+	</form>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+.loginbox{
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 48px auto;
+  border-radius: 5px;
+
+  padding:  30px 30px 15px 30px;
+
+  box-shadow: 0px 2px 10px #616161;
+}
+
+.loginbox h3{
+  margin: 25px auto;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 4px;
+}
+
+
+
+
+.form-group input{
+  height: 42px;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 80%;
+
+  border: 2px solid #787878;
+}
+
+.fa-user, .fa-lock{
+  font-size: 26px;
+  padding: 5px 0 0 0;
+
+}
+
+button,
+.button{
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  width: 60%;
+  margin: 6px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

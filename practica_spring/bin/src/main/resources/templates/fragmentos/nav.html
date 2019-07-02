@@ -1,0 +1,127 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+
+  <link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
+
+
+</head>
+
+
+<script src="http://localhost:35195/livereload.js" charset="utf-8"></script>
+
+
+<div th:fragment="nav">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light  scrolling-navbar fixed-top">
+    <div class="container">
+
+      <a class="navbar-brand" th:href="@{~/}">Practica</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Alumno
+            </a>
+          	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    					<div sec:authorize="hasRole('ROLE_ADMIN')">
+    						<a class="dropdown-item" th:href="@{~/alumno/mostrar}">Listar Alumno</a>
+    						<a class="dropdown-item" th:href="@{~/alumno/ingresarDatos}">Crear Alumno</a>
+    					</div>
+    					<div sec:authorize="hasRole('ROLE_ALUMNO')">
+    						<a class="dropdown-item" th:href="@{~/alumno/info}">Entrar</a>
+    					</div>
+           	</div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Docente
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocente}">Listar Docentes</a>
+                <a class="dropdown-item" th:href="@{~/CrudDocente/ListaDocentePractica}">Prueba</a>
+                 <a class="dropdown-item" th:href="@{~/CrudDocente/Listapracticadocente}">Prueba2</a>
+            	 <a class="dropdown-item" th:href="@{~/CrudDocente/nuevoDoc}">Crear Docente</a>
+             </div>
+          </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Empresa
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{~/empresa/mostrar}">Lista de Empresas</a>
+              	 <a class="dropdown-item" th:href="@{~/empresa/ingresarDatos}">Crear Empresa</a>
+             </div>
+          </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Practica
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{~/CrudPractica/ListaPractica}">Lista de Practicas</a>
+              	 <a class="dropdown-item" th:href="@{~/CrudPractica/nuevoPra}">Crear Practicas</a>
+             </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Evaluador
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           	 <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/nuevoEvaluador}">Crear Evaluador</a>
+             </div>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Evaluacion Empresa
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa}">Lista Evaluacion Empresas</a>
+              	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionEmpresa/nuevoEvaEmpresa}">Crear Evaluacion Empresa</a>
+             </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Evaluacion Practica
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/ListaEvaPractica}">Lista Evaluacion Practica</a>
+              	 <a class="dropdown-item" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica}">Crear Evaluacion Practica</a>
+             </div>
+          </li>
+
+
+        </ul>
+
+        <ul class="navbar-nav nav-flex-icon">
+          <li class="nav-item">
+    				<div sec:authorize="isAuthenticated()">
+      				<form th:action="@{/logout}" method="post">
+
+                  <a class="nav-link" href="javascript:$('form').submit();">Cerrar Sesion</a>
+              </form>
+    			</div>
+          <div sec:authorize="isAnonymous()">
+            <a class="nav-link" th:href="@{~/login}">Iniciar Sesion</a>
+
+          </div>
+    			</li>
+        </ul>
+       </div>
+     </div>
+  </nav>
+</div>

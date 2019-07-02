@@ -1,0 +1,60 @@
+<head>
+  <title>Lista de Empresas</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+</head>
+
+
+<body>
+  <a class="btn btn-primary btn-lg " th:href="@{~/empresa/ingresarDatos}" th:text="'Nueva Empresa'"></a>
+ 	 <a th:href="@{~/}" class="btn btn-secondary" th:text="'Volver a inicio'"> </a>
+
+  <div>
+    <table class="table table-sm table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID EMPRESA</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">DIRECCION</th>
+          <th scope="col">CONVENIO</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <tr th:each="empresa : ${PageEmpresas}">
+            <td class="align-middle" th:text="${empresa.id}"></td>
+            <td class="align-middle" th:text="${empresa.nombre}"></td>
+            <td class="align-middle" th:text="${empresa.direccion}"></td>
+            <td class="align-middle" th:text="${empresa.convenio}"></td>
+            <td>
+              <a class="btn btn-outline-primary" th:href="@{~/empresa/modificarDatos(idEMP=${empresa.id})}"><i class="fas fa-edit"></i></a>
+              <a class="btn btn-outline-danger" th:href="@{~/empresa/eliminar(idEMP=${empresa.id})}"><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div>
+    <nav>
+      <ul class="pagination pagination-lg justify-content-center">
+        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
+          <li class="page-item"><a class="page-link" th:href="@{~/empresa/mostrar(page=${num})}" th:text="${num}"></a></li>
+        </td>
+      </ul>
+    </nav>
+  </div>
+
+
+</body>

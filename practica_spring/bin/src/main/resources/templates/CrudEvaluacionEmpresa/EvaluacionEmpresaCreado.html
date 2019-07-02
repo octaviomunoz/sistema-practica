@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+<title>Creado Evaluacion de Empresa</title>
+
+</head>
+
+
+<body>
+
+	<div class="panel panel-info"> <div class ="panel-heading">
+		<div class = col-sm-10>
+			<h3>Evaluacion de Empresa Creado con Exito</h3>
+		</div>
+		<table class="table table-striped">
+  			<thead>
+  				<tr>
+        			<th >Id EvaluacionEmpresa</th>
+      				<th >Nota EvaluacionEmpresa</th>
+			    	<th >Comentario EvaluacionEmpresa</th>
+				</tr>
+    		</thead>
+  			<tbody>
+   				<tr>
+			      	<td data-th-text="${evaluacionempresa.id}"></td>
+			      	<td data-th-text="${evaluacionempresa.nota}"></td>
+			      	<td data-th-text="${evaluacionempresa.comentario}"></td>
+   				</tr>
+		  	</tbody>
+		</table>
+	</div>
+	<br/>
+	<div class = col-sm-10>
+		<a class ="btn btn-info" th:href="@{~/CrudEvaluacionEmpresa/nuevoEvaEmpresa}">Volver a Crear</a>
+		<a class ="btn btn-info" th:href="@{~/}">Volver a Inicio</a>
+	</div>
+</div>
+</body>
+
+</html>

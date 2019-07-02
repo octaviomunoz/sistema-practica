@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+
+<title>Editar Docente</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="#">Practica</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+ 	</nav>
+
+	<div class="page-header">
+		<div class = col-sm-10>
+			<h2>Editar Docente</h2>
+		</div>
+    </div>
+    <form action="#" th:action="@{/CrudDocente/actualizarDoc}" th:object="${docente}" method="post">
+		<input type="hidden" id="idDoc" name="idDoc" th:field="*{idDoc}"/>
+	    <div class="form-group">
+	        <label for="nombreDoc" class="col-sm-2 control-label">Nombre</label>
+	        	<div class = col-sm-10>
+	        		<input type="text" class="form-control"  th:field="*{nombreDoc}" required="required"/>
+	        		 <p typeth:if="${#fields.hasErrors('nombreDoc')}" th:errors="*{nombreDoc}" class="alert alert-danger" />
+	        	</div>
+	    </div>
+
+
+
+    <div class="form-group">
+        <label for="emailDoc" class="col-sm-2 control-label">Email</label>
+        <div class ="col-sm-10">
+        	<input type="email" class="form-control"  th:field="*{emailDoc}" required="required"/>
+        	<p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Director?</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{director}" required="required">
+           		 <option th:value="Si">Si</option>
+           		 <option th:value="No">No</option>
+        	</select>
+   	 	</div>
+   	</div>
+
+    <div class="form-group">
+    	<div class="col-sm-offset-2 col-sm-10">
+          	<button type="submit" class="btn btn-success">Modificar</button>
+		 </div>
+    </div>
+	</form>
+</body>
+
+</html>
