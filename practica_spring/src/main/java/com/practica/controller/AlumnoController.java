@@ -50,7 +50,7 @@ public class AlumnoController {
   private Sistema sistema;
 
   //Funcion que consigue las alumnos para mostrar en la vista
-  @RequestMapping(value = "/mostrar", method = RequestMethod.GET) 
+  @RequestMapping(value = "/mostrar", method = RequestMethod.GET)
   public String mostrarAlumno(@RequestParam(name="page", required=false, defaultValue="1")String page, Model model){
     Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
     Page<Alumno> alum_page = alumnorepo.findAll(pageable);
@@ -63,7 +63,7 @@ public class AlumnoController {
   @RequestMapping(value = "/ingresarDatos", method = RequestMethod.GET)
   public String inscripcionAlumno(Alumno alumno, User user, Model model){
     model.addAttribute("modificar", false);
-    return "alumno/formAlumno";
+    return "alumno/formAlumno";   
   }
 
   //Funcion que muestra que muestra el formulario para ingresar alumno y si no encuentra

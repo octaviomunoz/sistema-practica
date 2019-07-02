@@ -18,7 +18,7 @@
 <body >
 
 
-  <!--div th:replace="@{/fragmentos/nav} :: nav" ></div-->
+  <div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
   <div class="container formulario">
 
@@ -55,7 +55,7 @@
 
         <h2>Practica</h2>
         <!--Existe una practica -->
-        <div class="" th:if="${practica}"> 
+        <div class="" th:if="${practica}">
           <div class="form-group">
             <label th:text="'Fecha Inicio : ' + ${practica.fechaPractica}"></label>
           </div>
