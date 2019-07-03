@@ -36,7 +36,7 @@
         <th>Id Practica</th>
         <th>Rut del Practicante</th>
         <th>Nombre del Practicante</th>
-    	<th>Finalizo la Practica?</th>
+        <th>Nombre de la Empresa</th>
     	<th></th>
      	<th></th>
 
@@ -50,7 +50,7 @@
        	<td data-th-text="${practica.idPractica}"></td>
        	<td data-th-text="${practica.alumno.usuario.username}"></td>
        	<td data-th-text="${practica.alumno.nombre}"></td>
-       	<td data-th-text="${practica.activo}"></td>
+       	<td data-th-text="${practica.empresa.nombre}"></td>
        	 <td>
       		<span th:if="${practica.activo}" class ="btn btn-info" th:href="@{~/}">Realizar Evaluacion</span>
        	</td>
