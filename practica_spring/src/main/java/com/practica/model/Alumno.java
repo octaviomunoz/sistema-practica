@@ -3,11 +3,13 @@ package com.practica.model;
 import javax.validation.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
 @Entity
-@Table(name = "alumnos") 
+@Table(name = "alumnos")
 public class Alumno {
 
 	@Id
@@ -32,10 +34,12 @@ public class Alumno {
 
 	private String email;
 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private User usuario;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "alumno", fetch = FetchType.LAZY)
 	private Practica practica;
 

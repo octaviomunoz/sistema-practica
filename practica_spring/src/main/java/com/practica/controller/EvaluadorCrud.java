@@ -18,11 +18,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.practica.repo.EvaluadorRepo;
 import com.practica.repo.PracticaCrud;
 import com.practica.repo.UserRepo;
+import com.practica.repo.AlumnoRepo;
+
 import com.practica.util.*;
 import com.practica.model.Docente;
 import com.practica.model.Evaluador;
 import com.practica.model.Practica;
 import com.practica.model.User;
+import com.practica.model.Alumno;
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/InscripcionEvaluador")	//Indica que el archivo raiz sera localhost:8080/CrudDocente
@@ -43,7 +46,8 @@ public class EvaluadorCrud {
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private Sistema sistema;
 	/////////
-
+	@Autowired
+	private AlumnoRepo alumnorepo;
 
 
 	/*Se ejecuta para listar los docentes.
@@ -124,6 +128,24 @@ public class EvaluadorCrud {
 	public String creado(@RequestParam("Evaluadores") Evaluador evaluador) {
 		return "InscripcionEvaluador/evaluadorCreado";
 	}
+
+	@RequestMapping(value="/buscarAlumno", method = RequestMethod.GET)
+	public String buscandoAlumno(Alumno alumno){
+		return "InscripcionEvaluador/seleccionAlumno";
+	}
+
+	@RequestMapping(value = "/guardandoAlumno", method = RequestMethod.POST)
+	public String guardandoAlumno(Alumno alumno){
+		Evaluador evaluador = uc.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
+		System.out.println(alumno);
+		Practica practica = alumnorepo.getOne(alumno.getId()).getPractica();
+		practica.setEvaluador(evaluador);
+		pc.save(practica);  
+
+		return "redirect:/InscripcionEvaluador/ListaPracticaAlumno";
+	}
+
+
 
 
 

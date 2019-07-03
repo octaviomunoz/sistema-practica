@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.box-table{
+  position: relative;
+  margin: 50px auto;
+}
+
 .box{
   position: relative;
   width: 90%;

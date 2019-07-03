@@ -1,0 +1,45 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Font Awesome -->
+  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+
+	<link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
+  <script th:src="@{/js/inscripcion.js}" type="text/javascript" src="../../static/js/inscripcion.js"></script>
+
+
+	<title>Lista de los Practicantes</title>
+</head>
+
+<body>
+
+
+
+  <div class="container formulario">
+    <h2>Buscar Alumno</h2>
+    <label>Ingrese Run</label>
+
+    <div class="form-group">
+      <input type="number" id="Run" onkeyup="BuscarAlumno()">
+    </div>
+
+    <form action="#" th:action="@{/InscripcionEvaluador/guardandoAlumno}" th:object="${alumno}" method="post">
+      <h2>Alumno</h2>
+
+      <div class="form-group">
+        <input type="hidden" th:field="*{id}"id="Id">
+        <input type="text" th:field="*{nombre}"  id="Nombre" disabled="disabled">
+        <input type="text" th:field="*{apellido_paterno}" id="Apellido" disabled="disabled">
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="boton" disabled>Seleccionar</button>
+      <a class="btn btn-primary" th:href="@{~/}">Volver</a>
+    </form>
+
+  </div>
+</body>

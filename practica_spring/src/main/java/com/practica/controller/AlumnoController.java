@@ -227,6 +227,25 @@ public class AlumnoController {
     return empresa;
   }
 
+  @RequestMapping(value="/conseguirAlumno", method = RequestMethod.GET, produces="application/json")
+  public @ResponseBody Alumno conseguirAlumno(@RequestParam(value = "RUN", required = true) String username) {
+    Alumno alumno = new Alumno();
+    alumno.setId(-1L);
+
+    if(userrepo.existsByUsername(username)){
+      alumno = alumnorepo.findByUsuario(userrepo.findByUsername(username));
+      Practica practica = alumno.getPractica();
+      if (practica != null){
+        Evaluador evaluador = practica.getEvaluador();
+        if (evaluador != null){
+          alumno.setId(-1L);
+        }
+      }else{
+        alumno.setId(-1L);
+      }
+    }
+    return alumno;
+  }
 
 
 

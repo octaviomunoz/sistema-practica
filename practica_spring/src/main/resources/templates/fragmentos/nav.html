@@ -105,7 +105,8 @@
        			         <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/nuevoEvaluador}">Crear Evaluador</a>
                  </div>
                   <div sec:authorize="hasRole('ROLE_EMPRESA')">
-			                 <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno}">Mostrar alumnos del evaluador</a>
+                    <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno}">Mostrar alumnos del evaluador</a>
+			                 <a class="dropdown-item" th:href="@{~/InscripcionEvaluador/buscarAlumno}">Buscar Alumno</a>
                  </div>
 
                </div>

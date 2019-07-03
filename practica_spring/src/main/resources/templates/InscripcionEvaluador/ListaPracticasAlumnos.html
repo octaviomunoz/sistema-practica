@@ -22,63 +22,64 @@
 
 	<div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
+	<div class="box-table">
+			<div class="panel panel-info"> <div class ="panel-heading">
+				<div class = col-sm-10>
+					<h3>Practicantes</h3>
+				</div>
+			</div>
 
-	<div class="panel panel-info"> <div class ="panel-heading">
-		<div class = col-sm-10>
-			<h3>Practicantes</h3>
+			<table class="table table-striped">
+		  <thead>
+		  	<tr>
+		        <th>Id Practica</th>
+		        <th>Rut del Practicante</th>
+		        <th>Nombre del Practicante</th>
+		        <th>Nombre de la Empresa</th>
+		    	<th></th>
+		     	<th></th>
+
+
+		   	</tr>
+
+		  </thead>
+		  <tbody>
+		    <tr>
+			     <tr data-th-each="practica : ${PagePracticas}">
+		       	<td data-th-text="${practica.idPractica}"></td>
+		       	<td data-th-text="${practica.alumno.usuario.username}"></td>
+		       	<td data-th-text="${practica.alumno.nombre}"></td>
+		       	<td data-th-text="${practica.empresa.nombre}"></td>
+		       	 <td>
+							 <div th:if="${practica.activo}">
+								 <div  th:unless="${practica.evaluacionPractica}">
+									 <a class ="btn btn-info" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica(IDpractica=${practica.idPractica})}">Realizar Evaluacion</a>
+								 </div>
+								 <div th:if="${practica.evaluacionPractica}">
+									 <i class="fas fa-check"></i>
+								 </div>
+							 </div>
+
+
+
+		       	</td>
+		       </tr>
+
+		  	</tbody>
+			</table>
+			</div>
+			<nav>
+		      <ul class="pagination pagination-lg justify-content-center">
+		        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
+		          <li class="page-item"><a class="page-link" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno(page=${num})}" th:text="${num}"></a></li>
+		        </td>
+		      </ul>
+		    </nav>
+			<br/>
+			<div class = col-sm-10>
+				<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
+			</div>
 		</div>
-	</div>
-
-	<table class="table table-striped">
-  <thead>
-  	<tr>
-        <th>Id Practica</th>
-        <th>Rut del Practicante</th>
-        <th>Nombre del Practicante</th>
-        <th>Nombre de la Empresa</th>
-    	<th></th>
-     	<th></th>
-
-
-   	</tr>
-
-  </thead>
-  <tbody>
-    <tr>
-	     <tr data-th-each="practica : ${PagePracticas}">
-       	<td data-th-text="${practica.idPractica}"></td>
-       	<td data-th-text="${practica.alumno.usuario.username}"></td>
-       	<td data-th-text="${practica.alumno.nombre}"></td>
-       	<td data-th-text="${practica.empresa.nombre}"></td>
-       	 <td>
-					 <div th:if="${practica.activo}">
-						 <div  th:unless="${practica.evaluacionPractica}">
-							 <a class ="btn btn-info" th:href="@{~/CrudEvaluacionPractica/nuevoEvaPractica(IDpractica=${practica.idPractica})}">Realizar Evaluacion</a>
-						 </div>
-						 <div th:if="${practica.evaluacionPractica}">
-							 <i class="fas fa-check"></i>
-						 </div>
-					 </div>
-
-
-
-       	</td>
-       </tr>
-
-  	</tbody>
-	</table>
-	</div>
-	<nav>
-      <ul class="pagination pagination-lg justify-content-center">
-        <td th:if="${numPaginas}" th:each="num : ${#numbers.sequence(1, numPaginas)}">
-          <li class="page-item"><a class="page-link" th:href="@{~/InscripcionEvaluador/ListaPracticaAlumno(page=${num})}" th:text="${num}"></a></li>
-        </td>
-      </ul>
-    </nav>
-	<br/>
-	<div class = col-sm-10>
-		<a class ="btn btn-info" th:href="@{~/}">Volver a inicio</a>
-	</div>
 	</body>
 
 </html>
