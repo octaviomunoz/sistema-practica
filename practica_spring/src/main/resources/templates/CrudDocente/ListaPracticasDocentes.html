@@ -37,9 +37,8 @@
         <th>Rut del Alumno</th>
         <th>Nombre del Alumno</th>
         <th>Nombre de la Empresa</th>
-      	<th>Practica Terminada? </th>
-    	<th></th>
-			<th></th>
+    	<th>Evaluacion Empresa  </th>
+		<th>Evaluacion Practica</th>
 
      	<th></th>
 
@@ -54,21 +53,19 @@
        	<td data-th-text="${practica.alumno.usuario.username}"></td>
       	<td data-th-text="${practica.alumno.nombre}"></td>
       	<td data-th-text="${practica.empresa.nombre}"></td>
-      	<td data-th-text="${practica.activo}"></td>
-				<td>
+      	<td>
 					<div th:if="${practica.evaluacionEmpresa}">
 						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionEmpresa/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Empresa</a>
 					</div>
+					<span th:if="!${practica.evaluacionEmpresa}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
 				</td>
 				<td>
 					<div th:if="${practica.evaluacionPractica}">
 						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionPractica/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Practica</a>
 					</div>
+					<span th:if="!${practica.evaluacionPractica}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
 				</td>
-      	<td>
-      		<span th:if="!${practica.activo}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
-       	</td>
-       </tr>
+          </tr>
 
   	</tbody>
 	</table>
