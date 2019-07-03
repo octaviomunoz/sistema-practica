@@ -2,6 +2,7 @@ package com.practica.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.practica.repo.EvaluacionEmpresaRepo;
-import com.practica.model.Evaluacionempresa;
+
+import com.practica.model.*;
+import com.practica.repo.*;
+import com.practica.util.*;
 
 @Controller		//Indica que es una clase controlador
 @RequestMapping("/CrudEvaluacionEmpresa")	//Indica que el archivo raiz sera localhost:8080/CrudEvaluacionEmpresa
@@ -20,6 +23,19 @@ public class EvaluacionEmpresaCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private EvaluacionEmpresaRepo  uc;
+
+
+	@Autowired
+	private PracticaCrud practicarepo;
+
+	@Autowired
+	private Sistema sistema;
+
+	@Autowired
+	private UserRepo userrepo;
+
+	@Autowired
+	private AlumnoRepo alumnorepo;
 
 	/*Se ejecuta para listar las evaluaciones de empresas.
 	 * findAll() leera todos los registros de la tabla "evaluacion empresa"
@@ -56,8 +72,12 @@ public class EvaluacionEmpresaCrud {
 		if(bindingResult.hasErrors()) {
 			return "CrudEvaluacionEmpresa/nuevoEvaEmpresa";
 		}
+		User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
+    Alumno alumno = alumnorepo.findByUsuario(user);
+		Practica practica = alumno.getPractica();
+		evaluacionempresa.setPractica(practica);
 		uc.save(evaluacionempresa);
-		return "CrudEvaluacionEmpresa/EvaluacionEmpresaCreado";
+		return "redirect:/alumno/info";
 	}
 
 	/*
@@ -98,7 +118,15 @@ public class EvaluacionEmpresaCrud {
 		return "redirect:/CrudEvaluacionEmpresa/ListaEvaluacionEmpresa";
 	}
 
-
+	@RequestMapping(value="/mostrarInfo", method=RequestMethod.GET)
+	public String mostrarInfo(@RequestParam(name="IDpractica", required=true)String id_practica, Model model){
+		Practica practica = practicarepo.getOne(Long.parseLong(id_practica));
+		Alumno alumno = practica.getAlumno();
+		Evaluacionempresa evaEmpresa = practica.getEvaluacionEmpresa();
+		model.addAttribute("evaEmpresa", evaEmpresa);
+		model.addAttribute("alumno", alumno);
+		return "CrudEvaluacionEmpresa/info";
+	}
 
 
 }
