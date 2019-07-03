@@ -45,7 +45,7 @@
 
   </thead>
   <tbody>
-    <tr>
+    <tr>		
 	     <tr data-th-each="practica : ${PagePracticas}">
        	<td data-th-text="${practica.idPractica}"></td>
        	<td data-th-text="${practica.alumno.usuario.username}"></td>
@@ -53,6 +53,8 @@
        	<td data-th-text="${practica.empresa.nombre}"></td>
        	 <td>
       		<span th:if="${practica.activo}" class ="btn btn-info" th:href="@{~/}">Realizar Evaluacion</span>
+      		
+
        	</td>
        </tr>
 
