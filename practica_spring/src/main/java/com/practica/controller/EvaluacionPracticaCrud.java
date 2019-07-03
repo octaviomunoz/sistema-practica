@@ -2,6 +2,9 @@ package com.practica.controller;
 
 import javax.validation.Valid;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,15 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.practica.repo.AlumnoRepo;
-import com.practica.repo.EvaluacionPracticaRepo;
-import com.practica.repo.PracticaCrud;
-import com.practica.repo.UserRepo;
-import com.practica.util.Sistema;
-import com.practica.model.Alumno;
-import com.practica.model.Evaluacionempresa;
-import com.practica.model.Evaluacionpractica;
-import com.practica.model.Practica;
 import com.practica.model.*;
 import com.practica.repo.*;
 import com.practica.util.*;
@@ -35,14 +29,8 @@ public class EvaluacionPracticaCrud {
 	@Autowired
 	private PracticaCrud practicarepo;
 
-	@Autowired
-	private Sistema sistema;
 
-	@Autowired
-	private UserRepo userrepo;
 
-	@Autowired
-	private AlumnoRepo alumnorepo;
 
 	/*Se ejecuta para listar las evaluaciones de practica.
 	 * findAll() leera todos los registros de la tabla "evaluacion practica"
@@ -62,8 +50,8 @@ public class EvaluacionPracticaCrud {
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
 	@RequestMapping(value="/nuevoEvaPractica", method=RequestMethod.GET)
-	public String nuevo(Evaluacionpractica evaluacionpractica) {
-		System.out.println("Estoy funcionando");
+	public String nuevo(@RequestParam(name="IDpractica", required=true)String id_practica, Evaluacionpractica evaluacionpractica, Model model) {
+		model.addAttribute("idPractica", id_practica);
 		return "CrudEvaluacionPractica/nuevoEvaPractica";
 	}
 
@@ -75,18 +63,20 @@ public class EvaluacionPracticaCrud {
 	 * usando el uc.save
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
-	public String crear(@Valid Evaluacionpractica evaluacionpractica, BindingResult bindingResult, ModelMap mp) {
+	public String crear(@RequestParam(name="IDpractica", required=true)String id_practica, @Valid Evaluacionpractica evaluacionpractica, BindingResult bindingResult, ModelMap mp) {
 		System.out.println(evaluacionpractica);
 		if(bindingResult.hasErrors()) {
 			return "CrudEvaluacionPractica/nuevoEvaPractica";
 		}
-		User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
-		Alumno alumno = alumnorepo.findByUsuario(user);
-		Practica practica = alumno.getPractica();
+		Practica practica = practicarepo.getOne(Long.parseLong(id_practica));
 		evaluacionpractica.setPractica(practica);
+		evaluacionpractica.setFecha(new SimpleDateFormat("dd/MM/YYYY").format(new Date()));
 		uc.save(evaluacionpractica);
 		return "redirect:/alumno/info";
 	}
+
+
+
 	/*
 	 * Se usa request param para que la vista espere una instancia de la clase evaluacion practica
 	 * la vista recibe con el metodo post para mostrar los valores.

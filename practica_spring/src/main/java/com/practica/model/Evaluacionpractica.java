@@ -14,8 +14,8 @@ public class Evaluacionpractica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
-	private String fecha;
+
+	private String fecha;    
 
 	@NotNull
 	private String tabla1_pregunata1;
@@ -387,7 +387,7 @@ public class Evaluacionpractica {
 	* Returns value of practica
 	* @return
 	*/
-	
+
 	public Practica getPractica() {
 		return practica;
 	}

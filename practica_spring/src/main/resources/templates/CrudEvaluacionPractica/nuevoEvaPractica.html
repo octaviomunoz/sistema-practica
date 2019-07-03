@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Font Awesome -->
@@ -10,38 +10,99 @@
   <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
   <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 
-	<link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
-
-	<title>Evaluar Practica</title>
-	<script  src="http://localhost:46241/livereload.js"  charset="utf-8"> </script>
-
+  <link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
+<title>Nuevo Evaluacion Practica</title>
 </head>
 <body>
 
-	<div th:replace="@{/fragmentos/nav} :: nav" ></div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  		<a class="navbar-brand" href="#">Practica </a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+ 	</nav>
 
-	<div class="container formulario">
-		<h2>Ingresar Evaluacion Practica</h2>
+	<div class="page-header">
+		<div class = col-sm-10>
+			<h2>Ingresar Evaluacion Practica</h2>
+		</div>
+    </div>
+    <form action="#" th:action="@{/CrudEvaluacionPractica/crear(IDpractica=${idPractica})}" th:object="${evaluacionpractica}" method="post">
+		<input type="hidden" id="id" name="id" th:field="*{id}"/>
 
-		<form action="#" th:action="@{/CrudEvaluacionPractica/crear}" method="post">
-			<input type="hidden" th:value="${evaluacionpractica.id}">
+	    <div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla1_pregunata1}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
 
-			<div class="form-group">
-				<input type="radio" th:value="${evaluacionpractica.tabla1_pregunata1}">
+	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla1_pregunata2}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
 
-				<div>
+   	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla2_pregunata1}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
 
-	        <div class="form-check form-check-inline">
-	          <input class="form-check-input" type="radio" name="Convenio" id="radio1" th:field="*{convenio}" th:value="true" >
-	          <label class="form-check-label" for="radio1">Si</label>
-	        </div>
-	        <div class="form-check form-check-inline">
-	          <input class="form-check-input" type="radio" name="Convenio" id="radio2" th:field="*{convenio}" th:value="false" checked>
-	          <label class="form-check-label" for="radui2">No</label>
-	        </div>
-	      </div>
-			</div>
+   	<div class="form-group">
+        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
+        <div class ="col-sm-10">
+        	<select class="form-control"  th:field="*{tabla2_pregunata2}" required="required">
+           		 <option th:value="MuyMalo">Muy Malo</option>
+           		 <option th:value="Malo">Malo</option>
+           		 <option th:value="Regular">Regular</option>
+           		 <option th:value="Bueno">Bueno</option>
+           		 <option th:value="MuyBueno">Muy Bueno</option>
+        	</select>
+   	 	</div>
+   	</div>
 
-		</form>
-	</div>
+   	<div class="form-group">
+	        <label for="pregunta1" class="col-sm-2 control-label">Pregunta1</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{pregunta1}" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('pregunta1')}" th:errors="*{pregunta1}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+
+	    <div class="form-group">
+	        <label for="pregunta2" class="col-sm-2 control-label">Pregunta2</label>
+	        <div class ="col-sm-10">
+	        	<input type="text" class="form-control"  th:field="*{pregunta2}" required="required"/>
+	         	<p typeth:if="${#fields.hasErrors('pregunta2')}" th:errors="*{pregunta2}" class="alert alert-danger" />
+	    	</div>
+	    </div>
+
+
+    <div class="form-group">
+    	<div class="col-sm-offset-2 col-sm-10">
+          	<button type="submit" class="btn btn-success">Crear</button>
+		 </div>
+    </div>
+	</form>
 </body>
