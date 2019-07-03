@@ -196,7 +196,7 @@ public class AlumnoController {
     if(practica.getEvaluacionEmpresa() == null){
       redireccion = "redirect:/CrudEvaluacionEmpresa/nuevoEvaEmpresa";
     }
-    return redireccion;
+    return redireccion; 
   }
 
 

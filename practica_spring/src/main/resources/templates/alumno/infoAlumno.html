@@ -13,6 +13,7 @@
 
   <link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
 
+
 </head>
 
 <body >
@@ -63,10 +64,10 @@
             <label th:text="'Docente a cargo : ' + ${docente.nombreDoc}"> </label>
           </div>
 
-          <div class="form-group" th:if="${practica.activo}">
+          <div class="form-group" th:unless="${practica.activo}">
             <a class="btn btn-primary" th:href="@{~/alumno/finalizarPractica}">Finalizar Practica</a>
           </div>
-          <div class="form-group" th:unless="${practica.activo}">
+          <div class="form-group" th:if="${practica.activo}">
             <div th:unless="${practica.evaluacionEmpresa}">
               <a class="btn btn-primary" th:href="@{~/alumno/realizarEvaluacionEmpresa}">Evaluar Empresa</a>
             </div>
