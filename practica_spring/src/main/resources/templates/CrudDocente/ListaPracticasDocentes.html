@@ -56,8 +56,11 @@
       	<td data-th-text="${practica.empresa.nombre}"></td>
       	<td data-th-text="${practica.activo}"></td>
 				<td>
-					<div th:if="${practica.evaluacionEmpresa}">
+					<div th:if="!${practica.evaluacionEmpresa}">
 						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionEmpresa/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Empresa</a>
+					</div>
+					<div th:if="!${practica.evaluacionPractica}">
+						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionPractica/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Practica</a>
 					</div>
 				</td>
       	<td>

@@ -27,6 +27,7 @@ import com.practica.repo.UserRepo;
 import com.practica.util.Sistema;
 import com.practica.model.Comuna;
 import com.practica.model.Docente;
+import com.practica.model.Evaluacionpractica;
 import com.practica.model.Practica;
 import com.practica.model.User;
 
@@ -80,18 +81,15 @@ public class ControDocenteCrud {
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
 		 User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
-		 
 		 Docente docente = uc.findByUsuario(user);
 		 //Page<Practica> docen_pra = pc.findAll(pageable);
 		 Page<Practica> docen_pra = pc.findByDocente(docente, pageable);
-
-
 		 mp.addAttribute("usuario", user);
 		 mp.addAttribute("PagePracticas", docen_pra);
 		 mp.addAttribute("numPaginas", docen_pra.getTotalPages());
 	     return "CrudDocente/ListaPracticasDocentes";
 	}
-
+	
 	/*
 	@RequestMapping(value="/ListaDocenPra", method = RequestMethod.GET)
 	public String ListaDocenPra(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {

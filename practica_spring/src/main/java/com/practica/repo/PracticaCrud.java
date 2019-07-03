@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 import com.practica.model.Docente;
+import com.practica.model.Evaluacionpractica;
 import com.practica.model.Evaluador;
 import com.practica.model.Practica;
 
@@ -15,5 +16,6 @@ public interface PracticaCrud extends JpaRepository<Practica, Long> {
 
 	Page<Practica> findByDocente(Docente docente, Pageable pageable);
 	Page<Practica> findByEvaluador(Evaluador evaluador, Pageable pageable);
+	
 
 }
