@@ -2,6 +2,9 @@ package com.practica.controller;
 
 
 import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -168,8 +171,7 @@ public class AlumnoController {
   public String validarPractica(Docente docente, Empresa empresa){
     Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
     Practica practica = new Practica();
-
-
+    practica.setFechaPractica(new SimpleDateFormat("dd/MM/YYYY").format(new Date()));
     practica.setDocente(docenterepo.getOne(docente.getIdDoc()));
     practica.setEmpresa(empresarepo.getOne(empresa.getId()));
     practica.setAlumno(alumno);
@@ -196,7 +198,7 @@ public class AlumnoController {
     if(practica.getEvaluacionEmpresa() == null){
       redireccion = "redirect:/CrudEvaluacionEmpresa/nuevoEvaEmpresa";
     }
-    return redireccion; 
+    return redireccion;
   }
 
 
