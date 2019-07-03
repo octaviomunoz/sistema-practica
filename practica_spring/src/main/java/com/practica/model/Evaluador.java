@@ -62,6 +62,12 @@ public class Evaluador{
     return practica;
   }
 
+  public User getUsuario() {
+		return usuario;
+	}
 
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
 
 }

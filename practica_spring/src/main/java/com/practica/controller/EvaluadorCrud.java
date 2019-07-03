@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.practica.repo.EvaluadorRepo;
 import com.practica.repo.PracticaCrud;
 import com.practica.repo.UserRepo;
-import com.practica.util.Sistema;
+import com.practica.util.*;
 import com.practica.model.Docente;
 import com.practica.model.Evaluador;
 import com.practica.model.Practica;
@@ -30,21 +30,21 @@ public class EvaluadorCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private EvaluadorRepo uc;
-	
+
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private PracticaCrud pc;
-	
+
 	/////////
-	
+
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private UserRepo userrepo;
-	
-	
+
+
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private Sistema sistema;
 	/////////
-	
-	
+
+
 
 	/*Se ejecuta para listar los docentes.
 	 * findAll() leera todos los registros de la tabla "docentes"
@@ -58,10 +58,10 @@ public class EvaluadorCrud {
 		mp.put("Evaluadores", uc.findAll() );
 		return "InscripcionEvaluador/ListaEvaluadores";
 	}
-	
-	
-	
-	
+
+
+
+
 	///////////////////////////
 	@RequestMapping(value="/ListaPracticaAlumno", method = RequestMethod.GET)
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
@@ -77,19 +77,18 @@ public class EvaluadorCrud {
 		 mp.addAttribute("numPaginas", eva_pra.getTotalPages());
 	     return "InscripcionEvaluador/ListaPracticasAlumnos";
 	}
-	
-	
+
+
 	////////////////////////////
-	
-	
+
+
 
 	/*
 	 * Aca este metodo nos manda a la vista nuevoDoc.html con los valores de docente sin inicializar
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
 	@RequestMapping(value="/nuevoEvaluador", method=RequestMethod.GET)
-	public String nuevo(Evaluador evaluador) {
-		System.out.println("Estoy funcionando");
+	public String nuevo(Evaluador evaluador, User user) {
 		return "InscripcionEvaluador/nuevoEvaluador";
 	}
 
@@ -101,14 +100,20 @@ public class EvaluadorCrud {
 	 * usando el uc.save
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
-	public String crear(@Valid Evaluador evaluador, BindingResult bindingResult, ModelMap mp) {
-		System.out.println(evaluador);
-		if(bindingResult.hasErrors()) {
-			System.out.println("hola soy un error");
-			return "InscripcionEvaluador/nuevoEvaluador";
-		}
-		uc.save(evaluador);
-		return "InscripcionEvaluador/evaluadorCreado";
+	public String crear(Evaluador evaluador, User user) {
+		String direccion = "redirect:/";
+    User usuario = sistema.GuardarUsuario(user, Roles.ROLE_EMPRESA);
+    System.out.println(user);
+    if (usuario != null){
+        evaluador.setUsuario(usuario);
+        uc.save(evaluador);
+    }else if(userrepo.existsById(user.getId())){
+          evaluador.setUsuario(userrepo.getOne(user.getId()));
+          uc.save(evaluador);
+    }else {
+        direccion = "/InscripcionEvaluador/nuevoEvaluador";
+    }
+    return direccion;
 	}
 
 	/*
