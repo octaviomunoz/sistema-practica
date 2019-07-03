@@ -39,6 +39,8 @@
         <th>Nombre de la Empresa</th>
       	<th>Practica Terminada? </th>
     	<th></th>
+			<th></th>
+			
      	<th></th>
 
 
@@ -53,6 +55,11 @@
       	<td data-th-text="${practica.alumno.nombre}"></td>
       	<td data-th-text="${practica.empresa.nombre}"></td>
       	<td data-th-text="${practica.activo}"></td>
+				<td>
+					<div th:if="${practica.evaluacionEmpresa}">
+						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionEmpresa/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Empresa</a>
+					</div>
+				</td>
       	<td>
       		<span th:if="!${practica.activo}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
        	</td>
