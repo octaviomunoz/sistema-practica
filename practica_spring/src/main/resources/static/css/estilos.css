@@ -65,6 +65,11 @@
   margin: 5px;
 }
 
+.fa-check{
+  font-size: 26px;
+  color: #0d8312;
+}
+
 .formulario .form-group button{
   width: 40%;
   height: 45px;

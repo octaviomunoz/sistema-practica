@@ -15,13 +15,13 @@ public class Evaluacionpractica {
 	private Long id;
 
 
-	private String fecha;    
+	private String fecha;
 
 	@NotNull
 	private String tabla1_pregunata1;
 
 	@NotNull
-	private String tabla1_pregunata2;
+	private String tabla1_pregunata2; 
 /*
 	@NotNull
 	private int tabla1_pregunata3;
