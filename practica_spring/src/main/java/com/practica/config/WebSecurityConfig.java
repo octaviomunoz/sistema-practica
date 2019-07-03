@@ -24,7 +24,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     };
 
     String[] soloAlumnos = new String[]{
-      "/alumno/inscripcion", "/alumno/info"
+      "/alumno/inscripcion", "/alumno/info", "/CrudEvaluacionEmpresa/nuevoEvaEmpresa", "/CrudEvaluacionEmpresa/crear"
+    };
+
+    String[] soloDocentes = new String[]{
+      "/CrudEvaluacionEmpresa/mostrarInfo"
+    };
+
+    String[] soloEmpresas = new String[]{
+
     };
 
     //Para que los recursos no esten restringidos
@@ -41,9 +49,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http
           .authorizeRequests()
 	        //.antMatchers(resources).permitAll()
-          .antMatchers("/").permitAll()
+          .antMatchers("/", "/InscripcionEvaluador/nuevoEvaluador", "/InscripcionEvaluador/crear").permitAll()
           .antMatchers("/alumno/mostrar", "/empresa/**").hasRole("ADMIN")
           .antMatchers(soloAlumnos).hasRole("ALUMNO")
+          .antMatchers(soloDocentes).hasRole("DOCENTE")
+          .antMatchers(soloEmpresas).hasRole("EMPRESA")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

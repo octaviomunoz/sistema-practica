@@ -149,17 +149,8 @@ INSERT INTO practicas(actividades_realizar_practica, fecha_practica, id_alumno, 
 ('crear','2019-08-12',6, 2, 1, 2,'false'),
 ('crear','2019-08-12',7, 3, 2, 2,'false');
 
-INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2) VALUES
-('2019-06-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-01','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-02','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-03','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-04','respuesta1','respuesta2','Malo','Muy bueno','muy malo','bueno'),
-('2019-08-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-06','respuesta1','respuesta2','regular','Muy bueno','muy malo','bueno'),
-('2019-08-07','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-08','respuesta1','respuesta2','regular','bueno','muy malo','bueno'),
-('2019-08-09','respuesta1','respuesta2','regular','Muy bueno','muy malo','bueno');
+INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2, id_practica) VALUES
+('2019-06-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno',2);
 
 INSERT INTO evaluacionempresas(comentario,nota) VALUES
 ('excelente',7),

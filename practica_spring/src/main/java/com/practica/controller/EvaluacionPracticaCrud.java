@@ -31,10 +31,10 @@ public class EvaluacionPracticaCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
 	private EvaluacionPracticaRepo  uc;
-	
+
 	@Autowired
 	private PracticaCrud practicarepo;
-	
+
 	@Autowired
 	private Sistema sistema;
 
@@ -96,7 +96,7 @@ public class EvaluacionPracticaCrud {
 	public String creado(@RequestParam("Evaluacionpracticas") Evaluacionpractica evaluacionpractica) {
 		return "CrudEvaluacionPractica/EvaPracticaCreado";
 	}
-	
+
 	/*
 	 * Para Elimnar!
 	 */
@@ -132,7 +132,7 @@ public class EvaluacionPracticaCrud {
 	public String mostrarInfo(@RequestParam(name="IDpractica", required=true)String id_practica, Model model){
 		Practica practica = practicarepo.getOne(Long.parseLong(id_practica));
 		Alumno alumno = practica.getAlumno();
-		Evaluacionpractica evaPractica = practica.getEvaluacionpractica();
+		Evaluacionpractica evaPractica = practica.getEvaluacionPractica();
 		model.addAttribute("evaPractica", evaPractica);
 		model.addAttribute("alumno", alumno);
 		return "CrudEvaluacionPractica/info";
@@ -140,4 +140,3 @@ public class EvaluacionPracticaCrud {
 
 
 }
-

@@ -86,11 +86,11 @@ public class Practica {
 	public void setEvaluacionEmpresa(Evaluacionempresa evaluacionEmpresa){
 		this.evaluacionEmpresa = evaluacionEmpresa;
 	}
-	public Evaluacionpractica getEvaluacionpractica(){
+	public Evaluacionpractica getEvaluacionPractica(){
 		return evaluacionPractica;
 	}
-	public void setEvaluacionpractica(Evaluacionpractica evaluacionpractica){
-		this.evaluacionPractica = evaluacionpractica;
+	public void setEvaluacionPractica(Evaluacionpractica evaluacionPractica){
+		this.evaluacionPractica = evaluacionPractica;
 	}
 	public Docente getDocente(){
 		return docente;
