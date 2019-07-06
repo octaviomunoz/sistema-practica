@@ -224,12 +224,28 @@ h6 {
   padding-bottom: 100px;
 }
 
+.p-b-45 {
+  padding-bottom: 45px;
+}
+
+.p-b-25 {
+  padding-bottom: 25px;
+}
+
+.p-b-15 {
+  padding-bottom: 45px;
+}
+
 .m-r-45 {
   margin-right: 45px;
 }
 
 .m-t-30 {
   margin-top: 30px;
+}
+
+.m-t-15 {
+  margin-top: 15px;
 }
 
 /* ==========================================================================
@@ -629,6 +645,11 @@ input {
 .card-4 .card-body {
   padding: 57px 65px;
   padding-bottom: 65px;
+}
+
+.card-4 .card-login {
+  padding: 35px 60px;
+  padding-bottom: 15px;
 }
 
 @media (max-width: 767px) {

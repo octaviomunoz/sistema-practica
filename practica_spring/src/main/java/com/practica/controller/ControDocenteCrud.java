@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.practica.repo.DocenteCrud;
 import com.practica.repo.PracticaCrud;
 import com.practica.repo.UserRepo;
-import com.practica.util.Sistema;
+import com.practica.util.*;
 import com.practica.model.Comuna;
 import com.practica.model.Docente;
 import com.practica.model.Evaluacionpractica;
@@ -37,10 +37,10 @@ import com.practica.model.User;
 public class ControDocenteCrud {
 
 	@Autowired	//Es un atributo que se encarga de crea en caso de ser necesario.
-	private DocenteCrud uc;
+	private DocenteCrud docenterepo;
 
 	@Autowired
-	private PracticaCrud pc;
+	private PracticaCrud practicarepo;
 
 	@Autowired
 	private UserRepo userrepo;
@@ -54,13 +54,13 @@ public class ControDocenteCrud {
 	 * findAll() leera todos los registros de la tabla "docentes"
 	 * El resultado se almacena en el ModelMap
 	 * Modelmap es una clase que se utiliza para mandarle los valores a las vistas.
-	 * En este caso se los manda a docentes y esta guarda los datos llamados de uc.finall()
+	 * En este caso se los manda a docentes y esta guarda los datos llamados de docenterepo.finall()
 	 * ListaDocentes es lo que retornara en formato .html
 	 */
 	@RequestMapping(value="/ListaDocente", method = RequestMethod.GET)
 	public String ListaDocentes(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
-		 Page<Docente> docen_page = uc.findAll(pageable);
+		 Page<Docente> docen_page = docenterepo.findAll(pageable);
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 		return "CrudDocente/ListaDocentes";
@@ -69,32 +69,32 @@ public class ControDocenteCrud {
 	@RequestMapping(value="/ListaDocentePractica", method = RequestMethod.GET)
 	public String Listadocepracticas(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
-		 Page<Docente> docen_page = uc.findAll(pageable);
+		 Page<Docente> docen_page = docenterepo.findAll(pageable);
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 	     return "CrudDocente/ListaDocentePracticas";
 	}
-	
+
 	*/
 
 	@RequestMapping(value="/Listapracticadocente", method = RequestMethod.GET)
 	public String Listapracticasdocente(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
 		 User user = userrepo.findByUsername(sistema.RecuperarUsuarioLogeado());
-		 Docente docente = uc.findByUsuario(user);
-		 //Page<Practica> docen_pra = pc.findAll(pageable);
-		 Page<Practica> docen_pra = pc.findByDocente(docente, pageable);
+		 Docente docente = docenterepo.findByUsuario(user);
+		 //Page<Practica> docen_pra = practicarepo.findAll(pageable);
+		 Page<Practica> docen_pra = practicarepo.findByDocente(docente, pageable);
 		 mp.addAttribute("usuario", user);
 		 mp.addAttribute("PagePracticas", docen_pra);
 		 mp.addAttribute("numPaginas", docen_pra.getTotalPages());
 	     return "CrudDocente/ListaPracticasDocentes";
 	}
-	
+
 	/*
 	@RequestMapping(value="/ListaDocenPra", method = RequestMethod.GET)
 	public String ListaDocenPra(@RequestParam(name="page", required=false, defaultValue="1") String page, Model mp) {
 		 Pageable pageable = PageRequest.of(Integer.parseInt(page)-1, 10);
-		 Page<Docente> docen_page = uc.findAll(pageable, ); //Tengo que mostrar en pantalla todas las practicas que tiene en comun la misma id. getpractica()
+		 Page<Docente> docen_page = docenterepo.findAll(pageable, ); //Tengo que mostrar en pantalla todas las practicas que tiene en comun la misma id. getpractica()
 		 mp.addAttribute("PageDocentes", docen_page);
 		 mp.addAttribute("numPaginas", docen_page.getTotalPages());
 
@@ -106,7 +106,7 @@ public class ControDocenteCrud {
 	 * aca el put guarda el valor en la variable y el return recibe esa variable del ModelMap
 	 */
 	@RequestMapping(value="/nuevoDoc", method=RequestMethod.GET)
-	public String nuevo(Docente docente) {
+	public String nuevo(Docente docente, User user) {
 		return "CrudDocente/nuevoDoc";
 	}
 
@@ -115,17 +115,22 @@ public class ControDocenteCrud {
 	 * para eso se usa @valid que comprobara min max de caracteres y todas las restricciones ya existentes
 	 * use bindingresult que es un metodo que si hay errores nos devolvera a la vista
 	 * y si no hay errores guardara los datos en la base de datos
-	 * usando el uc.save
+	 * usando el docenterepo.save
 	 */
 	@RequestMapping(value="/crear", method=RequestMethod.POST)
-	public String crear(@Valid Docente docente, BindingResult bindingResult, ModelMap mp) {
-		if(bindingResult.hasErrors()) {
-			return "CrudDocente/nuevoDoc";
-		}
-		if(permitirGuardaDocente(docente)){
-			uc.save(docente);
-		}
-		return "CrudDocente/DocCreado";
+	public String crear(@Valid Docente docente, User user) {
+		String direccion = "redirect:/";
+    User usuario = sistema.GuardarUsuario(user, Roles.ROLE_DOCENTE);
+    if (usuario != null){
+        docente.setUsuario(usuario);
+        docenterepo.save(docente);
+    }else if(userrepo.existsById(user.getId())){
+          docente.setUsuario(userrepo.getOne(user.getId()));
+          docenterepo.save(docente);
+    }else {
+        direccion = "/CrudDocente/nuevoDoc";
+    }
+    return direccion;
 	}
 
 	/*
@@ -142,7 +147,7 @@ public class ControDocenteCrud {
 	 */
 	@RequestMapping(value="/borrar/{idDoc}", method = RequestMethod.GET)
 	public String borrar(@PathVariable("idDoc") Long idDoc) {
-		uc.deleteById(idDoc);
+		 docenterepo.deleteById(idDoc);
 		return "redirect:/CrudDocente/ListaDocente";
 	}
 
@@ -152,7 +157,7 @@ public class ControDocenteCrud {
 
 	@RequestMapping(value="/editarDoc/{idDoc}", method = RequestMethod.GET)
 	public String editar(@PathVariable("idDoc") Long idDoc, ModelMap mp) {
-		mp.put("docente",uc.findById(idDoc));
+		mp.put("docente", docenterepo.findById(idDoc));
 		return "CrudDocente/editarDoc";
 	}
 
@@ -163,7 +168,7 @@ public class ControDocenteCrud {
 		return "CrudDocente/editarDoc/"+docente.getIdDoc().toString();
 		}
 		if(permitirGuardaDocente(docente)){
-			uc.save(docente);
+			 docenterepo.save(docente);
 		}
 		return "redirect:/CrudDocente/ListaDocente";
 	}
@@ -175,17 +180,10 @@ public class ControDocenteCrud {
     return permitir;
   }
 
-/*
-	//Robado al octavio xd Deberia mostrar todas las practicas que contempla el docente no??!?
-	 //Funcion que es llamada por una funcion ajax para conseguir las Comunas
-	  //que pertenecen a la region que corresponde el id
-	  @RequestMapping(value="/practicas", method = RequestMethod.GET, produces="application/json")
-	  public @ResponseBody List<Practica> listacomunas(@RequestParam(value = "idRegion", required = true) Long id_docente) {
-	    List<Practica> practicas = null;
-	    if (uc.existsById(id_docente)){
-	      practicas = pc.findByDocente(uc.getOne(id_docente));
-	    }
-	    return practicas;
-	  }
-*/
+
+	public String informesRegion(){
+
+		return "alumnosRegion";
+	}
+
 }

@@ -16,17 +16,11 @@ public class Docente {
   @GeneratedValue(strategy = GenerationType.IDENTITY) //Autoincrementable.
   private Long idDoc;
 
-  @NotNull
-  @Size(max = 20)
   private String nombreDoc;
 
-  @NotNull
-  @Email			//Para indicar que el valor es una cadena de email.
   private String emailDoc;
 
-  @NotNull
-  @Size
-  private String director; //Lo ideal es que de un yes or not.
+  private String director = "false"; 
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")

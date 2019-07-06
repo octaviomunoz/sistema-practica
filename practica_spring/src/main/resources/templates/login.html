@@ -19,10 +19,10 @@
   </head>
 
   <body>
-    <div class="page-wrapper p-t-100 p-b-45">
+    <div class="page-wrapper p-t-75 p-b-15">
       <div class="wrapper wrapper--w420">
         <div class="card card-4">
-          <div class="card-body">
+          <div class="card-login">
             <div class="text-center">
               <div th:if="${param.error}" class="alert alert-danger" role="alert">
                     Usuario y Contraseña Incorrecta.
@@ -46,7 +46,7 @@
                 <button class="button btn--radius-2 btn--green" type="submit"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
               </div>
             </form>
-            <a class="button btn--radius-2 btn--blue m-t-30" th:href="@{~/}" role="button" >Volver</a>
+            <a class="btn btn-primary button m-t-15" th:href="@{~/}" role="button" >Volver</a>
 
           </div>
         </div>

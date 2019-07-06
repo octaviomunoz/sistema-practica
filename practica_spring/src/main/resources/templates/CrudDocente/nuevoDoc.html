@@ -1,68 +1,69 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org">
-<head>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Font Awesome -->
+		<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+		<script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Font Awesome -->
-  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
-  <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
 
-  <!-- Bootstrap -->
-  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
-  <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
-  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
-<title>Nuevo Docente</title>
-</head>
-<body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  		<a class="navbar-brand" href="#">Practica</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-  		</button>
- 	</nav>
+		<!-- Bootstrap -->
+		<link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+		<script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+		<script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 
-	<div class="page-header">
-		<div class = col-sm-10>
-			<h2>Ingresar Docente</h2>
+
+		<link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css" media="all"/>
+		<title>Registro Evaluador</title>
+
+	</head>
+	<body>
+		<div th:replace="@{/fragmentos/nav} :: nav" ></div>
+
+		<div class="page-wrapper bg-gra-02 p-t-75 p-b-45">
+			<div class="wrapper wrapper--w680">
+				<div class="card card-4">
+					<div class="card-body">
+						<h2 class="title">Nuevo Docente</h2>
+						<form th:action="@{/CrudDocente/crear}" method="post">
+
+							<!--user-->
+							<div class="row row-space">
+								<input type="hidden" th:value="${user.id}" name="">
+								<div class="columnas-2">
+									<div class="input-group">
+										<label class="label">Run</label>
+										<input class="input--style-4" type="number" th:value="${user.username}" name="username" required="required"/>
+									</div>
+								</div>
+								<div class="columnas-2">
+									<div class="input-group">
+										<label class="label">Contraseña</label>
+										<input class="input--style-4" type="password" th:value="${user.password}" name="password" required="required" >
+									</div>
+								</div>
+							</div>
+
+							<!--docente-->
+							<input type="hidden" th:value="${docente.idDoc}" name="idDoc">
+
+							<div class="input-group">
+								<label class="label">Nombre</label>
+								<input class="input--style-4" type="text" th:value="${docente.nombreDoc}" name="nombreDoc" required="required">
+							</div>
+							<div class="input-group">
+								<label class="label">Email</label>
+								<input class="input--style-4" type="email" th:value="${docente.emailDoc}" name="emailDoc" required="required">
+							</div>
+
+							<div class="p-t-15">
+									<button class="button btn--radius-2 btn--blue" type="submit">Ingresar Docente</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
-    </div>
-    <form action="#" th:action="@{/CrudDocente/crear}" th:object="${docente}" method="post">
-	    <div class="form-group">
-	        <label for="nombreDoc" class="col-sm-2 control-label">Nombre</label>
-	        	<div class = col-sm-10>
-	        		<input type="text" class="form-control"  th:field="*{nombreDoc}" placeholder="Bastian Escalona" required="required"/>
-	        		 <p typeth:if="${#fields.hasErrors('nombreDoc')}" th:errors="*{nombreDoc}" class="alert alert-danger" />
-	        	</div>
-	    </div>
-
-
-
-    <div class="form-group">
-        <label for="emailDoc" class="col-sm-2 control-label">Email</label>
-        <div class ="col-sm-10">
-        	<input type="email" class="form-control"  th:field="*{emailDoc}" placeholder="bastianescalona@hotmail.com" required="required"/>
-        	<p typeth:if="${#fields.hasErrors('emailDoc')}" th:errors="*{emailDoc}" class="alert alert-danger" />
-    	</div>
-    </div>
-
-    <div class="form-group">
-        <label for="state_id" class="col-sm-2 control-label">Director?</label>
-        <div class ="col-sm-10">
-        	<select class="form-control"  th:field="*{director}" required="required">
-           		 <option th:value="Si">Si</option>
-           		 <option th:value="No">No</option>
-        	</select>
-   	 	</div>
-   	</div>
-
-    <div class="form-group">
-    	<div class="col-sm-offset-2 col-sm-10">
-          	<button type="submit" class="btn btn-success">Crear Docente</button>
- 			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
-   		 </div>
-    </div>
-	</form>
-</body>
-
+	</body>
 </html>
