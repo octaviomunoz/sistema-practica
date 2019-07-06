@@ -1,64 +1,79 @@
 <!DOCTYPE html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<!-- Font Awesome -->
-	<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
-	<script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Font Awesome -->
+		<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+		<script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
 
-	<!-- Bootstrap -->
-	<link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
-	<script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
-	<script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 
-	<link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
 
-	<title>Registro Evaluador</title>
-</head>
-<body>
+		<!-- Bootstrap -->
+		<link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+		<script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+		<script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 
-	<div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-	<form action="#" th:action="@{/InscripcionEvaluador/crear}" method="post">
-		<div class="container formulario">
-				<h2>Registro Evaluador</h2>
-				<!--usuario-->
-        <div class="">
+		<link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css" media="all"/>
+		<title>Registro Evaluador</title>
 
-          <input type="hidden" th:value="${user.id}" name="">
-          <div class="form-group">
-            <i class="far fa-user"></i>
-            <input type="number" th:value="${user.username}" name="username" placeholder="RUN" required="required"/>
-          </div>
+	</head>
+	<body>
+		<div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-          <div class="form-group">
-            <i class="fas fa-key"></i>
-            <input type="password" th:value="${user.password}" name="password" placeholder="Cotraseña" required="required" >
-          </div>
-        </div>
+		<div class="page-wrapper bg-gra-02 p-t-75 p-b-45 font-poppins">
+			<div class="wrapper wrapper--w680">
+				<div class="card card-4">
+					<div class="card-body">
+						<h2 class="title">Registro Evaluador</h2>
+						<form th:action="@{/InscripcionEvaluador/crear}" method="post">
 
-				<!--evaluador-->
-				<div class="">
-					<input type="hidden" th:value="${evaluador.id}" name="id">
+							<!--user-->
+							<div class="row row-space">
+								<input type="hidden" th:value="${user.id}" name="">
+								<div class="columnas-2">
+									<div class="input-group">
+										<label class="label">Run</label>
+										<i></i>
+										<input class="input--style-4" type="number" th:value="${user.username}" name="username" required="required"/>
+									</div>
+								</div>
+								<div class="columnas-2">
+									<div class="input-group">
+										<label class="label">Contraseña</label>
+										<input class="input--style-4" type="password" th:value="${user.password}" name="password" required="required" >
+									</div>
+								</div>
+							</div>
 
-          <div class="form-group">
-            <i class="fas fa-user"></i>
-            <input type="text" th:value="${evaluador.nombre}" name="nombre" placeholder="Nombres" required="required">
-          </div>
+							<!--evaluador-->
+							<div class="row row-space">
+								<input type="hidden" th:value="${evaluador.id}" name="id">
 
-          <div class="form-group">
-            <i class="far fa-envelope"></i>
-            <input type="email" th:value="${evaluador.email}" name="email" placeholder="Email" required="required">
-          </div>
+								<div class="columnas-2">
+									<div class="input-group">
+										<label class="label">Nombre</label>
+										<input class="input--style-4" type="text" th:value="${evaluador.nombre}" name="nombre" required="required">
+									</div>
+								</div>
+								<div class="columnas-2">
+									<label class="label">Telefono</label>
+									<input class="input--style-4" type="number" th:value="${evaluador.telefono}" name="telefono" required="required">
+								</div>
+							</div>
 
-          <div class="form-group">
-            <i class="fas fa-phone"></i>
-            <input type="number" th:value="${evaluador.telefono}" name="telefono" placeholder="telefono" required="required">
-          </div>
+							<div class="input-group">
+								<label class="label">Email</label>
+								<input class="input--style-4" type="email" th:value="${evaluador.email}" name="email" required="required">
+							</div>
+
+							<div class="p-t-15">
+									<button class="btn btn--radius-2 btn--blue" type="submit">Registrarse</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="form-group">
-          <td><button type="submit" class="btn btn-success">Crear Alumno</button></td>
-        </div>
+			</div>
 		</div>
-	</form>
-
-</body>
+	</body>
+</html>
