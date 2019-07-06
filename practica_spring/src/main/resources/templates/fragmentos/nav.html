@@ -15,9 +15,6 @@
 </head>
 
 
-<script src="http://localhost:35195/livereload.js" charset="utf-8"></script>
-
-
 <div th:fragment="nav">
   <nav class="navbar navbar-expand-lg navbar-light bg-light  scrolling-navbar fixed-top">
     <div class="container">
@@ -144,9 +141,9 @@
         <ul class="navbar-nav nav-flex-icon">
           <li class="nav-item">
     				<div sec:authorize="isAuthenticated()">
-      				<form th:action="@{/logout}" method="post">
+      				<form id="logout" th:action="@{/logout}" method="post">
 
-                  <a class="nav-link" href="javascript:$('form').submit();">Cerrar Sesion</a>
+                  <a class="nav-link" href="javascript:$('#logout').submit();">Cerrar Sesion</a>
               </form>
     			</div>
           <div sec:authorize="isAnonymous()">
