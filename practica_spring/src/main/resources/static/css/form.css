@@ -228,6 +228,10 @@ h6 {
   margin-right: 45px;
 }
 
+.m-t-30 {
+  margin-top: 30px;
+}
+
 /* ==========================================================================
    #WRAPPER
    ========================================================================== */
@@ -247,10 +251,14 @@ h6 {
   max-width: 680px;
 }
 
+.wrapper--w420 {
+  max-width: 420px;
+}
+
 /* ==========================================================================
    #BUTTON
    ========================================================================== */
-.btn {
+.button {
   display: inline-block;
   line-height: 50px;
   padding: 0 50px;
@@ -262,6 +270,8 @@ h6 {
   font-size: 18px;
   color: #fff;
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+  width: 100%;
+  text-align: center;
 }
 
 .btn--radius {

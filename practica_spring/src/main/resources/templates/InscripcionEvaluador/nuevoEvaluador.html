@@ -21,7 +21,7 @@
 	<body>
 		<div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-		<div class="page-wrapper bg-gra-02 p-t-75 p-b-45 font-poppins">
+		<div class="page-wrapper bg-gra-02 p-t-75 p-b-45">
 			<div class="wrapper wrapper--w680">
 				<div class="card card-4">
 					<div class="card-body">
@@ -34,7 +34,6 @@
 								<div class="columnas-2">
 									<div class="input-group">
 										<label class="label">Run</label>
-										<i></i>
 										<input class="input--style-4" type="number" th:value="${user.username}" name="username" required="required"/>
 									</div>
 								</div>

@@ -1,51 +1,61 @@
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Font Awesome -->
-  <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../static/fontawesome/css/all.css" />
-  <script th:src="@{/fontawesome/js/all.js}" src="../static/fontawesome/js/all.js"></script>
-
-  <!-- Bootstrap -->
-  <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../static/bootstrap/css/bootstrap.css" />
-  <script th:src="@{/bootstrap/js/jquery.js}" src="../static/bootstrap/js/jquery.js"></script>
-  <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../static/bootstrap/js/bootstrap.js"></script>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Font Awesome -->
+    <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../static/fontawesome/css/all.css" />
+    <script th:src="@{/fontawesome/js/all.js}" src="../static/fontawesome/js/all.js"></script>
 
 
-  <!-- CSS -->
-  <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" href="../static/css/login.css">
 
-  <title>Inicio Sesion</title>
-</head>
+    <!-- Bootstrap -->
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../static/bootstrap/css/bootstrap.css" />
+    <script th:src="@{/bootstrap/js/jquery.js}" src="../static/bootstrap/js/jquery.js"></script>
+    <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../static/bootstrap/js/bootstrap.js"></script>
 
-<body>
-  <div class="text-center">
-    <div class="col-sm-8 loginbox">
-      <div th:if="${param.error}" class="alert alert-danger" role="alert">
-            Usuario y Contraseña Incorrecta.
-      </div>
-      <div th:if="${param.logout}" class="alert alert-success" role="alert">
-            Sesion Cerrada Correctamente.
-      </div>
 
-      <h3>Iniciar Sesion</h3>
-      <!--Fomulario de inicio de sesion-->
-      <form action="#" th:action="@{/login}" method="post">
-        <div class="form-group">
-          <i class="fas fa-user"></i>
-          <input type="number" class="numberInput" placeholder="RUN" name="username"/>
+    <link th:href="@{/css/form.css}" rel="stylesheet" href="../static/css/form.css" media="all"/>
+    <title>Inicio Sesion</title>
+
+  </head>
+
+  <body>
+    <div class="page-wrapper p-t-100 p-b-45">
+      <div class="wrapper wrapper--w420">
+        <div class="card card-4">
+          <div class="card-body">
+            <div class="text-center">
+              <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                    Usuario y Contraseña Incorrecta.
+              </div>
+              <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                    Sesion Cerrada Correctamente.
+              </div>
+            </div>
+            <h2 class="title">Iniciar Sesion</h2>
+            <form th:action="@{/login}" method="post">
+              <div class="input-group">
+                <label class="label">Run</label>
+                <input class="input--style-4" type="number" name="username"/>
+
+              </div>
+              <div class="input-group">
+                <label class="label" >Contraseña</label>
+                <input class="input--style-4" type="password"  name="password"/>
+              </div>
+              <div class="p-t-15">
+                <button class="button btn--radius-2 btn--green" type="submit"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+              </div>
+            </form>
+            <a class="button btn--radius-2 btn--blue m-t-30" th:href="@{~/}" role="button" >Volver</a>
+
+          </div>
         </div>
-        <div class="form-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Contraseña" name="password"/>
-        </div>
 
-        <button type="submit" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
-
-      </form>
-
-      <a  class="btn btn-primary button" th:href="@{~/}" role="button" >Volver</a>
-
-
-
+      </div>
     </div>
-  </div>
-</body>
+
+
+
+
+  </body>
+</html>
