@@ -15,44 +15,70 @@
 
 
 </head>
-
+<hr class=my-5>
 <body >
 
 
   <div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-  <div class="container formulario">
-
-    <div class="">
-      <div class="form-group">
-        <label>Run :</label>
-        <label class="" th:text="${user.username}">a</label>
-      </div>
-      <div class="form-group">
-        <label>Nombres :</label>
-        <label th:text="${alumno.nombre}">b</label>
-      </div>
-      <div class="form-group">
-        <label>Apellidos :</label>
-        <label th:text="${alumno.apellido_paterno} + ' ' + ${alumno.apellido_materno}">c</label>
-      </div>
-      <div class="form-group">
-        <label>Domicilio :</label>
-        <label th:text="${alumno.domicilio}">d</label>
-      </div>
-      <div class="form-group">
-        <label>Email :</label>
-        <label th:text="${alumno.email}">e</label>
-      </div>
-      <div class="form-group">
-        <label>Telefono :</label>
-        <label th:text="${alumno.telefono}">e</label>
-      </div>
-
-      <hr/>
-
-
-      <div class="">
+  <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                </thead>
+              <tr>
+                <th style=" width: 200px;">
+                  <div class="form-group">
+                    <label>Run :</label>
+                  </div>
+                </th>
+                <td><label class="" th:text="${user.username}">a</label></td>
+                </tr>
+              <tr>
+                <th>
+                  <div class="form-group">
+                    <label>Nombre :</label>
+                  </div>
+                </th>
+                <td><label class="" th:text="${alumno.nombre}">a</label></td>
+              </tr>
+              <tr>
+                <th>
+                  <div class="form-group">
+                    <label>Apellidos :</label>
+                  </div>
+                </th>
+                <td><label class="" th:text="${alumno.apellido_paterno} + ' ' + ${alumno.apellido_materno}">a</label></td>
+              </tr>
+              <tr>
+                <th>
+                  <div class="form-group">
+                    <label>Domicilio :</label>
+                  </div>
+                </th>
+                <td><label class="" th:text="${alumno.domicilio}">a</label></td>
+              </tr>
+              <tr>
+                <th>
+                  <div class="form-group">
+                    <label>Email :</label>
+                  </div>
+                </th>
+                <td><label class="" th:text="${alumno.email}">a</label></td>
+              </tr>
+              <tr>
+                <th>
+                  <div class="form-group">
+                    <label>Telefono :</label>
+                  </div>
+                </th>
+                <td><label class="" th:text="${alumno.telefono}">a</label></td>
+              </tr>                                  
+              </table>
+            </div>
+            <div class="">
 
         <h2>Practica</h2>
         <!--Existe una practica -->
@@ -82,5 +108,9 @@
 
     </div>
 
-  </div>
+            
+          </div>
+        </div>
+
+      
 </body>
