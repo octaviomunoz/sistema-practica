@@ -149,9 +149,9 @@ INSERT INTO practicas(actividades_realizar_practica, fecha_practica, id_alumno, 
 ('crear','2019-08-12',6, 2, 1, 2,'false'),
 ('crear','2019-08-12',7, 3, 2, 2,'false');
 
-INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2, id_practica) VALUES
+/*INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2, id_practica) VALUES
 ('2019-06-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno',2);
-
+*/
 INSERT INTO evaluacionempresas(comentario,nota) VALUES
 ('excelente',7),
 ('regular',5),
