@@ -1,9 +1,10 @@
-
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Font Awesome -->
   <link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
   <script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+<!-- {{{ cool_tabs_head }}} -->
 
   <!-- Bootstrap -->
   <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
@@ -11,9 +12,10 @@
   <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
 
   <link th:href="@{/css/estilos.css}" rel="stylesheet" href="../../static/css/estilos.css"/>
-<title>Nuevo Evaluacion Practica</title>
+<title>Evaluacion Practica</title>
 </head>
 <body>
+
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   		<a class="navbar-brand" href="#">Practica </a>
@@ -22,87 +24,317 @@
   		</button>
  	</nav>
 
-	<div class="page-header">
-		<div class = col-sm-10>
-			<h2>Ingresar Evaluacion Practica</h2>
-		</div>
+  <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-6 font-weight-bold">Evaluación Practica</h1>
+        <p class="lead">Considere cada uno de los siguientes factores en relación con las tareas asignadas y su desempeño. Indicar con un • en el cuadro correspondiente.</p>
+        <hr class="my-4">
+
+        <div class="card">
+        	<div class="card-body">
+		        <div class="table-responsive">
+		          <table class="table table-bordered">
+		            <thead>
+		              <th >FACTORES</th>
+		              <th >Muy Malo</th>
+		              <th >Malo</th>
+		              <th >Regular</th>
+		              <th >Bueno</th>
+                 	  <th >Muy Bueno </th>
+		            </thead>
+		            <tr>
+		            <td>Facilidad para Adaptarse al nuevo entorno</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta1}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta1}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta1}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta1}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta1}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Puntualidad en el Horario</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta2}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta2}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta2}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta2}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta3}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Grado de cumplimiento de las Funciones Asignadas</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta3}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta3}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta3}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta3}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta3}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Grado de satisfacción por trabajo realizado</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta4}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta4}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta4}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta4}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta4}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Grado de cumplimiento de Plazos Estipulados</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta5}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta5}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta5}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta5}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta5}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Interés por el trabajo</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta6}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta6}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta6}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta6}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta6}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Disposición al trabajo en equipo</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta7}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta7}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta7}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta7}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta7}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Grado de Iniciativa Propia</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta8}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta8}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta8}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta8}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta8}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Capacidad para expresar Ideas Propias</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta9}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta9}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta9}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta9}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta9}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		            <tr>
+		            <td>Conocimientos Técnicos o Profesionales demostrados</td>
+		            <td>
+                 		 <div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta10}" th:value="MuyMalo">
+                  		</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                   			 <input class="form-check-input" type="radio" th:field="*{tabla1_pregunta10}" th:value="Malo">
+                 		 </div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta10}" th:value="Regular">
+                  	</div>
+                	</td>
+		            <td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta10}" th:value="Bueno">
+                  		</div>
+                	</td>   
+                	<td>
+                  		<div class="form-check form-check-inline">
+                    		<input class="form-check-input" type="radio" th:field="*{tabla1_pregunta10}" th:value="MuyBueno">
+                  		</div>
+                	</td> 
+		            </tr>
+		          </table>
+		        </div>
+        	</div>
+        </div>
+
+      </div>
     </div>
-    <form action="#" th:action="@{/CrudEvaluacionPractica/crear(IDpractica=${idPractica})}" th:object="${evaluacionpractica}" method="post">
-		<input type="hidden" id="id" name="id" th:field="*{id}"/>
-
-	    <div class="form-group">
-        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
-        <div class ="col-sm-10">
-        	<select class="form-control"  th:field="*{tabla1_pregunata1}" required="required">
-           		 <option th:value="MuyMalo">Muy Malo</option>
-           		 <option th:value="Malo">Malo</option>
-           		 <option th:value="Regular">Regular</option>
-           		 <option th:value="Bueno">Bueno</option>
-           		 <option th:value="MuyBueno">Muy Bueno</option>
-        	</select>
-   	 	</div>
-   	</div>
-
-	<div class="form-group">
-        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
-        <div class ="col-sm-10">
-        	<select class="form-control"  th:field="*{tabla1_pregunata2}" required="required">
-           		 <option th:value="MuyMalo">Muy Malo</option>
-           		 <option th:value="Malo">Malo</option>
-           		 <option th:value="Regular">Regular</option>
-           		 <option th:value="Bueno">Bueno</option>
-           		 <option th:value="MuyBueno">Muy Bueno</option>
-        	</select>
-   	 	</div>
-   	</div>
-
-   	<div class="form-group">
-        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
-        <div class ="col-sm-10">
-        	<select class="form-control"  th:field="*{tabla2_pregunata1}" required="required">
-           		 <option th:value="MuyMalo">Muy Malo</option>
-           		 <option th:value="Malo">Malo</option>
-           		 <option th:value="Regular">Regular</option>
-           		 <option th:value="Bueno">Bueno</option>
-           		 <option th:value="MuyBueno">Muy Bueno</option>
-        	</select>
-   	 	</div>
-   	</div>
-
-   	<div class="form-group">
-        <label for="state_id" class="col-sm-2 control-label">Respuestas</label>
-        <div class ="col-sm-10">
-        	<select class="form-control"  th:field="*{tabla2_pregunata2}" required="required">
-           		 <option th:value="MuyMalo">Muy Malo</option>
-           		 <option th:value="Malo">Malo</option>
-           		 <option th:value="Regular">Regular</option>
-           		 <option th:value="Bueno">Bueno</option>
-           		 <option th:value="MuyBueno">Muy Bueno</option>
-        	</select>
-   	 	</div>
-   	</div>
-
-   	<div class="form-group">
-	        <label for="pregunta1" class="col-sm-2 control-label">Pregunta1</label>
-	        <div class ="col-sm-10">
-	        	<input type="text" class="form-control"  th:field="*{pregunta1}" required="required"/>
-	         	<p typeth:if="${#fields.hasErrors('pregunta1')}" th:errors="*{pregunta1}" class="alert alert-danger" />
-	    	</div>
-	    </div>
-
-	    <div class="form-group">
-	        <label for="pregunta2" class="col-sm-2 control-label">Pregunta2</label>
-	        <div class ="col-sm-10">
-	        	<input type="text" class="form-control"  th:field="*{pregunta2}" required="required"/>
-	         	<p typeth:if="${#fields.hasErrors('pregunta2')}" th:errors="*{pregunta2}" class="alert alert-danger" />
-	    	</div>
-	    </div>
-
 
     <div class="form-group">
     	<div class="col-sm-offset-2 col-sm-10">
           	<button type="submit" class="btn btn-success">Crear</button>
 		 </div>
     </div>
-	</form>
+
 </body>
+</html>
