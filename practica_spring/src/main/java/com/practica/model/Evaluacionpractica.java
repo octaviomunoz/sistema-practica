@@ -17,59 +17,59 @@ public class Evaluacionpractica {
 
 	private String fecha;
 
-	@NotNull
+
 	private String tabla1_pregunta1;
 
-	@NotNull
+
 	private String tabla1_pregunta2;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta3;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta4;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta5;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta6;
-	
 
 
-	@NotNull
+
+
 	private String tabla1_pregunta7;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta8;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta9;
-	
-	@NotNull
+
+
 	private String tabla1_pregunta10;
-	
-	
-	@NotNull
+
+
+
 	private String tabla2_pregunata1;
 
-	@NotNull
+
 	private String tabla2_pregunata2;
 /*
-	@NotNull
+
 	private int tabla2_pregunata3;
 /*
-	@NotNull
+
 	private int tabla2_pregunata4;
 
-	@NotNull
+
 	private int tabla2_pregunata5;
 */
-	@NotNull
+
 	@Size(min = 1, max = 200)
 	private String pregunta1;
 
-	@NotNull
+
 	@Size(min = 1, max = 200)
 	private String pregunta2;
 
@@ -308,7 +308,7 @@ public class Evaluacionpractica {
 	}
 
 	public Practica getPractica() {
-		return practica;
+		return practica; 
 	}
 
 	/**
