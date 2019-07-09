@@ -73,31 +73,31 @@ INSERT INTO authorities_users (usuario_id, authority_id) VALUES (9,4);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (10,4);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (11,4);
 
-INSERT INTO alumnos(apellido_paterno,apellido_materno,domicilio,nombre,telefono, id_usuario) VALUES
-('escalona','morales','30oriente','bastian','97219277', 2),
-('farfan','retamal','linares','carlos','546565498', 3),
-('vergara','pereira','5norte','carlos','3213223', 4),
-('riffo','araya','linares5sur','tomas','2316545', 5),
-('muñoz','pereira','84norte','matias','21474513', 6),
-('farfan','morales','sur18oriente','bastian','32132561', 7),
-('riffo','retamal','poniente1','carlos','4655632', 8),
-('alambrito','caldito','talca','edificio','64873212', 9),
-('maldito','enojadito','1norte','ditto','123456223', 10),
-('pikachu','ketchup','pueblopaleta','ash','654987321', 11);
+INSERT INTO alumnos(apellido_paterno,apellido_materno,domicilio,nombre,telefono,email, id_usuario) VALUES
+('Escalona','Morales','30Oriente','Bastián','97219277','bastianescalona@hotmail.com', 2),
+('Farfan','Retamal','Linares','Carlos','546565498','carlosfarfan@hotmail.com',3),
+('Vergara','Pereira','5norte','Carlos','3213223', 'carlosvergara@gmail.com',4),
+('Riffo','Araya','linares5sur','Tomas','2316545', 'tomasriffo@gmail.com',5),
+('Muñoz','Pereira','84norte','Matias','21474513', 'matiasmuñoz@gmail.com',6),
+('Farfan','Morales','sur18oriente','Bastian','32132561','bastianfarfan@gmail.es',7),
+('Riffo','Retamal','poniente1','Carlos','4655632','carlosriffo@live.cl' ,8),
+('Muñoz','Acevedo','Maule','Octavio','64873212', 'ostavio09@gmail.com',9),
+('Perez','Perez','1Norte','Santiago','123456223', 'santiagoperez@hotmail.com',10),
+('Perez','Gonzalez','SanJavier','Juan','654987321','juanperez@gmail.com',11);
 
 
 /*Usuarios Dispuestos a los docente Contraseña 1234*/
 INSERT INTO users (enabled,password,username) VALUES
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2201'),  /*12*/
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2202'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2203'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2204'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2205'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2206'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2207'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2208'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','2209'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','3301'); /*21*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000001'),  /*12*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000002'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000003'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000004'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000005'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000006'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000007'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000008'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','15000009'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','14000001'); /*21*/
 
 /*Asignando roles a los docentes*/
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (12,2);
@@ -114,40 +114,40 @@ INSERT INTO authorities_users (usuario_id, authority_id) VALUES (21,3);
 
 
 INSERT INTO docentes(director, email_doc, nombre_doc, id_usuario) VALUES
-('false','nombre1@docente.com', 'nombre1', 12),
-('false','nombre2@docente.com', 'nombre2', 13),
-('false','nombre3@docente.com', 'nombre3', 14),
-('false','nombre4@docente.com', 'nombre4', 15),
-('false','nombre5@docente.com', 'nombre5', 16),
-('false','nombre6@docente.com', 'nombre6', 17),
-('false','nombre7@docente.com', 'nombre7', 18),
-('false','nombre8@docente.com', 'nombre8', 19),
-('false','nombre9@docente.com', 'nombre9', 20),
-('true','nombre10@docente.com', 'nombre10', 21);
+('false','haraya@spock.ucm.cl', 'HugoAraya', 12),
+('false','rbarrientos@ucm.cl', 'RicardoBarrientos', 13),
+('false','mtoranzo@ucm.cl', 'MarcoToranzo', 14),
+('false','rcofre@ucm.cl', 'RodrigoCofré', 15),
+('false','mmora@ucm.cl', 'MarcoMora', 16),
+('false','ftirado@ucm.cl', 'FelipeTirado', 17),
+('false','mjarur@ucm.cl', 'MaryJarur', 18),
+('false','aurrutia@spock.ucm.cl', 'AngélicaUrrutia', 19),
+('false','shernandez@ucm.cl', 'SergioHernández', 20),
+('true','pgonzalez@ucm.cl', 'PauloGonzález', 21);
 
 /*Usuarios Dispuestos a los evaluadores Contraseña 1234*/
 INSERT INTO users (enabled,password,username) VALUES
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','5501'),  /*22*/
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','5502'),
-(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','5503');  /*24*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','12000001'),  /*22*/
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','12000002'),
+(false,'$2a$04$AP8Hvx3DSC3.BKlK6RsF9OJgBP8XGZCfu7O3s3wP947.7slME.0ga','12000003');  /*24*/
 
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (22,5);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (23,5);
 INSERT INTO authorities_users (usuario_id, authority_id) VALUES (24,5);
 
 INSERT INTO evaluadores(nombre, email, telefono, id_usuario) VALUES
-('nombre1', 'nombre1@em.com', '12345', 22),
-('nombre2', 'nombre2@em.com', '12341', 23),
-('nombre3', 'nombre3@em.com', '12343', 24);
+('Bastián', 'bastian@evaluador1.com', '12345', 22),
+('Carlos', 'carlos@evaluador2.com', '12341', 23),
+('Octavio', 'octavio@evaluador3.com', '12343', 24);
 
 INSERT INTO practicas(actividades_realizar_practica, fecha_practica, id_alumno, id_empresa, id_evaluador, id_docente,activo) VALUES
 ('crear','2019-07-22',1, 1, 1, 1,'false'),
-('crear','2019-07-22',2, 2, 1, 1,'true'),
-('crear','2019-07-22',3, 1, 1, 1,'false'),
-('crear','2019-08-12',4, 1, 1, 2,'false'),
+('modificar','2019-07-22',2, 2, 1, 1,'true'),
+('eliminar','2019-07-22',3, 1, 1, 1,'false'),
+('vistas','2019-08-12',4, 1, 1, 2,'false'),
 ('crear','2019-08-12',5, 2, 1, 2,'false'),
-('crear','2019-08-12',6, 2, 1, 2,'false'),
-('crear','2019-08-12',7, 3, 2, 2,'false');
+('modificar','2019-08-12',6, 2, 1, 2,'false'),
+('eliminar','2019-08-12',7, 3, 2, 2,'false');
 
 /*INSERT INTO evaluacionpracticas(fecha,pregunta1,pregunta2,tabla1_pregunata1,tabla1_pregunata2,tabla2_pregunata1,tabla2_pregunata2, id_practica) VALUES
 ('2019-06-05','respuesta1','respuesta2','regular','bueno','muy malo','bueno',2);
