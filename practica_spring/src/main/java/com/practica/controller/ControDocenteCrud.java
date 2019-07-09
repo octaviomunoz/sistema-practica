@@ -186,6 +186,27 @@ public class ControDocenteCrud {
 		return direccion;
 	}
 
+	@RequestMapping(value = "/alumnoComuna", method=RequestMethod.GET)
+	public String alumnoComuna(Model model){
+
+		model.addAttribute("fechas", new Fechas());
+		return "CrudDocente/alumnosComuna";
+	}
+
+	@RequestMapping(value = "/alumnoComunaTable", method=RequestMethod.GET)
+	public String mostraralumnosComuna(Fechas fechas, Model model){
+		String direccion = "CrudDocente/infoAlumnoComuna";
+		LocalDate inicio = sistema.transformarFechas(fechas.getFechaInicio());
+		LocalDate fin = sistema.transformarFechas(fechas.getFechaFin());
+		if(fin.compareTo(inicio) >= 0){
+			List<Pares> cantidadAlumno = sistema.comunasCantidadAlumnos(inicio, fin);
+			model.addAttribute("cantidadAlumno", cantidadAlumno);
+		}else{
+			direccion = "redirect:/CrudDocente/alumnoComuna";
+		}
+		return direccion;
+	}
+
 
 
 }
