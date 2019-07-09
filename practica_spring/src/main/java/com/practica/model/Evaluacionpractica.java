@@ -14,61 +14,41 @@ public class Evaluacionpractica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
 	private String fecha;
-
 
 	private String tabla1_pregunta1;
 
-
 	private String tabla1_pregunta2;
-
 
 	private String tabla1_pregunta3;
 
-
 	private String tabla1_pregunta4;
-
 
 	private String tabla1_pregunta5;
 
-
 	private String tabla1_pregunta6;
-
-
-
 
 	private String tabla1_pregunta7;
 
-
 	private String tabla1_pregunta8;
-
 
 	private String tabla1_pregunta9;
 
-
 	private String tabla1_pregunta10;
 
+	private String tabla2_pregunta1;
+	
+	private String tabla2_pregunta2;
+	
+	private String tabla2_pregunta3;
+	
+	private String tabla2_pregunta4;
+	
+	private String tabla2_pregunta5;
 
-
-	private String tabla2_pregunata1;
-
-
-	private String tabla2_pregunata2;
-/*
-
-	private int tabla2_pregunata3;
-/*
-
-	private int tabla2_pregunata4;
-
-
-	private int tabla2_pregunata5;
-*/
 
 	@Size(min = 1, max = 200)
 	private String pregunta1;
-
 
 	@Size(min = 1, max = 200)
 	private String pregunta2;
@@ -115,86 +95,8 @@ public class Evaluacionpractica {
 	}
 
 
-	public String getTabla2_pregunata1() {
-		return tabla2_pregunata1;
-	}
 
-	/**
-	* Sets new value of tabla2_pregunata1
-	* @param
-	*/
-	public void setTabla2_pregunata1(String tabla2_pregunata1) {
-		this.tabla2_pregunata1 = tabla2_pregunata1;
-	}
 
-	/**
-	* Returns value of tabla2_pregunata2
-	* @return
-	*/
-	public String getTabla2_pregunata2() {
-		return tabla2_pregunata2;
-	}
-
-	/**
-	* Sets new value of tabla2_pregunata2
-	* @param
-	*/
-	public void setTabla2_pregunata2(String tabla2_pregunata2) {
-		this.tabla2_pregunata2 = tabla2_pregunata2;
-	}
-
-	/**
-	* Returns value of tabla2_pregunata3
-	* @return
-	*//*
-	public int getTabla2_pregunata3() {
-		return tabla2_pregunata3;
-	}
-
-	/**
-	* Sets new value of tabla2_pregunata3
-	* @param
-	*//*
-	public void setTabla2_pregunata3(int tabla2_pregunata3) {
-		this.tabla2_pregunata3 = tabla2_pregunata3;
-	}
-
-	/**
-	* Returns value of tabla2_pregunata4
-	* @return
-	*//*
-	public int getTabla2_pregunata4() {
-		return tabla2_pregunata4;
-	}
-
-	/**
-	* Sets new value of tabla2_pregunata4
-	* @param
-	*//*
-	public void setTabla2_pregunata4(int tabla2_pregunata4) {
-		this.tabla2_pregunata4 = tabla2_pregunata4;
-	}
-
-	/**
-	* Returns value of tabla2_pregunata5
-	* @return
-	*//*
-	public int getTabla2_pregunata5() {
-		return tabla2_pregunata5;
-	}
-
-	/**
-	* Sets new value of tabla2_pregunata5
-	* @param
-	*//*
-	public void setTabla2_pregunata5(int tabla2_pregunata5) {
-		this.tabla2_pregunata5 = tabla2_pregunata5;
-	}
-
-	/**
-	* Returns value of pregunta1
-	* @return
-	*/
 	public String getPregunta1() {
 		return pregunta1;
 	}
@@ -306,6 +208,47 @@ public class Evaluacionpractica {
 	public void setTabla1_pregunta10(String tabla1_pregunta10) {
 		this.tabla1_pregunta10 = tabla1_pregunta10;
 	}
+	
+	public String getTabla2_pregunta1() {
+		return tabla2_pregunta1;
+	}
+
+	public void setTabla2_pregunta1(String tabla2_pregunta1) {
+		this.tabla2_pregunta1 = tabla2_pregunta1;
+	}
+
+	public String getTabla2_pregunta2() {
+		return tabla2_pregunta2;
+	}
+
+	public void setTabla2_pregunta2(String tabla2_pregunta2) {
+		this.tabla2_pregunta2 = tabla2_pregunta2;
+	}
+
+	public String getTabla2_pregunta3() {
+		return tabla2_pregunta3;
+	}
+
+	public void setTabla2_pregunta3(String tabla2_pregunta3) {
+		this.tabla2_pregunta3 = tabla2_pregunta3;
+	}
+
+	public String getTabla2_pregunta4() {
+		return tabla2_pregunta4;
+	}
+
+	public void setTabla2_pregunta4(String tabla2_pregunta4) {
+		this.tabla2_pregunta4 = tabla2_pregunta4;
+	}
+
+	public String getTabla2_pregunta5() {
+		return tabla2_pregunta5;
+	}
+
+	public void setTabla2_pregunta5(String tabla2_pregunta5) {
+		this.tabla2_pregunta5 = tabla2_pregunta5;
+	}
+
 
 	public Practica getPractica() {
 		return practica; 
