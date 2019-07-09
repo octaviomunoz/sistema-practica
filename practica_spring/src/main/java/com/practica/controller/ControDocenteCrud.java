@@ -2,7 +2,10 @@ package com.practica.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
+import java.time.LocalDate;
+
 
 import javax.validation.Valid;
 
@@ -14,22 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import com.practica.repo.DocenteCrud;
-import com.practica.repo.PracticaCrud;
-import com.practica.repo.UserRepo;
+import com.practica.repo.*;
 import com.practica.util.*;
-import com.practica.model.Comuna;
-import com.practica.model.Docente;
-import com.practica.model.Evaluacionpractica;
-import com.practica.model.Practica;
-import com.practica.model.User;
+import com.practica.model.*;
 
 
 @Controller		//Indica que es una clase controlador
@@ -167,23 +159,33 @@ public class ControDocenteCrud {
 			mp.put("docente",docente);
 		return "CrudDocente/editarDoc/"+docente.getIdDoc().toString();
 		}
-		if(permitirGuardaDocente(docente)){
-			 docenterepo.save(docente);
-		}
 		return "redirect:/CrudDocente/ListaDocente";
 	}
 
- //Metodo que veifica si se puede guardar o no un docente de manera que el run se unico
-	public boolean permitirGuardaDocente(Docente docente){
-    boolean permitir = false;
-
-    return permitir;
-  }
 
 
-	public String informesRegion(){
 
-		return "alumnosRegion";
+	@RequestMapping(value = "/alumnoRegion", method=RequestMethod.GET)
+	public String alumnoRegion(Model model){
+
+		model.addAttribute("fechas", new Fechas());
+		return "CrudDocente/alumnosRegion";
 	}
+
+	@RequestMapping(value = "/alumnoRegionTable", method=RequestMethod.GET)
+	public String mostraralumnosRegion(Fechas fechas, Model model){
+		String direccion = "CrudDocente/infoAlumnoRegion";
+		LocalDate inicio = sistema.transformarFechas(fechas.getFechaInicio());
+		LocalDate fin = sistema.transformarFechas(fechas.getFechaFin());
+		if(fin.compareTo(inicio) >= 0){
+			List<Pares> cantidadAlumno = sistema.regionesCantidadAlumnos(inicio, fin);
+			model.addAttribute("cantidadAlumno", cantidadAlumno);
+		}else{
+			direccion = "redirect:/CrudDocente/alumnoRegion";
+		}
+		return direccion;
+	}
+
+
 
 }

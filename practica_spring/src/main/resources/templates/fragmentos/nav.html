@@ -56,7 +56,8 @@
       						<a class="dropdown-item" th:href="@{~/CrudDocente/nuevoDoc}">Crear Docente</a>
       				</div>
       				<div sec:authorize="hasRole('ROLE_DOCENTE')">
-      					 <a class="dropdown-item" th:href="@{~/CrudDocente/Listapracticadocente}">Mis alumnos practicantes</a>
+                <a class="dropdown-item" th:href="@{~/CrudDocente/Listapracticadocente}">Mis alumnos practicantes</a>
+      					 <a class="dropdown-item" th:href="@{~/CrudDocente/alumnoRegion}">informes Region</a>
       				</div>
                </div>
             </li>

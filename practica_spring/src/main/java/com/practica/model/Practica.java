@@ -5,8 +5,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import java.time.LocalDate;
 
-// import java.util.Date;
 
 @Entity
 @Table(name = "practicas")
@@ -17,7 +17,7 @@ public class Practica {
 	private Long idPractica;
 
 	@Size
-	private String fechaPractica;
+	private LocalDate fechaPractica;
 
 
 	@Size(max = 150)
@@ -114,11 +114,11 @@ public class Practica {
 		this.idPractica = idPractica;
 	}
 
-	public String getFechaPractica() {
+	public LocalDate getFechaPractica() {
 		return fechaPractica;
 	}
 
-	public void setFechaPractica(String fechaPractica) {
+	public void setFechaPractica(LocalDate fechaPractica) {
 		this.fechaPractica = fechaPractica;
 	}
 
@@ -133,7 +133,7 @@ public class Practica {
 	}
 
 
-	public Practica(Long idPractica, @NotNull String fechaPractica,
+	public Practica(Long idPractica, @NotNull LocalDate fechaPractica,
 			@NotNull @Size(max = 20) String nombre_evaluadorPractica,
 			@NotNull @Size(max = 15) String telefono_evaluadorPractica,
 			@NotNull @Size(max = 150) String actividades_realizarPractica,

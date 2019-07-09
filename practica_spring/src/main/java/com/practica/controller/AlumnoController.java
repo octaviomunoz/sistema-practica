@@ -2,7 +2,7 @@ package com.practica.controller;
 
 
 import java.util.List;
-import java.util.Date;
+import java.time.LocalDate;
 import java.text.SimpleDateFormat;
 
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -115,11 +115,6 @@ public class AlumnoController {
     if(alumnorepo.existsById(id_alumno)){
       Alumno alumno = alumnorepo.getOne(id_alumno);
       User usuario = alumno.getUsuario();
-
-      System.out.println("");
-
-      System.out.println(alumno);
-      System.out.println(usuario);
       alumnorepo.delete(alumno);
       userrepo.delete(usuario);
     }
@@ -170,7 +165,7 @@ public class AlumnoController {
   public String validarPractica(Docente docente, Empresa empresa){
     Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
     Practica practica = new Practica();
-    practica.setFechaPractica(new SimpleDateFormat("dd/MM/YYYY").format(new Date()));
+    practica.setFechaPractica(LocalDate.now());
     practica.setDocente(docenterepo.getOne(docente.getIdDoc()));
     practica.setEmpresa(empresarepo.getOne(empresa.getId()));
     practica.setAlumno(alumno);
@@ -179,7 +174,7 @@ public class AlumnoController {
     return "redirect:/alumno/info";
   }
 
-
+  //Controlador que finaliza la practica
   @RequestMapping(value="/finalizarPractica", method= RequestMethod.GET)
   public String finalizarPractica(){
     Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
@@ -189,6 +184,7 @@ public class AlumnoController {
     return "redirect:/alumno/info";
   }
 
+  //Realiza la evaluacion de empresa
   @RequestMapping(value="/realizarEvaluacionEmpresa", method=RequestMethod.GET)
   public String evaluarEmpresa(){
     String redireccion = "redirect:/alumno/info";
@@ -227,6 +223,8 @@ public class AlumnoController {
     return empresa;
   }
 
+
+  //Consigue al alumno para que se muestre en la vista de buscar alumno del rol del evaluador
   @RequestMapping(value="/conseguirAlumno", method = RequestMethod.GET, produces="application/json")
   public @ResponseBody Alumno conseguirAlumno(@RequestParam(value = "RUN", required = true) String username) {
     Alumno alumno = new Alumno();

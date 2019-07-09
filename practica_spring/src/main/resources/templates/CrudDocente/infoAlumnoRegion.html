@@ -1,0 +1,35 @@
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Font Awesome -->
+		<link th:href="@{/fontawesome/css/all.css}" rel="stylesheet" href="../../static/fontawesome/css/all.css" />
+		<script th:src="@{/fontawesome/js/all.js}" src="../../static/fontawesome/js/all.js"></script>
+
+		<!-- Bootstrap -->
+		<link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
+		<script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
+		<script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
+
+
+		<link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css" media="all"/>
+		<title>Informes Alumnos Por Region</title>
+  </head>
+  <body>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre Region</th>
+          <th>Cantidad Alumno</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="reg : ${cantidadAlumno}">
+          <td th:text="${reg.nombre}"></td>
+          <td th:text="${reg.cantidad}"></td>
+        </tr>
+      </tbody>
+
+    </table>
+  </body>
+</html>
