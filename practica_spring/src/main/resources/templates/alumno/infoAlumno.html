@@ -17,11 +17,11 @@
 </head>
 <hr class=my-5>
 <body >
-
-
-  <div th:replace="@{/fragmentos/nav} :: nav" ></div>
+<div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
   <div class="container">
+  <div class="row">
+    <div class="col-md-6">
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
@@ -39,7 +39,7 @@
               <tr>
                 <th>
                   <div class="form-group">
-                    <label>Nombre :</label>
+                    <label>Apellidos :</label>
                   </div>
                 </th>
                 <td><label class="" th:text="${alumno.nombre}">a</label></td>
@@ -78,38 +78,41 @@
               </tr>                                  
               </table>
             </div>
-            <div class="">
-
-        <h2>Practica</h2>
-        <!--Existe una practica -->
-        <div class="" th:if="${practica}">
-          <div class="form-group">
-            <label th:text="'Fecha Inicio : ' + ${practica.fechaPractica}"></label>
           </div>
-          <div class="form-group">
-            <label th:text="'Docente a cargo : ' + ${docente.nombreDoc}"> </label>
-          </div>
-
-          <div class="form-group" th:unless="${practica.activo}">
-            <a class="btn btn-primary" th:href="@{~/alumno/finalizarPractica}">Finalizar Practica</a>
-          </div>
-          <div class="form-group" th:if="${practica.activo}">
-            <div th:unless="${practica.evaluacionEmpresa}">
-              <a class="btn btn-primary" th:href="@{~/alumno/realizarEvaluacionEmpresa}">Evaluar Empresa</a>
-            </div>
-          </div>
-
-        </div>
-        <!--NO Exite una practica -->
-        <div class="" th:unless="${practica}">
-          <a class="btn btn-primary" th:href="@{~/alumno/inscripcion}"> Inscribir Practica</a>
         </div>
       </div>
+      <div class="col-md-3">
 
+          <h2>Practica</h2>
+          <!--Existe una practica -->
+          <div class="" th:if="${practica}">
+            <div class="form-group">
+              <label th:text="'Fecha Inicio : ' + ${practica.fechaPractica}"></label>
+            </div>
+            <div class="form-group">
+              <label th:text="'Docente a cargo : ' + ${docente.nombreDoc}"> </label>
+            </div>
+
+            <div class="form-group" th:unless="${practica.activo}">
+              <a class="btn btn-primary" th:href="@{~/alumno/finalizarPractica}">Finalizar Practica</a>
+            </div>
+            <div class="form-group" th:if="${practica.activo}">
+              <div th:unless="${practica.evaluacionEmpresa}">
+                <a class="btn btn-primary" th:href="@{~/alumno/realizarEvaluacionEmpresa}">Evaluar Empresa</a>
+              </div>
+            </div>
+
+          </div>
+          <!--NO Exite una practica -->
+          <div class="" th:unless="${practica}">
+            <a class="btn btn-primary" th:href="@{~/alumno/inscripcion}"> Inscribir Practica</a>
+          </div>
+       
+      </div>
+      <hr/>
     </div>
 
-            
-          </div>
-        </div>
-  
+
+
+    </div>
 </body>
