@@ -15,17 +15,18 @@
 <title>Evaluacion Practica</title>
 </head>
 <body>
-
+<form  th:action="@{/CrudEvaluacionPractica/crear(IDpractica=${idPractica})}" th:object="${evaluacionpractica}" method="post">
   <div class="container">
       <div class="jumbotron">
         <h1 class="display-6 font-weight-bold">Evaluación Practica</h1>
         <p class="lead">Considere cada uno de los siguientes factores en relación con las tareas asignadas y su desempeño. Indicar con un • en el cuadro correspondiente.</p>
         <hr class="my-4">
-
+		
+		
         <div class="card">
         	<div class="card-body">
 		        <div class="table-responsive">
-							<form  th:action="@{/CrudEvaluacionPractica/crear(IDpractica=${idPractica})}" th:object="${evaluacionpractica}" method="post">
+					
 
 
 			          <table class="table table-bordered">
@@ -319,21 +320,225 @@
 	                	</td>
 			            </tr>
 			          </table>
-
-								<div class="form-group">
-						    	<div class="col-sm-offset-2 col-sm-10">
-						          	<button type="submit" class="btn btn-success">Crear</button>
-								 </div>
-						    </div>
-							</form>
-		        </div>
+				  </div>
         	</div>
         </div>
+      </div>
+    </div>
+     <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-6 font-weight-bold"></h1>
+        <p class="lead">De acuerdo a lo demostrado por el estudiante, indique el grado de cumplimiento de las competencias del perfil de egreso de la Carrera de Ingeniería Civil Informática en su Práctica Profesional. Indicar con un • en el cuadro correspondiente.</p>
+        <hr class="my-4">
+		
+		
+        <div class="card">
+        	<div class="card-body">
+		        <div class="table-responsive">
+					
 
+
+			          <table class="table table-bordered">
+
+			            <thead>
+			              <th >Competencia</th>
+			              <th >Nunca</th>
+			              <th >Muy Pocas Veces</th>
+			              <th >Algunas Veces</th>
+			              <th >Casi Siempre</th>
+	                 	  <th >Siempre</th>
+	                 	  <th >No Aplica</th>
+			            </thead>
+			            <tr>
+			            <td>Utilizar el conocimiento experimental y aplicado de la matemática, física y estadística en la resolución de problemas ingenieriles.</td>
+			            <td>
+	                 		 <div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta1}" th:value="Nunca">
+	                  		</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta1}" th:value="MuyPocasVeces">
+	                 		 </div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta1}" th:value="AlgunasVeces">
+	                  	</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta1}" th:value="CasiSiempre">
+	                  		</div>
+	                	</td>
+	                	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta1}" th:value="Siempre">
+	                  		</div>
+	                	</td>
+	                 	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta1}" th:value="NoAplica">
+	                  		</div>
+	                	</td>
+			            </tr>
+			           <tr>
+			            <td>Analizar y sintetizar problemas para su resolución algorítmica, fundamentándose en los distintos paradigmas de programación</td>
+			            <td>
+	                 		 <div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta2}" th:value="Nunca">
+	                  		</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta2}" th:value="MuyPocasVeces">
+	                 		 </div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta2}" th:value="AlgunasVeces">
+	                  	</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta2}" th:value="CasiSiempre">
+	                  		</div>
+	                	</td>
+	                	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta2}" th:value="Siempre">
+	                  		</div>
+	                	</td>
+	                 	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta2}" th:value="NoAplica">
+	                  		</div>
+	                	</td>
+			            </tr>
+			           <tr>
+			            <td>Diseñar, implementar y mantener productos de software y sus componentes, siguiendo estándares y criterios definidos en el área de la Ingeniería de Software.</td>
+			            <td>
+	                 		 <div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta3}" th:value="Nunca">
+	                  		</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta3}" th:value="MuyPocasVeces">
+	                 		 </div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta3}" th:value="AlgunasVeces">
+	                  	</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta3}" th:value="CasiSiempre">
+	                  		</div>
+	                	</td>
+	                	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta3}" th:value="Siempre">
+	                  		</div>
+	                	</td>
+	                 	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta3}" th:value="NoAplica">
+	                  		</div>
+	                	</td>
+			            </tr>
+			            <tr>
+			            <td>Diseñar, implementar y mantener redes de computadores siguiendo estándares internacionales.</td>
+			            <td>
+	                 		 <div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta4}" th:value="Nunca">
+	                  		</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta4}" th:value="MuyPocasVeces">
+	                 		 </div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta4}" th:value="AlgunasVeces">
+	                  	</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta4}" th:value="CasiSiempre">
+	                  		</div>
+	                	</td>
+	                	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta4}" th:value="Siempre">
+	                  		</div>
+	                	</td>
+	                 	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta4}" th:value="NoAplica">
+	                  		</div>
+	                	</td>
+			            </tr>
+			            <tr>
+			            <td>Formular y administrar proyectos informáticos de acuerdo a las necesidades de la organización. Además, integra el desarrollo de las capacidades definidas por la Universidad Católica del Maule en el marco de la formación general e incorpora aquellas que aportan  al sello institucional  desde una perspectiva teológica y ética.</td>
+			            <td>
+	                 		 <div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta5}" th:value="Nunca">
+	                  		</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                   			 <input class="form-check-input" type="radio" th:field="*{tabla2_pregunta5}" th:value="MuyPocasVeces">
+	                 		 </div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta5}" th:value="AlgunasVeces">
+	                  	</div>
+	                	</td>
+			            <td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta5}" th:value="CasiSiempre">
+	                  		</div>
+	                	</td>
+	                	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta5}" th:value="Siempre">
+	                  		</div>
+	                	</td>
+	                 	<td>
+	                  		<div class="form-check form-check-inline">
+	                    		<input class="form-check-input" type="radio" th:field="*{tabla2_pregunta5}" th:value="NoAplica">
+	                  		</div>
+	                	</td>
+			            </tr>
+			            
+			          </table>
+						
+						 <div class="form-group">
+   							 <label for="exampleFormControlInput1">1. Detalle de las principales funciones realizadas:</label>
+    							<input type="text" class="form-control" th:field="*{pregunta1}" placeholder="Las funciones realizadas fueron...">
+ 						 </div>
+ 						 
+ 						  <div class="form-group">
+   							 <label for="exampleFormControlInput1">2. Apreciación general del trabajo realizado por el alumno.</label>
+    							<input type="text" class="form-control" th:field="*{pregunta2}" placeholder="El trabajo realizado fue un ...">
+ 						 </div>
+						
+								<div class="form-group">
+						    	<div class="col-sm-offset-2 col-sm-10">
+						          	<button type="submit" class="btn btn-success">Finalizar Evaluacion</button>
+								 </div>
+						    	</div>
+				  </div>
+        	</div>
+        </div>
       </div>
     </div>
 
-
+</form>
 
 </body>
 </html>
