@@ -57,13 +57,13 @@
 					<div th:if="${practica.evaluacionEmpresa}">
 						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionEmpresa/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Empresa</a>
 					</div>
-					<span th:if="!${practica.evaluacionEmpresa}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
+					<span th:if="!${practica.evaluacionEmpresa}" class="fa fa-warning" style="font-size:24px;color:red"> </span>
 				</td>
 				<td>
 					<div th:if="${practica.evaluacionPractica}">
 						<a class="btn btn-primary" th:href="@{~/CrudEvaluacionPractica/mostrarInfo(IDpractica=${practica.idPractica})}">Evaluacion Practica</a>
 					</div>
-					<span th:if="!${practica.evaluacionPractica}" class="fa fa-warning" style="font-size:48px;color:red"> </span>
+					<span th:if="!${practica.evaluacionPractica}" class="fa fa-warning" style="font-size:24px;color:red"> </span>
 				</td>
           </tr>
 

@@ -37,16 +37,16 @@ INSERT INTO comunas (nombre, region_id) VALUES
 
 
 INSERT INTO empresas(convenio, direccion, nombre, id_comuna) VALUES
-('false', 'direccion1', 'nombreE1', 1),
-('false', 'direccion2', 'nombreE2', 2),
-('true', 'direccion3', 'nombreE3', 3),
-('false', 'direccion4', 'nombreE4', 4),
-('false', 'direccion5', 'nombreE5', 5),
-('true', 'direccion6', 'nombreE6', 6),
-('false', 'direccion7', 'nombreE7', 7),
-('false', 'direccion8', 'nombreE8', 7),
-('true', 'direccion9', 'nombreE9', 8),
-('false', 'direccion10', 'nombreE10', 9);
+('false', 'Estado#1547', 'Kevincito', 1),
+('false', 'Argomedo#174', 'Rapido&Furioso', 2),
+('true', 'Bernardo#014', 'Cafeteria', 3),
+('false', 'Montt#213', 'Equifax', 4),
+('false', 'Frei#324', '3it', 5),
+('true', 'direccion6', 'Microsoft', 6),
+('false', 'direccion7', 'Java', 7),
+('false', 'direccion8', 'Apple', 7),
+('true', 'direccion9', 'Garcia', 8),
+('false', 'direccion10', 'Microplay', 9);
 
 /*Usuarios Dispuestos a los alumnos Contraseña 1234*/
 INSERT INTO users (enabled,password,username) VALUES
