@@ -14,22 +14,36 @@
 		<link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css" media="all"/>
 		<title>Informes Alumnos Por Comuna</title>
   </head>
+   <hr class=my-5>
   <body>
+  <div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre Comuna</th>
-          <th>Cantidad Alumno</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="com : ${cantidadAlumno}">
-          <td th:text="${com.nombre}"></td>
-          <td th:text="${com.cantidad}"></td>
-        </tr>
-      </tbody>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+                     <h3 class="display-6 font-weight-bold">Informe Alumnos por Comunas</h3>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+          			<th>Nombre Comuna</th>
+          			<th>Cantidad Alumno</th>
+                </thead>
+                  <tr th:each="com : ${cantidadAlumno}">       
+                <td><label class="" th:text="${com.nombre}"></label></td>    
+                <td><label class="" th:text="${com.cantidad}"></label></td>
+                </tr>
 
-    </table>
+   
+        </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     <hr/>
+      </div>
+      </div>
   </body>
+  
 </html>
