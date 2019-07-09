@@ -20,39 +20,220 @@
 
   <div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-  <div class="container formulario">
-    <h2>Evaluacion Practica</h2>
-    <div class="">
-      <div class="form-group">
-        <label>Alumno :</label>
-        <label th:text="${alumno.nombre} + ' ' + ${alumno.apellido_paterno} + ' ' + ${alumno.apellido_materno}">b</label>
-      </div>
 
-      <div class="form-group">
-        <label>Fecha :</label>
-        <label th:text="${evaPractica.fecha}"></label>
+  
+  <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-6 font-weight-bold">Practica</h1>
+        <p class="lead">Resumen de la Calificacion de la Practica</p>
+        <hr class="my-4">
+        <div class="card">
+        	<div class="card-body">
+		        <div class="table-responsive">
+		        <table class="table table-bordered">
+		        
+		        <tr>
+			     <td>Nombre Alumno</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${alumno.nombre} + ' ' + ${alumno.apellido_paterno} + ' ' + ${alumno.apellido_materno}">b</label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Fecha Practica</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.fecha}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Facilidad para Adaptarse al nuevo entorno</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta1}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Puntualidad en el Horario</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta2}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Grado de cumplimiento de las Funciones Asignadas</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta3}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Grado de satisfacción por trabajo realizado</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta4}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Grado de cumplimiento de Plazos Estipulados</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta5}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Interés por el trabajo</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta6}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			      <tr>
+			     <td>Disposición al trabajo en equipo</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta7}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			      <tr>
+			     <td>Grado de Iniciativa Propia</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta8}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			      <tr>
+			     <td>Capacidad para expresar Ideas Propias</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta9}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			      <tr>
+			     <td>Conocimientos Técnicos o Profesionales demostrados</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta10}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			
+			      <tr>
+			     <td>Utilizar el conocimiento experimental y aplicado de la matemática, física y estadística en la resolución de problemas ingenieriles</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla2_pregunta1}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+		
+			      <tr>
+			     <td>Analizar y sintetizar problemas para su resolución algorítmica, fundamentándose en los distintos paradigmas de programación</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla2_pregunta2}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			  
+			      <tr>
+			     <td>Diseñar, implementar y mantener productos de software y sus componentes, siguiendo estándares y criterios definidos en el área de la Ingeniería de Software</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla2_pregunta3}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			
+			   <tr>
+			     <td>Diseñar, implementar y mantener redes de computadores siguiendo estándares internacionales</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla2_pregunta4}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			   <tr>
+			     <td>Formular y administrar proyectos informáticos de acuerdo a las necesidades de la organización. Además, integra el desarrollo de las capacidades definidas por la Universidad Católica del Maule en el marco de la formación general e incorpora aquellas que aportan  al sello institucional  desde una perspectiva teológica y ética</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.tabla1_pregunta10}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Detalle de las principales funciones realizadas</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.pregunta1}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			    <tr>
+			     <td>Apreciación general del trabajo realizado por el alumno</td>
+			         <td>
+	                 	 <div class="">
+     						 <div class="form-group">
+       							<label th:text="${evaPractica.pregunta2}"></label>
+      							</div>
+      					</div>
+	                </td>
+			   </tr>
+			   
+			  </table>
+			  </div>
+        	</div>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label>Respuesta 1:</label>
-        <label th:text="${evaPractica.tabla1_pregunta1}"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Respuesta 2:</label>
-        <label th:text="${evaPractica.tabla1_pregunta2}"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Respuesta 3:</label>
-        <label th:text="${evaPractica.tabla2_pregunata1}"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Respuesta 4:</label>
-        <label th:text="${evaPractica.tabla2_pregunata2}"></label>
-      </div>
-
-    </div>
   </div>
+
+
+
 </body>
