@@ -16,7 +16,6 @@ public class Practica {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPractica;
 
-	@Size
 	private LocalDate fechaPractica;
 
 

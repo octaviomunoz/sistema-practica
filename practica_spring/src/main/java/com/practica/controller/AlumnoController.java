@@ -3,7 +3,6 @@ package com.practica.controller;
 
 import java.util.List;
 import java.time.LocalDate;
-import java.text.SimpleDateFormat;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -165,6 +164,7 @@ public class AlumnoController {
   public String validarPractica(Docente docente, Empresa empresa){
     Alumno alumno = alumnorepo.findByUsuario(userrepo.findByUsername(sistema.RecuperarUsuarioLogeado()));
     Practica practica = new Practica();
+    System.out.println(LocalDate.now());
     practica.setFechaPractica(LocalDate.now());
     practica.setDocente(docenterepo.getOne(docente.getIdDoc()));
     practica.setEmpresa(empresarepo.getOne(empresa.getId()));
