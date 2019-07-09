@@ -14,6 +14,7 @@ import com.practica.repo.UserRepo;
 import com.practica.repo.AuthorityRepo;
 import com.practica.repo.PracticaCrud;
 import com.practica.repo.RegionRepo;
+import com.practica.repo.ComunaRepo;
 
 import com.practica.model.*;
 
@@ -30,6 +31,8 @@ public class Sistema {
   private PracticaCrud practicarepo;
   @Autowired
   private RegionRepo regionrepo;
+  @Autowired
+  private ComunaRepo comunarepo;
 
   // Metodo que recupera el nombre de usuario que se logeo
   public String RecuperarUsuarioLogeado() {
@@ -113,6 +116,38 @@ public class Sistema {
     }
 
     return numRegiones;
+  }
+
+
+  public List<Pares> comunasCantidadAlumnos(LocalDate inicio, LocalDate fin) {
+    List<Pares> numComunas = new ArrayList<Pares>();
+    int i = 0, j = 0;
+    boolean encontrado = false;
+    List<Comuna> comunas = comunarepo.findAll();
+
+    for (i = 0; i < comunas.size(); i++) {
+      numComunas.add(new Pares(comunas.get(i).getNombre()));
+    }
+    List<Practica> practicas = practicarepo.findAll();
+
+    for (i = 0; i < practicas.size(); i++) {
+      if (inicio.compareTo(practicas.get(i).getFechaPractica()) <= 0
+          && fin.compareTo(practicas.get(i).getFechaPractica()) >= 0) {
+        j = 0;
+        encontrado = false;
+        while (j < comunas.size() && !encontrado) {
+          if (practicas.get(i).getEmpresa().getComuna().getNombre() == numComunas.get(j).getNombre()) {
+
+            numComunas.get(j).setCantidad(numComunas.get(j).getCantidad() + 1);
+            encontrado = true;
+          }
+          j++;
+        }
+
+      }
+    }
+
+    return numComunas;
   }
 
 }
