@@ -14,22 +14,35 @@
 		<link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css" media="all"/>
 		<title>Informes Alumnos Por Region</title>
   </head>
+  <hr class=my-5>
   <body>
+  <div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre Region</th>
-          <th>Cantidad Alumno</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="reg : ${cantidadAlumno}">
-          <td th:text="${reg.nombre}"></td>
-          <td th:text="${reg.cantidad}"></td>
-        </tr>
-      </tbody>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+                     <h3 class="display-6 font-weight-bold">Informe Alumnos por Region</h3>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+          			<th>Nombre Region</th>
+          			<th>Cantidad Alumno</th>
+                </thead>
+                <tr th:each="reg : ${cantidadAlumno}">         
+                <td><label class="" th:text="${reg.nombre}"></label></td>    
+                <td><label class="" th:text="${reg.cantidad}"></label></td>
+                </tr>
 
-    </table>
+   
+        </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     <hr/>
+      </div>
+      </div>
   </body>
 </html>
