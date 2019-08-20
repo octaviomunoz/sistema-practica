@@ -27,6 +27,15 @@ public class Alumno {
 
 	private String domicilio;
 
+	public Alumno(){
+		
+	}
+
+	public Alumno(String nombre, String apellido_paterno, String apellido_materno){
+		this.nombre = nombre;
+		this.apellido_paterno = apellido_paterno;
+		this.apellido_materno = apellido_materno;
+	}
 
 	@NotEmpty(message = "Este Campo no puede estar vacio")
 	@Size(max = 15)
