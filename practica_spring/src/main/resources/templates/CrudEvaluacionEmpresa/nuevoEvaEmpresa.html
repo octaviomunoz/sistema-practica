@@ -11,46 +11,57 @@
   <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css" />
   <script th:src="@{/bootstrap/js/jquery.js}" src="../../static/bootstrap/js/jquery.js"></script>
   <script th:src ="@{/bootstrap/js/bootstrap.js}" src="../../static/bootstrap/js/bootstrap.js"></script>
-<title>Nuevo Evaluacion Empresa</title>
+<title>Evaluacion Empresa</title>
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  		<a class="navbar-brand" href="#">Practica</a>
-  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-  		</button>
- 	</nav>
-
-	<div class="page-header">
-		<div class = col-sm-10>
-			<h2>Ingresar Evaluacion Empresa</h2>
-		</div>
-    </div>
     <form action="#" th:action="@{/CrudEvaluacionEmpresa/crear}" th:object="${evaluacionempresa}" method="post">
-	    <div class="form-group">
-	        <label for="nota" class="col-sm-2 control-label">Nota</label>
-	        	<div class = col-sm-10>
-	        		<input type="number" step="0.1" min="1.0" max="7.0" class="form-control"  th:field="*{nota}" placeholder="1.0 - 7.0" required="required"/>
-	        		 <p typeth:if="${#fields.hasErrors('nota')}" th:errors="*{nota}" class="alert alert-danger" />
-	        	</div>
-	    </div>
+    	<div class="container ">
+      <div class="jumbotron">
+        <h1 class="display-6 font-weight-bold">Evalua a la Empresa</h1>
+        <p class="lead">De acuerdo a lo demostrado por la Empresa, Conteste las siguientes preguntas.</p>
+        <hr class="my-4">
+		
+		
+        <div class="card">
+        	<div class="card-body">
+		        <div class="table-responsive">
+									
+						 <div class="form-group">
+   							 <label for="exampleFormControlInput1">1. ¿Como fue el Ambiente Laboral?</label>
+    							<input type="text" class="form-control" th:field="*{pregunta1}" placeholder="El ambiente fue..." required="required">
+ 						 </div>
+ 						 
+ 						  <div class="form-group">
+   							 <label for="exampleFormControlInput1">2. ¿Crees que la experiencia que obtuviste servirá para desenvolverte mejor como profesional una vez egresado?</label>
+    							<input type="text" class="form-control" th:field="*{pregunta2}" placeholder="Si/No ¿Porqué?..." required="required">
+ 						 </div>
+ 						 <div class="form-group">
+   							 <label for="exampleFormControlInput1">3. ¿Recomendaría la empresa a otro compañero?</label>
+    							<input type="text" class="form-control" th:field="*{pregunta3}" placeholder="Si/No ¿Porqué?..." required="required">
+ 						 </div>
+ 					 		<div class="form-group">
+ 							<label for="exampleFormControlInput1">4. ¿Qué nota le coloca a la Empresa?</label>
+	        					<div class = col-sm-10>
+	        					<input type="number" step="0.1" min="1.0" max="7.0" class="form-control"  th:field="*{nota}" placeholder="1.0 - 7.0" required="required"/>
+	        		 			</div>
+	        			 </div>
+	        			 <div class="form-group">
+						    	<div class="col-sm-offset-2 col-sm-10">
+						          	<button type="submit" class="btn btn-success">Finalizar Evaluacion</button>
+								 </div>
+						   </div>
+ 						 
+						
+		    	</div>
+				  </div>
+        	</div>
+        </div>
+      </div>
+  
 
-	    <div class="form-group">
-	        <label for="comentario" class="col-sm-2 control-label">Comentario</label>
-	        <div class ="col-sm-10">
-	        	<input type="text" class="form-control"  th:field="*{comentario}" placeholder="Agrege algun Comentario" required="required"/>
-	         	<p typeth:if="${#fields.hasErrors('comentario')}" th:errors="*{comentario}" class="alert alert-danger" />
-	    	</div>
-	    </div>
+</form>
 
-    <div class="form-group">
-    	<div class="col-sm-offset-2 col-sm-10">
-          	<button type="submit" class="btn btn-success">Crear Evaluacion Empresa</button>
- 			<a th:href="@{~/}" class="btn btn-secondary">Volver a inicio</a>
-   		 </div>
-    </div>
-	</form>
 </body>
 
 </html>

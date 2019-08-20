@@ -14,21 +14,21 @@
 		<link th:href="@{/css/form.css}" rel="stylesheet" href="../../static/css/form.css" media="all"/>
 		<title>Informes Alumnos Por Comuna</title>
   </head>
-   <hr class=my-5>
+   <hr class=my-5 >
   <body>
   <div th:replace="@{/fragmentos/nav} :: nav" ></div>
 
-  <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-        <div class="card">
+  <div class="container ">
+  <div class="row ">
+    <div class="col-md-9">
+        <div class="card ">
           <div class="card-body">
                      <h3 class="display-6 font-weight-bold">Informe Alumnos por Comunas</h3>
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
-          			<th>Nombre Comuna</th>
-          			<th>Cantidad Alumno</th>
+          			<th class="bg-info text-light">Nombre Comuna</th>
+          			<th class="bg-info text-light">Cantidad Alumno</th>
                 </thead>
                   <tr th:each="com : ${cantidadAlumno}">       
                 <td><label class="" th:text="${com.nombre}"></label></td>    
